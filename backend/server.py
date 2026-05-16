@@ -1,10 +1,5 @@
-"""
-server.py — MedCompanion AI v2
-Graceful fallbacks for all optional services.
-"""
-import os
-import logging
-import uuid
+"""server.py — MedCompanion AI v2"""
+import os, logging, uuid
 from typing import Optional
 from dotenv import load_dotenv
 load_dotenv()
@@ -18,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from langgraph.checkpoint.memory import MemorySaver
+from langgraph.types import Command
 from .graph import build_graph
 
 try:
@@ -97,7 +93,12 @@ async def session_start(req: StartRequest):
         raise HTTPException(400, "Please share what's going on")
     thread_id = str(uuid.uuid4())
     config = {"configurable": {"thread_id": thread_id}}
-    initial_state = {"raw_input": req.raw_input, "image_data": req.image_data, "image_media_type": req.image_media_type or "image/jpeg", "user_id": req.user_id}
+    initial_state = {
+        "raw_input": req.raw_input,
+        "image_data": req.image_data,
+        "image_media_type": req.image_media_type or "image/jpeg",
+        "user_id": req.user_id
+    }
     try:
         result = graph.invoke(initial_state, config, interrupt_before=["confirmation"])
         guardrail = result.get("guardrail_status", "pass")
@@ -105,7 +106,12 @@ async def session_start(req: StartRequest):
             return {"status": guardrail, "guardrail_message": result.get("guardrail_message", "")}
         if result.get("error"):
             return {"status": "error", "error": result["error"]}
-        response = {"status": "awaiting_confirmation", "thread_id": thread_id, "extraction": result.get("extraction", {}), "normalization": result.get("normalization", {})}
+        response = {
+            "status": "awaiting_confirmation",
+            "thread_id": thread_id,
+            "extraction": result.get("extraction", {}),
+            "normalization": result.get("normalization", {})
+        }
         if result.get("image_analysis"):
             response["image_analysis"] = result["image_analysis"]
         return response
@@ -117,21 +123,52 @@ async def session_start(req: StartRequest):
 async def session_confirm(thread_id: str, req: ConfirmRequest):
     config = {"configurable": {"thread_id": thread_id}}
     try:
-        state = graph.get_state(config)
-        if not state:
+        # Get current state to extract the condition
+        state_snapshot = graph.get_state(config)
+        if not state_snapshot:
             raise HTTPException(404, "Session not found")
-        result = graph.invoke({"confirmed": req.confirmed, "override": req.override or ""}, config)
+
+        # Determine final condition from override or normalization
+        override = (req.override or "").strip()
+        if override:
+            final_condition = override
+        else:
+            norm = state_snapshot.values.get("normalization", {})
+            final_condition = norm.get("primary_condition", "") or norm.get("plain_condition_name", "")
+
+        logger.info(f"confirm: final_condition='{final_condition}'")
+
+        # Update state with final_condition BEFORE resuming
+        graph.update_state(config, {"final_condition": final_condition}, as_node="confirmation")
+
+        # Resume with Command
+        result = graph.invoke(
+            Command(resume={"confirmed": req.confirmed, "override": override}),
+            config
+        )
+
         if result.get("error"):
             return {"status": "error", "error": result["error"]}
+
         briefing = result.get("briefing")
-        if req.user_id and briefing and SUPABASE_ENABLED:
-            norm = result.get("normalization", {})
-            await save_session(user_id=req.user_id, raw_input=result.get("raw_input", ""), condition=norm.get("primary_condition", ""), briefing=briefing)
+        if not briefing:
+            logger.error(f"No briefing returned. State: {result.keys()}")
+            return {"status": "error", "error": "Briefing generation failed. Please try again."}
+
+        if req.user_id and SUPABASE_ENABLED:
+            await save_session(
+                user_id=req.user_id,
+                raw_input=state_snapshot.values.get("raw_input", ""),
+                condition=final_condition,
+                briefing=briefing
+            )
+
         return {"status": "complete", "briefing": briefing}
+
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"session_confirm error: {e}")
+        logger.error(f"session_confirm error: {e}", exc_info=True)
         raise HTTPException(500, str(e))
 
 @app.post("/analyze/image")
@@ -140,7 +177,11 @@ async def analyze_image(req: StartRequest):
         raise HTTPException(400, "No image provided")
     try:
         from .nodes.vision_node import vision_node
-        result = vision_node({"raw_input": req.raw_input or "Analyze this image", "image_data": req.image_data, "image_media_type": req.image_media_type or "image/jpeg"})
+        result = vision_node({
+            "raw_input": req.raw_input or "Analyze this image",
+            "image_data": req.image_data,
+            "image_media_type": req.image_media_type or "image/jpeg"
+        })
         return {"status": "complete", "image_analysis": result.get("image_analysis")}
     except Exception as e:
         raise HTTPException(500, str(e))
@@ -166,4 +207,3 @@ async def session_state(thread_id: str):
         return {"status": "ok", "state": state.values if state else {}}
     except Exception as e:
         raise HTTPException(500, str(e))
-

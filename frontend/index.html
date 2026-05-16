@@ -2875,6 +2875,7 @@ async function confirmCondition(useAI) {
     });
     var data = await res.json();
     if (data.status === 'error') throw new Error(data.error);
+    if (!data.briefing) throw new Error('No briefing returned from server. Please try again.');
     renderBriefing(data.briefing);
     var statusEl = document.querySelector('#briefingCard .card-status');
     if (statusEl) statusEl.innerHTML = '<span class="ok"><i class="ti ti-check"></i> All done</span>';
@@ -2889,6 +2890,11 @@ async function confirmCondition(useAI) {
 
 /* ── Briefing render ── */
 function renderBriefing(b) {
+  if (!b) {
+    var bodyEl = document.getElementById('briefingBody');
+    if (bodyEl) bodyEl.innerHTML = '<div class="err-box">The briefing could not load. Please try again.</div>';
+    return;
+  }
   var soc = b.standard_of_care || {};
 
   var txRows = (soc.treatments || []).map(function(t) {
