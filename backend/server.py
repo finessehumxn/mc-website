@@ -120,12 +120,7 @@ async def session_confirm(thread_id: str, req: ConfirmRequest):
         state = graph.get_state(config)
         if not state:
             raise HTTPException(404, "Session not found")
-        updates = {"confirmed": req.confirmed}
-        if req.override:
-            updates["final_condition"] = req.override
-            updates["confirmed"] = True
-        graph.update_state(config, updates, as_node="confirmation")
-        result = graph.invoke(None, config)
+        result = graph.invoke({"confirmed": req.confirmed, "override": req.override or ""}, config)
         if result.get("error"):
             return {"status": "error", "error": result["error"]}
         briefing = result.get("briefing")
@@ -171,3 +166,4 @@ async def session_state(thread_id: str):
         return {"status": "ok", "state": state.values if state else {}}
     except Exception as e:
         raise HTTPException(500, str(e))
+
