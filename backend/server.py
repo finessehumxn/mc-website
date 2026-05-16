@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title="MedCompanion AI", version="2.0.0")
 memory = MemorySaver()
-graph = build_graph(memory)
+graph = build_graph()
 
 frontend_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "frontend")
 app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
