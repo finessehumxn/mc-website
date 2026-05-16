@@ -1552,6 +1552,75 @@ h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--text-dark); line-
   color: #fff;
 }
 
+
+/* ── Chip hide/show ── */
+.chip-hidden { display: none !important; }
+.chip-hidden.show { display: inline-flex !important; }
+.see-more-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.55);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  transition: all .2s;
+}
+.see-more-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+/* ── Celebrity quote carousel ── */
+.celeb-quotes { position: relative; min-height: 120px; }
+.celeb-quote { display: none; }
+.celeb-quote.active { display: block; animation: fadeInQuote .5s ease; }
+@keyframes fadeInQuote { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.celeb-credit { color: var(--sage-light) !important; font-style: normal !important; font-size: 13px; }
+.celeb-credit i { font-size: 12px; vertical-align: -1px; }
+.quote-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 1rem;
+  justify-content: flex-start;
+}
+.qdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  cursor: pointer;
+  transition: all .2s;
+  border: none;
+}
+.qdot.active { background: var(--sage-light); width: 20px; border-radius: 4px; }
+
+/* ── Mobile improvements ── */
+@media(max-width: 600px) {
+  .hero { padding: 1.25rem 1rem 2rem; }
+  .hero-title { font-size: 1.65rem; }
+  .hero-desc { font-size: 14px; }
+  .input-card { border-radius: 14px; }
+  .patient-input { min-height: 80px; font-size: 14px; padding: 12px 14px 8px; }
+  .go-btn { font-size: 13px; padding: 10px 16px; }
+  .nav-links { gap: .5rem; }
+  .nav-pill-btn span, .nav-link-text { display: none; }
+  .nav-pill-btn { padding: 7px 10px; }
+  .banner { padding: 2.5rem 1rem; }
+  .banner-stats { grid-template-columns: 1fr; gap: .75rem; }
+  .bstat-number { font-size: 2rem; }
+  .faq-q { font-size: 14px; padding: .9rem 1rem; }
+  .faq-answer { font-size: 14px; padding: 1rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .card { padding: 1rem 1.1rem; border-radius: 16px; }
+  .main { padding: 1rem .9rem 1.5rem; }
+  .input-extras { padding: 0 10px 8px; }
+  .chips { gap: 5px; }
+  .chip { font-size: 12px; padding: 5px 11px; }
+}
+
 /* ════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════ */
@@ -1569,6 +1638,40 @@ h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--text-dark); line-
 
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
 posthog.init('POSTHOG_API_KEY_REPLACE_ME', {api_host:'https://us.i.posthog.com', person_profiles:'identified_only'});
+
+/* ── Chip toggle ── */
+var chipsExpanded = false;
+function toggleMoreChips() {
+  chipsExpanded = !chipsExpanded;
+  var hidden = document.querySelectorAll('.chip-hidden');
+  var btn = document.getElementById('seeMoreBtn');
+  hidden.forEach(function(c) { c.classList.toggle('show', chipsExpanded); });
+  if (btn) btn.innerHTML = chipsExpanded
+    ? '<i class="ti ti-chevron-up"></i> See fewer'
+    : '<i class="ti ti-chevron-down"></i> See more situations';
+}
+
+/* ── Quote carousel ── */
+var currentQuote = 0;
+var quoteTimer = null;
+function goToQuote(n) {
+  var quotes = document.querySelectorAll('.celeb-quote');
+  var dots = document.querySelectorAll('.qdot');
+  if (!quotes.length) return;
+  quotes[currentQuote].classList.remove('active');
+  dots[currentQuote].classList.remove('active');
+  currentQuote = n % quotes.length;
+  quotes[currentQuote].classList.add('active');
+  dots[currentQuote].classList.add('active');
+}
+function nextQuote() { goToQuote(currentQuote + 1); }
+function startQuoteCarousel() {
+  quoteTimer = setInterval(nextQuote, 5000);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  startQuoteCarousel();
+});
+
 </script>
 
 </head>
@@ -1739,27 +1842,29 @@ posthog.init('POSTHOG_API_KEY_REPLACE_ME', {api_host:'https://us.i.posthog.com',
           <div class="input-foot">
             <span class="input-hint" id="inputHint"><i class="ti ti-lock" aria-hidden="true"></i> Just between us — no judgment, ever</span>
             <button class="go-btn" id="goBtn" aria-label="Get help now">
-              <i class="ti ti-heart-handshake" aria-hidden="true"></i> Get Help Now
+              <i class="ti ti-heart-handshake" aria-hidden="true"></i> Tell Me What's Going On
             </button>
           </div>
         </div>
         <div class="chips-wrap">
           <span class="chips-label">Does any of this sound like you?</span>
-          <div class="chips">
-            <span class="chip" onclick="fill(`My doctor used a word I didn't understand and I'm scared to ask what it means.`)">My doctor confused me</span>
-            <span class="chip" onclick="fill(`I've been putting off going to the doctor because I'm scared of what they might find. But something doesn't feel right.`)">Too scared to go</span>
-            <span class="chip" onclick="fill(`I can't afford a doctor right now but something feels wrong. I just need to understand what might be happening.`)">Can't afford care right now</span>
-            <span class="chip" onclick="fill(`My body is going through changes and I don't know what's normal or what's happening to me. I'm embarrassed to ask anyone.`)">My body is changing</span>
-            <span class="chip" onclick="fill(`I have a question about sex or my sexual health that I'm too embarrassed to ask my doctor or anyone I know.`)">A question I'm embarrassed to ask</span>
-            <span class="chip" onclick="fill(`My heart is racing, I can't catch my breath, my chest feels tight. I don't know if this is a panic attack or something is really wrong with me right now.`)">I think I'm having a panic attack</span>
-            <span class="chip" onclick="fill(`I'm worried about someone I love. They've been acting different, mentioning health issues, and I don't know how to help them or even what questions to ask.`)">Worried about a loved one</span>
-            <span class="chip" onclick="fill(`I've been struggling with my mental health — anxiety, depression, panic, or thoughts I'm scared to say out loud. I don't know what's wrong or where to start. I need help understanding what I'm feeling.`)">Struggling with my mental health</span>
-            <span class="crisis-chip" onclick="openCrisis()" role="button" aria-label="Get immediate support for thoughts of self-harm or suicide"><i class="ti ti-heart-handshake" aria-hidden="true"></i> I'm having thoughts of hurting myself or others</span>
+          <div class="chips" id="chipsContainer">
+            <span class="chip chip-hidden" onclick="fill(`My doctor used a word I didn't understand and I'm scared to ask what it means.`)">My doctor confused me</span>
+            <span class="chip chip-hidden" onclick="fill(`I've been putting off going to the doctor because I'm scared of what they might find. But something doesn't feel right.`)">Too scared to go</span>
+            <span class="chip chip-hidden" onclick="fill(`I can't afford a doctor right now but something feels wrong. I just need to understand what might be happening.`)">Can't afford care right now</span>
+            <span class="chip chip-hidden" onclick="fill(`My body is going through changes and I don't know what's normal or what's happening to me. I'm embarrassed to ask anyone.`)">My body is changing</span>
+            <span class="chip chip-hidden" onclick="fill(`I have a question about sex or my sexual health that I'm too embarrassed to ask my doctor or anyone I know.`)">A question I'm embarrassed to ask</span>
+            <span class="chip chip-hidden" onclick="fill(`My heart is racing, I can't catch my breath, my chest feels tight. I don't know if this is a panic attack or something is really wrong with me right now.`)">I think I'm having a panic attack</span>
+            <span class="chip chip-hidden" onclick="fill(`I'm worried about someone I love. They've been acting different, mentioning health issues, and I don't know how to help them or even what questions to ask.`)">Worried about a loved one</span>
+            <span class="chip chip-hidden" onclick="fill(`I've been struggling with my mental health — anxiety, depression, panic, or thoughts I'm scared to say out loud. I don't know what's wrong or where to start. I need help understanding what I'm feeling.`)">Struggling with my mental health</span>
+            <span class="crisis-chip chip-always" onclick="openCrisis()" role="button" aria-label="Get immediate support for thoughts of self-harm or suicide"><i class="ti ti-heart-handshake" aria-hidden="true"></i> I'm having thoughts of hurting myself or others</span>
             <span class="chip" onclick="fill(`I just lost someone I love and I'm trying to understand what they had, whether it could be genetic, and whether I or my family could be at risk. I'm grieving and scared at the same time.`)">I just lost someone I love</span>
             <span class="chip" onclick="fill(`Someone I love is dying and I don't know what to expect. I want to understand their condition, whether it runs in the family, and what I can do to support them and protect myself and my family.`)">My loved one is dying</span>
             <span class="chip" onclick="fill(`I'm young and I've been told my illness might not get better or that I may have a serious condition. I'm scared and I need someone to help me understand what this means for my life and my future.`)">I'm young and scared about my diagnosis</span>
             <span class="chip" onclick="fill(`I found out my parent or sibling has a serious health condition and I'm terrified I could have it too. I need to understand what it means, whether it's genetic, and what I should do next.`)">Could I have what my family member has?</span>
           </div>
+        </div>
+          <button class="see-more-btn" id="seeMoreBtn" onclick="toggleMoreChips()"><i class="ti ti-chevron-down"></i> See more situations</button>
         </div>
         <div class="lang-tag">
           <i class="ti ti-globe" aria-hidden="true"></i>
@@ -1775,14 +1880,68 @@ posthog.init('POSTHOG_API_KEY_REPLACE_ME', {api_host:'https://us.i.posthog.com',
 </header>
 
 
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main" role="main" id="main-content">
+  <div id="resultsArea"></div>
+  <div id="progress" style="display:none" class="progress" aria-label="Progress tracker">
+    <div class="pt-step"><div class="pt-c" id="pc0"><i class="ti ti-shield-check" aria-hidden="true"></i></div><div class="pt-t" id="pt0">Checking</div></div>
+    <div class="pt-line" id="pl0"></div>
+    <div class="pt-step"><div class="pt-c" id="pc1"><i class="ti ti-ear" aria-hidden="true"></i></div><div class="pt-t" id="pt1">Listening</div></div>
+    <div class="pt-line" id="pl1"></div>
+    <div class="pt-step"><div class="pt-c" id="pc2"><i class="ti ti-arrows-exchange" aria-hidden="true"></i></div><div class="pt-t" id="pt2">Understanding</div></div>
+    <div class="pt-line" id="pl2"></div>
+    <div class="pt-step"><div class="pt-c" id="pc3"><i class="ti ti-book-2" aria-hidden="true"></i></div><div class="pt-t" id="pt3">Looking it up</div></div>
+  </div>
+
+  <div id="emptyState" class="empty" style="display:none">
+    <div class="empty-icon"><i class="ti ti-hand-love" aria-hidden="true"></i></div>
+    <h2 class="empty-title">Hey. You're not alone in this. 💚</h2>
+    <p class="empty-sub">It can feel scary, confusing, and sometimes just too expensive to figure out alone. A lot of people feel exactly the same way.</p>
+    <div class="companion-note" role="note">
+      <div class="cn-row"><i class="ti ti-heart-handshake" aria-hidden="true"></i> I'm not a doctor — and I am not here to pretend to be one.</div>
+      <div class="cn-row"><i class="ti ti-message-heart" aria-hidden="true"></i> Think of me like that close friend or family member you call to help you sort through it all — so you don't feel all over the place when you finally talk to a professional.</div>
+      <div class="cn-row"><i class="ti ti-lock" aria-hidden="true"></i> Nothing you type here is too embarrassing, too sensitive, or too personal. Sexual health, puberty, mental health, reproductive choices, addiction — every question a human being can have is a valid question here.</div>
+      <div class="cn-row"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Please do not use this to diagnose yourself. Use it to understand, to prepare, and to feel less alone.</div>
+      <div class="cn-row"><i class="ti ti-accessible" aria-hidden="true"></i> Built for every body — including people with disabilities, chronic conditions, rare diseases, and every form of human experience.</div>
+      <div class="cn-row"><i class="ti ti-globe" aria-hidden="true"></i> Type in any language. Every background, every belief, every person — no exceptions, no judgment, ever.</div>
+    </div>
+  </div>
+
+  <div id="output" role="region" aria-live="polite" aria-label="Health information results"></div>
+</main>
 <!-- ═══ IMPACT BANNER ═══ -->
 <section class="banner" aria-label="Why this exists">
   <div class="banner-inner">
     <div class="banner-quote">
-      <p class="banner-quote-text">
-        "I had a question I was too embarrassed to ask anyone. I Googled it and got more scared. I asked ChatGPT and got a wall of text. I needed someone to just talk to me like I was a real person — without making me feel stupid or ashamed for not knowing."
-      </p>
-      <div class="banner-quote-credit">Sound familiar? You are exactly who this was built for.</div>
+      <div class="celeb-quotes" id="celebQuotes">
+        <div class="celeb-quote active">
+          <p class="banner-quote-text">"I had a question I was too embarrassed to ask anyone. I Googled it and got more scared. I just needed someone to explain it to me like I was a real person."</p>
+          <div class="banner-quote-credit">Sound familiar? You are exactly who this was built for.</div>
+        </div>
+        <div class="celeb-quote">
+          <p class="banner-quote-text">"Selena Gomez went public about her lupus diagnosis after years of confusing symptoms she couldn't explain. Millions of people didn't know what lupus was until she said it out loud."</p>
+          <div class="banner-quote-credit celeb-credit"><i class="ti ti-sparkles"></i> You deserve to understand your diagnosis too — not just celebrities who can afford a team of doctors.</div>
+        </div>
+        <div class="celeb-quote">
+          <p class="banner-quote-text">"Michael B. Jordan has spoken openly about therapy and mental health — saying he didn't know what he was feeling or how to describe it to anyone. That's not weakness. That's being human."</p>
+          <div class="banner-quote-credit celeb-credit"><i class="ti ti-sparkles"></i> MedCompanion AI helps you find the words — for mental health, physical health, all of it.</div>
+        </div>
+        <div class="celeb-quote">
+          <p class="banner-quote-text">"Chadwick Boseman fought colon cancer for 4 years without telling the world. 4 years of private fear, private pain, private questions. Nobody should have to carry that alone."</p>
+          <div class="banner-quote-credit celeb-credit"><i class="ti ti-sparkles"></i> Whatever you are carrying right now — you don't have to carry it alone anymore.</div>
+        </div>
+        <div class="celeb-quote">
+          <p class="banner-quote-text">"Simone Biles stepped back from competition citing her mental health. She didn't have a diagnosis to explain — just a feeling that something wasn't right. That's enough."</p>
+          <div class="banner-quote-credit celeb-credit"><i class="ti ti-sparkles"></i> You don't need a medical degree to know something is wrong. Just tell us what you feel.</div>
+        </div>
+      </div>
+      <div class="quote-dots" id="quoteDots">
+        <span class="qdot active" onclick="goToQuote(0)"></span>
+        <span class="qdot" onclick="goToQuote(1)"></span>
+        <span class="qdot" onclick="goToQuote(2)"></span>
+        <span class="qdot" onclick="goToQuote(3)"></span>
+        <span class="qdot" onclick="goToQuote(4)"></span>
+      </div>
     </div>
     <div class="banner-stats">
       <div class="bstat">
@@ -1851,34 +2010,6 @@ posthog.init('POSTHOG_API_KEY_REPLACE_ME', {api_host:'https://us.i.posthog.com',
   </div>
 </section>
 
-<!-- ═══ MAIN CONTENT ═══ -->
-<main class="main" role="main" id="main-content">
-  <div id="progress" style="display:none" class="progress" aria-label="Progress tracker">
-    <div class="pt-step"><div class="pt-c" id="pc0"><i class="ti ti-shield-check" aria-hidden="true"></i></div><div class="pt-t" id="pt0">Checking</div></div>
-    <div class="pt-line" id="pl0"></div>
-    <div class="pt-step"><div class="pt-c" id="pc1"><i class="ti ti-ear" aria-hidden="true"></i></div><div class="pt-t" id="pt1">Listening</div></div>
-    <div class="pt-line" id="pl1"></div>
-    <div class="pt-step"><div class="pt-c" id="pc2"><i class="ti ti-arrows-exchange" aria-hidden="true"></i></div><div class="pt-t" id="pt2">Understanding</div></div>
-    <div class="pt-line" id="pl2"></div>
-    <div class="pt-step"><div class="pt-c" id="pc3"><i class="ti ti-book-2" aria-hidden="true"></i></div><div class="pt-t" id="pt3">Looking it up</div></div>
-  </div>
-
-  <div id="emptyState" class="empty">
-    <div class="empty-icon"><i class="ti ti-hand-love" aria-hidden="true"></i></div>
-    <h2 class="empty-title">Hey. You're not alone in this. 💚</h2>
-    <p class="empty-sub">It can feel scary, confusing, and sometimes just too expensive to figure out alone. A lot of people feel exactly the same way.</p>
-    <div class="companion-note" role="note">
-      <div class="cn-row"><i class="ti ti-heart-handshake" aria-hidden="true"></i> I'm not a doctor — and I am not here to pretend to be one.</div>
-      <div class="cn-row"><i class="ti ti-message-heart" aria-hidden="true"></i> Think of me like that close friend or family member you call to help you sort through it all — so you don't feel all over the place when you finally talk to a professional.</div>
-      <div class="cn-row"><i class="ti ti-lock" aria-hidden="true"></i> Nothing you type here is too embarrassing, too sensitive, or too personal. Sexual health, puberty, mental health, reproductive choices, addiction — every question a human being can have is a valid question here.</div>
-      <div class="cn-row"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Please do not use this to diagnose yourself. Use it to understand, to prepare, and to feel less alone.</div>
-      <div class="cn-row"><i class="ti ti-accessible" aria-hidden="true"></i> Built for every body — including people with disabilities, chronic conditions, rare diseases, and every form of human experience.</div>
-      <div class="cn-row"><i class="ti ti-globe" aria-hidden="true"></i> Type in any language. Every background, every belief, every person — no exceptions, no judgment, ever.</div>
-    </div>
-  </div>
-
-  <div id="output" role="region" aria-live="polite" aria-label="Health information results"></div>
-</main>
 
 <!-- ═══ FAQ ═══ -->
 
@@ -2469,6 +2600,8 @@ async function startPipeline() {
   document.getElementById('goBtn').disabled = true;
   document.getElementById('emptyState').style.display = 'none';
   document.getElementById('progress').style.display = 'flex';
+  // Scroll to results immediately
+  setTimeout(function() { document.getElementById('resultsArea').scrollIntoView({behavior:'smooth', block:'start'}); }, 100);
   document.getElementById('output').innerHTML = '';
   threadId = null;
   step(0,'run'); step(1,''); step(2,''); step(3,'');
@@ -2744,42 +2877,69 @@ function renderBriefing(b) {
     '</div>';
 }
 
-/* ── Stat Counter — runs 1s after page load ── */
-setTimeout(function() {
-  var els = document.querySelectorAll('.count-num');
-  if (!els.length) return;
-  els.forEach(function(el) {
-    var target = parseInt(el.getAttribute('data-target'), 10);
-    if (isNaN(target)) return;
-    var duration = 2000;
-    var startTime = null;
-    function tick(now) {
-      if (!startTime) startTime = now;
-      var elapsed = now - startTime;
-      var progress = Math.min(elapsed / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(tick);
-  });
-}, 1000);
-
-
 /* ── Stat Counter ── */
+(function() {
+  var animated = false;
+  function runCounters() {
+    if (animated) return;
+    animated = true;
+    var els = document.querySelectorAll('.count-num');
+    els.forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      if (isNaN(target)) return;
+      var current = 0;
+      el.textContent = 0;
+      var timer = setInterval(function() {
+        current = Math.min(current + Math.ceil(target / 50), target);
+        el.textContent = current;
+        if (current >= target) clearInterval(timer);
+      }, 30);
+    });
+  }
+  // IntersectionObserver — fires when banner enters viewport
+  var banner = document.querySelector('.banner-stats');
+  if (banner && window.IntersectionObserver) {
+    var obs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) { runCounters(); obs.disconnect(); }
+    }, { threshold: 0.1 });
+    obs.observe(banner);
+  } else {
+    // fallback: run after 2s
+    setTimeout(runCounters, 2000);
+  }
+})();
+
+/* ── Chip toggle ── */
+var chipsExpanded = false;
+function toggleMoreChips() {
+  chipsExpanded = !chipsExpanded;
+  var hidden = document.querySelectorAll('.chip-hidden');
+  var btn = document.getElementById('seeMoreBtn');
+  hidden.forEach(function(c) { c.classList.toggle('show', chipsExpanded); });
+  if (btn) btn.innerHTML = chipsExpanded
+    ? '<i class="ti ti-chevron-up"></i> See fewer'
+    : '<i class="ti ti-chevron-down"></i> See more situations';
+}
+
+/* ── Quote carousel ── */
+var currentQuote = 0;
+var quoteTimer = null;
+function goToQuote(n) {
+  var quotes = document.querySelectorAll('.celeb-quote');
+  var dots = document.querySelectorAll('.qdot');
+  if (!quotes.length) return;
+  quotes[currentQuote].classList.remove('active');
+  dots[currentQuote].classList.remove('active');
+  currentQuote = n % quotes.length;
+  quotes[currentQuote].classList.add('active');
+  dots[currentQuote].classList.add('active');
+}
+function nextQuote() { goToQuote(currentQuote + 1); }
+function startQuoteCarousel() {
+  quoteTimer = setInterval(nextQuote, 5000);
+}
 document.addEventListener('DOMContentLoaded', function() {
-  var els = document.querySelectorAll('.count-num');
-  els.forEach(function(el) {
-    var target = parseInt(el.getAttribute('data-target'), 10);
-    if (isNaN(target)) return;
-    var current = 0;
-    el.textContent = 0;
-    var timer = setInterval(function() {
-      current = Math.min(current + Math.ceil(target / 50), target);
-      el.textContent = current;
-      if (current >= target) clearInterval(timer);
-    }, 30);
-  });
+  startQuoteCarousel();
 });
+
 </script>
