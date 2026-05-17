@@ -1671,11 +1671,12 @@ h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--text-dark); line-
 .user-type-bar {
   background: var(--white);
   border-bottom: 2px solid var(--border);
-  padding: .6rem 1.5rem;
+  padding: .5rem 1.5rem;
   display: flex;
   align-items: center;
-  gap: .75rem;
-  flex-wrap: wrap;
+  gap: .6rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 .user-type-label {
   font-size: 12.5px;
@@ -2857,24 +2858,34 @@ function toggleVoice() {
 
   recognition.onstart = function() {
     isRecording = true;
+    finalTranscript = ''; // always start fresh - never carry over old text
     if (btn) { btn.classList.add('recording'); btn.innerHTML = '<i class="ti ti-microphone-off"></i>'; }
     if (label) label.textContent = '🔴 Listening... tap the mic again to stop';
+    if (input) input.value = '';
+    if (input) input.placeholder = 'Listening...';
   };
 
   recognition.onresult = function(e) {
     var interim = '';
+    // Only process new results from resultIndex onwards
     for (var i = e.resultIndex; i < e.results.length; i++) {
-      if (e.results[i].isFinal) finalTranscript += e.results[i][0].transcript + ' ';
-      else interim += e.results[i][0].transcript;
+      if (e.results[i].isFinal) {
+        finalTranscript += e.results[i][0].transcript;
+      } else {
+        interim = e.results[i][0].transcript;
+      }
     }
-    if (input) input.value = finalTranscript + interim;
+    if (input) input.value = finalTranscript + (interim ? ' ' + interim : '');
   };
 
   recognition.onend = function() {
     isRecording = false;
     if (btn) { btn.classList.remove('recording'); btn.innerHTML = '<i class="ti ti-microphone"></i>'; }
     if (label) label.textContent = '🎤 Speak your symptoms | 📷 Upload a lab result or photo';
-    if (input) input.value = finalTranscript.trim();
+    if (input) {
+      input.value = finalTranscript.trim();
+      input.placeholder = 'Describe what you are feeling...';
+    }
   };
 
   recognition.onerror = function(e) {
