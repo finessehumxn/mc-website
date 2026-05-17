@@ -1665,6 +1665,41 @@ h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--text-dark); line-
 .approach-opt-desc { font-size: 11px; color: var(--text-soft); margin-top: 2px; line-height: 1.3; }
 
 
+
+/* ── Survey Banner ── */
+.survey-bar {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--slate) 100%);
+  padding: .85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.survey-bar-text {
+  flex: 1;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.5;
+  min-width: 200px;
+}
+.survey-bar-text strong { font-weight: 700; }
+.survey-btn {
+  background: #fff;
+  color: var(--teal);
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.survey-btn:hover { background: rgba(255,255,255,.9); }
+
 /* ── Snake Game ── */
 .snake-wrap { padding: 1rem 1.25rem 1.25rem; }
 .snake-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:.6rem; }
@@ -2020,7 +2055,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rows="4"
             aria-label="Describe what's going on with your health"
             aria-describedby="inputHint"
-            placeholder="Talk to me. Anything goes — symptoms, questions too embarrassing to say out loud, something your body is doing that confuses you, something your doctor said, something you're scared of. Type in any language. No judgment here, ever."
+            placeholder="Describe what you're feeling — in your own words, any language. I'll help you understand it so you can have a better conversation with your doctor."
           ></textarea>
           <div class="image-preview" id="imagePreview">
             <img id="imagePreviewImg" src="" alt="Uploaded image preview" />
@@ -2039,12 +2074,12 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="input-foot">
             <span class="input-hint" id="inputHint"><i class="ti ti-lock" aria-hidden="true"></i> Just between us — no judgment, ever</span>
             <button class="go-btn" id="goBtn" aria-label="Get help now">
-              <i class="ti ti-heart-handshake" aria-hidden="true"></i> Tell Me What's Going On
+              <i class="ti ti-heart-handshake" aria-hidden="true"></i> Help Me Understand This
             </button>
           </div>
         </div>
         <div class="chips-wrap">
-          <span class="chips-label">Does any of this sound like you?</span>
+          <span class="chips-label">Does any of this sound like you? <span style="font-weight:400;color:rgba(255,255,255,.5);font-size:11px">(optional)</span></span>
           <div class="chips" id="chipsContainer">
             <span class="chip chip-hidden" onclick="fill(`My doctor used a word I didn't understand and I'm scared to ask what it means.`)">My doctor confused me</span>
             <span class="chip chip-hidden" onclick="fill(`I've been putting off going to the doctor because I'm scared of what they might find. But something doesn't feel right.`)">Too scared to go</span>
@@ -2450,6 +2485,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- ═══ FOOTER ═══ -->
+
+<!-- ═══ SURVEY BAR ═══ -->
+<div class="survey-bar" role="complementary" aria-label="User feedback survey">
+  <div class="survey-bar-text">
+    <strong>Help us build this for you.</strong> We are 2 minutes away from your honest feedback shaping what this becomes.
+  </div>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdDaTyD5q2OnlDxIiPzAtgU_jFvm8mbsCPtr6MwLh-0B3_FjQ/viewform?usp=header" target="_blank" rel="noopener" class="survey-btn" aria-label="Take the feedback survey">
+    <i class="ti ti-message-circle"></i> Share Feedback
+  </a>
+</div>
+
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div>
@@ -3137,6 +3183,10 @@ function renderBriefing(b) {
     '<div class="reset-row">' +
       '<span class="reset-hint">Want to look up something else?</span>' +
       '<button class="reset-btn" onclick="reset()"><i class="ti ti-refresh"></i> Search something different</button>' +
+    '</div>' +
+    '<div style="margin-top:1rem;padding:1rem 1.25rem;background:var(--lteal);border-radius:14px;border:1.5px solid var(--border);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">' +
+      '<div style="flex:1;font-size:14px;color:var(--text-body);line-height:1.5;min-width:180px"><strong style="color:var(--text-dark)">Was this helpful?</strong> Your 2-minute feedback shapes what MedCompanion AI becomes next.</div>' +
+      '<a href="https://docs.google.com/forms/d/e/1FAIpQLSdDaTyD5q2OnlDxIiPzAtgU_jFvm8mbsCPtr6MwLh-0B3_FjQ/viewform?usp=header" target="_blank" rel="noopener" style="background:var(--teal);color:#fff;text-decoration:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;flex-shrink:0"><i class="ti ti-message-circle"></i> Give Feedback</a>' +
     '</div>';
 }
 
