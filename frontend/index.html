@@ -1666,6 +1666,41 @@ h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--text-dark); line-
 
 
 
+
+/* ── User Type Selector ── */
+.user-type-bar {
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  padding: .6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.user-type-label {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.user-type-btn {
+  background: var(--soft);
+  border: 2px solid var(--border);
+  color: var(--text-dark);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.user-type-btn:hover { border-color: var(--teal); }
+.user-type-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+
 /* ── Survey Banner ── */
 .survey-bar {
   background: linear-gradient(135deg, var(--teal) 0%, var(--slate) 100%);
@@ -1870,6 +1905,45 @@ document.addEventListener('keydown', function(e) {
   if (e.key==='ArrowRight') {e.preventDefault();snakeDir(1,0);}
 });
 
+
+
+/* ── User Type ── */
+var userType = 'everyday';
+function setUserType(type) {
+  userType = type;
+  var btnE = document.getElementById('btnEveryday');
+  var btnP = document.getElementById('btnPro');
+  if (btnE) btnE.classList.toggle('active', type === 'everyday');
+  if (btnP) btnP.classList.toggle('active', type === 'professional');
+
+  // Update hero subtitle
+  var desc = document.querySelector('.hero-desc');
+  if (desc) {
+    if (type === 'professional') {
+      desc.textContent = 'AI-assisted patient education tool. Help your patients understand their diagnosis, treatment options, and next steps in plain language — so they walk in informed and you spend less time re-explaining basics.';
+    } else {
+      desc.textContent = 'Think of me as the friend who helps you prepare for your doctor — not replace them. I listen to what you are experiencing, help you make sense of it in plain language, and make sure you walk into your next appointment feeling informed, not lost.';
+    }
+  }
+
+  // Update input hint
+  var hint = document.querySelector('.patient-input');
+  if (hint) {
+    if (type === 'professional') {
+      hint.placeholder = 'Enter a diagnosis, condition, or clinical question to generate a patient-friendly briefing...';
+    } else {
+      hint.placeholder = 'Describe what you are feeling — in your own words, any language. I will help you understand it...';
+    }
+  }
+
+  // Update button
+  var btn = document.getElementById('goBtn');
+  if (btn) {
+    btn.innerHTML = type === 'professional'
+      ? '<i class="ti ti-file-medical"></i> Generate Patient Briefing'
+      : '<i class="ti ti-heart-handshake"></i> Help Me Understand This';
+  }
+}
 
 /* ── Chip toggle ── */
 var chipsExpanded = false;
@@ -2112,6 +2186,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </header>
 
 
+<!-- ── User Type Selector ── -->
+<div class="user-type-bar" id="userTypeBar" role="toolbar" aria-label="Select your background">
+  <span class="user-type-label">I am viewing this as:</span>
+  <button class="user-type-btn active" id="btnEveryday" onclick="setUserType('everyday')">
+    🙋 An everyday person
+  </button>
+  <button class="user-type-btn" id="btnPro" onclick="setUserType('professional')">
+    🏥 A medical professional
+  </button>
+</div>
+
 <!-- ═══ MAIN CONTENT ═══ -->
 <main class="main" role="main" id="main-content">
   <div id="resultsArea"></div>
@@ -2257,7 +2342,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="pricing-card">
         <div class="pricing-tier">Free</div>
         <div class="pricing-price">$0<span>/mo</span></div>
-        <div class="pricing-desc">For any human with a health question</div>
+        <div class="pricing-desc">For patients and caregivers with health questions</div>
         <ul class="pricing-features">
           <li>Unlimited health briefings</li>
           <li>Voice input</li>
@@ -2273,7 +2358,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="pricing-badge">Most popular</div>
         <div class="pricing-tier">Personal</div>
         <div class="pricing-price">$9<span>/mo</span></div>
-        <div class="pricing-desc">For people serious about their health journey</div>
+        <div class="pricing-desc">For individuals managing ongoing health conditions</div>
         <ul class="pricing-features">
           <li>Everything in Free</li>
           <li>Health history saved forever</li>
@@ -2281,6 +2366,21 @@ document.addEventListener('DOMContentLoaded', function() {
           <li>Medication tracker + reminders</li>
           <li>Family profiles (up to 6)</li>
           <li>Appointment prep sheets</li>
+          <li>Priority response speed</li>
+        </ul>
+        <button class="pricing-cta" onclick="openAuth('signup')">Start Free Trial</button>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Clinical Pro</div>
+        <div class="pricing-price">$29<span>/mo</span></div>
+        <div class="pricing-desc">For medical professionals and care teams</div>
+        <ul class="pricing-features">
+          <li>Generate patient briefings by diagnosis</li>
+          <li>Plain-language patient handouts</li>
+          <li>OpenEvidence-referenced sources</li>
+          <li>Holistic + cultural care options</li>
+          <li>Unlimited briefings per month</li>
           <li>Priority response speed</li>
         </ul>
         <button class="pricing-cta" onclick="openAuth('signup')">Start Free Trial</button>
@@ -3355,6 +3455,45 @@ document.addEventListener('keydown', function(e) {
   if (e.key==='ArrowRight') {e.preventDefault();snakeDir(1,0);}
 });
 
+
+
+/* ── User Type ── */
+var userType = 'everyday';
+function setUserType(type) {
+  userType = type;
+  var btnE = document.getElementById('btnEveryday');
+  var btnP = document.getElementById('btnPro');
+  if (btnE) btnE.classList.toggle('active', type === 'everyday');
+  if (btnP) btnP.classList.toggle('active', type === 'professional');
+
+  // Update hero subtitle
+  var desc = document.querySelector('.hero-desc');
+  if (desc) {
+    if (type === 'professional') {
+      desc.textContent = 'AI-assisted patient education tool. Help your patients understand their diagnosis, treatment options, and next steps in plain language — so they walk in informed and you spend less time re-explaining basics.';
+    } else {
+      desc.textContent = 'Think of me as the friend who helps you prepare for your doctor — not replace them. I listen to what you are experiencing, help you make sense of it in plain language, and make sure you walk into your next appointment feeling informed, not lost.';
+    }
+  }
+
+  // Update input hint
+  var hint = document.querySelector('.patient-input');
+  if (hint) {
+    if (type === 'professional') {
+      hint.placeholder = 'Enter a diagnosis, condition, or clinical question to generate a patient-friendly briefing...';
+    } else {
+      hint.placeholder = 'Describe what you are feeling — in your own words, any language. I will help you understand it...';
+    }
+  }
+
+  // Update button
+  var btn = document.getElementById('goBtn');
+  if (btn) {
+    btn.innerHTML = type === 'professional'
+      ? '<i class="ti ti-file-medical"></i> Generate Patient Briefing'
+      : '<i class="ti ti-heart-handshake"></i> Help Me Understand This';
+  }
+}
 
 /* ── Chip toggle ── */
 var chipsExpanded = false;
