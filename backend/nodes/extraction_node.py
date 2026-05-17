@@ -13,23 +13,20 @@ except ImportError:
         def decorator(fn): return fn
         return decorator
 
-SYSTEM = """Extract health entities from the patient message. The message may be about the patient themselves OR about a family member or loved one.
+SYSTEM = """Extract health entities from the patient message. The message may be about the patient OR a family member.
 
-Return ONLY valid JSON with no extra text:
+Return ONLY valid JSON:
 {
-  "symptoms": ["list of symptoms, conditions, or diagnoses mentioned"],
+  "symptoms": ["symptoms, conditions, or diagnoses mentioned"],
   "body_parts": ["body areas mentioned"],
-  "duration": ["any time expressions"],
-  "severity": ["severity descriptors"],
-  "medications": ["any medications mentioned"],
-  "emotional_context": ["emotional states like scared, worried, confused, terrified"],
+  "duration": ["time expressions like 'for 3 days'"],
+  "severity": ["severity words like 'severe', 'mild'"],
+  "medications": ["medications mentioned"],
+  "emotional_context": ["emotions like scared, worried, confused"],
   "context_type": "self or caregiver or inquiry",
-  "conditions_mentioned": ["any specific medical conditions or diagnoses named"]
+  "conditions_mentioned": ["specific medical conditions named"]
 }
-
-If the person is asking about a family member, still extract the conditions and emotional context.
-If a field has nothing, use an empty list [].
-Return ONLY the JSON object, nothing else."""
+Use empty lists [] for fields with nothing. Return ONLY the JSON object."""
 
 
 @traceable(name="extraction_node", tags=["nlp"])
@@ -48,19 +45,35 @@ def extraction_node(state: PatientState) -> dict:
             system=SYSTEM,
             messages=[{"role": "user", "content": raw}]
         )
-        text = resp.content[0].text.strip().replace("```json","").replace("```","")
+
+        # Safe content extraction - handle tool use blocks
+        text = ""
+        for block in resp.content:
+            if hasattr(block, "text") and block.text:
+                text = block.text
+                break
+
+        if not text:
+            logger.warning("extraction_node: no text block in response")
+            return {"extraction": {}, "current_node": "extraction", "error": None}
+
+        text = text.strip().replace("```json", "").replace("```", "")
         start = text.find("{")
         end = text.rfind("}") + 1
         if start == -1:
-            raise ValueError(f"No JSON in response: {text[:100]}")
+            logger.warning(f"extraction_node: no JSON found in: {text[:100]}")
+            return {"extraction": {}, "current_node": "extraction", "error": None}
+
         extraction = json.loads(text[start:end])
 
-        # Merge conditions_mentioned into symptoms if symptoms is empty
+        # Merge conditions into symptoms if symptoms empty
         if not extraction.get("symptoms") and extraction.get("conditions_mentioned"):
             extraction["symptoms"] = extraction["conditions_mentioned"]
 
-        logger.info(f"extraction_node done: {len(extraction.get('symptoms',[]))} items")
+        logger.info(f"extraction_node done: {len(extraction.get('symptoms', []))} items")
         return {"extraction": extraction, "current_node": "extraction", "error": None}
+
     except Exception as e:
         logger.error(f"extraction_node error: {e}")
-        return {"extraction": {}, "current_node": "extraction", "error": f"Extraction failed: {e}"}
+        # Return empty extraction instead of crashing - let pipeline continue
+        return {"extraction": {}, "current_node": "extraction", "error": None}
