@@ -1671,12 +1671,16 @@ h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--text-dark); line-
 .user-type-bar {
   background: var(--white);
   border-bottom: 2px solid var(--border);
-  padding: .5rem 1.5rem;
+  padding: .5rem 1.25rem;
   display: flex;
   align-items: center;
   gap: .6rem;
   flex-wrap: nowrap;
   overflow-x: auto;
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }
 .user-type-label {
   font-size: 12.5px;
@@ -1917,32 +1921,24 @@ function setUserType(type) {
   if (btnE) btnE.classList.toggle('active', type === 'everyday');
   if (btnP) btnP.classList.toggle('active', type === 'professional');
 
-  // Update hero subtitle
   var desc = document.querySelector('.hero-desc');
-  if (desc) {
-    if (type === 'professional') {
-      desc.textContent = 'AI-assisted patient education tool. Help your patients understand their diagnosis, treatment options, and next steps in plain language — so they walk in informed and you spend less time re-explaining basics.';
-    } else {
-      desc.textContent = 'Think of me as the friend who helps you prepare for your doctor — not replace them. I listen to what you are experiencing, help you make sense of it in plain language, and make sure you walk into your next appointment feeling informed, not lost.';
-    }
-  }
-
-  // Update input hint
   var hint = document.querySelector('.patient-input');
-  if (hint) {
-    if (type === 'professional') {
-      hint.placeholder = 'Enter a diagnosis, condition, or clinical question to generate a patient-friendly briefing...';
-    } else {
-      hint.placeholder = 'Describe what you are feeling — in your own words, any language. I will help you understand it...';
-    }
-  }
+  var goBtn = document.getElementById('goBtn');
+  var chipsWrap = document.querySelector('.chips-wrap');
+  var heroTitle = document.querySelector('.hero-title');
 
-  // Update button
-  var btn = document.getElementById('goBtn');
-  if (btn) {
-    btn.innerHTML = type === 'professional'
-      ? '<i class="ti ti-file-medical"></i> Generate Patient Briefing'
-      : '<i class="ti ti-heart-handshake"></i> Help Me Understand This';
+  if (type === 'professional') {
+    if (heroTitle) heroTitle.innerHTML = 'Clinical Briefing<br><em>Generator</em>';
+    if (desc) desc.textContent = 'Enter any diagnosis, condition, or clinical question. Get a structured evidence-based briefing — sourced from NIH, Mayo Clinic, PubMed, and OpenEvidence — formatted for patient education.';
+    if (hint) hint.placeholder = 'Enter diagnosis or condition (e.g. "Type 2 diabetes management" or "catamenial pneumothorax")...';
+    if (goBtn) goBtn.innerHTML = '<i class="ti ti-file-medical"></i> Generate Clinical Briefing';
+    if (chipsWrap) chipsWrap.style.display = 'none';
+  } else {
+    if (heroTitle) heroTitle.innerHTML = 'Your health,<br><em>finally explained</em>';
+    if (desc) desc.textContent = 'Think of me as the friend who helps you prepare for your doctor — not replace them. I listen to what you are experiencing, help you make sense of it in plain language, and make sure you walk into your next appointment feeling informed, not lost.';
+    if (hint) hint.placeholder = 'Describe what you are feeling — in your own words, any language. I will help you understand it...';
+    if (goBtn) goBtn.innerHTML = '<i class="ti ti-heart-handshake"></i> Help Me Understand This';
+    if (chipsWrap) chipsWrap.style.display = '';
   }
 }
 
@@ -2099,6 +2095,17 @@ document.addEventListener('DOMContentLoaded', function() {
     <i class="ti ti-menu-2" aria-hidden="true"></i>
   </button>
 </nav>
+<!-- ── User Type Selector ── -->
+<div class="user-type-bar" id="userTypeBar" role="toolbar" aria-label="Select your background">
+  <span class="user-type-label">I am viewing this as:</span>
+  <button class="user-type-btn active" id="btnEveryday" onclick="setUserType('everyday')">
+    🙋 An everyday person
+  </button>
+  <button class="user-type-btn" id="btnPro" onclick="setUserType('professional')">
+    🏥 A medical professional
+  </button>
+</div>
+
 
 <!-- Mobile menu (hidden by default) -->
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
@@ -2148,6 +2155,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           <div class="input-foot">
             <span class="input-hint" id="inputHint"><i class="ti ti-lock" aria-hidden="true"></i> Just between us — no judgment, ever</span>
+            <span class="input-hint" style="color:var(--teal);font-weight:500"><i class="ti ti-globe"></i> Type in any language — we respond in yours</span>
             <button class="go-btn" id="goBtn" aria-label="Get help now">
               <i class="ti ti-heart-handshake" aria-hidden="true"></i> Help Me Understand This
             </button>
@@ -2173,10 +2181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
           <button class="see-more-btn" id="seeMoreBtn" onclick="toggleMoreChips()"><i class="ti ti-chevron-down"></i> See more situations</button>
         </div>
-        <div class="lang-tag">
-          <i class="ti ti-globe" aria-hidden="true"></i>
-          Type in any language — we respond in yours
-        </div>
+        
       </div>
     </div>
     <div class="hero-bitmoji" onclick="document.getElementById('patientInput').focus()" title="Click to start" role="button" tabindex="0" aria-label="Click to start typing">
@@ -2187,16 +2192,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </header>
 
 
-<!-- ── User Type Selector ── -->
-<div class="user-type-bar" id="userTypeBar" role="toolbar" aria-label="Select your background">
-  <span class="user-type-label">I am viewing this as:</span>
-  <button class="user-type-btn active" id="btnEveryday" onclick="setUserType('everyday')">
-    🙋 An everyday person
-  </button>
-  <button class="user-type-btn" id="btnPro" onclick="setUserType('professional')">
-    🏥 A medical professional
-  </button>
-</div>
 
 <!-- ═══ MAIN CONTENT ═══ -->
 <main class="main" role="main" id="main-content">
@@ -3474,32 +3469,24 @@ function setUserType(type) {
   if (btnE) btnE.classList.toggle('active', type === 'everyday');
   if (btnP) btnP.classList.toggle('active', type === 'professional');
 
-  // Update hero subtitle
   var desc = document.querySelector('.hero-desc');
-  if (desc) {
-    if (type === 'professional') {
-      desc.textContent = 'AI-assisted patient education tool. Help your patients understand their diagnosis, treatment options, and next steps in plain language — so they walk in informed and you spend less time re-explaining basics.';
-    } else {
-      desc.textContent = 'Think of me as the friend who helps you prepare for your doctor — not replace them. I listen to what you are experiencing, help you make sense of it in plain language, and make sure you walk into your next appointment feeling informed, not lost.';
-    }
-  }
-
-  // Update input hint
   var hint = document.querySelector('.patient-input');
-  if (hint) {
-    if (type === 'professional') {
-      hint.placeholder = 'Enter a diagnosis, condition, or clinical question to generate a patient-friendly briefing...';
-    } else {
-      hint.placeholder = 'Describe what you are feeling — in your own words, any language. I will help you understand it...';
-    }
-  }
+  var goBtn = document.getElementById('goBtn');
+  var chipsWrap = document.querySelector('.chips-wrap');
+  var heroTitle = document.querySelector('.hero-title');
 
-  // Update button
-  var btn = document.getElementById('goBtn');
-  if (btn) {
-    btn.innerHTML = type === 'professional'
-      ? '<i class="ti ti-file-medical"></i> Generate Patient Briefing'
-      : '<i class="ti ti-heart-handshake"></i> Help Me Understand This';
+  if (type === 'professional') {
+    if (heroTitle) heroTitle.innerHTML = 'Clinical Briefing<br><em>Generator</em>';
+    if (desc) desc.textContent = 'Enter any diagnosis, condition, or clinical question. Get a structured evidence-based briefing — sourced from NIH, Mayo Clinic, PubMed, and OpenEvidence — formatted for patient education.';
+    if (hint) hint.placeholder = 'Enter diagnosis or condition (e.g. "Type 2 diabetes management" or "catamenial pneumothorax")...';
+    if (goBtn) goBtn.innerHTML = '<i class="ti ti-file-medical"></i> Generate Clinical Briefing';
+    if (chipsWrap) chipsWrap.style.display = 'none';
+  } else {
+    if (heroTitle) heroTitle.innerHTML = 'Your health,<br><em>finally explained</em>';
+    if (desc) desc.textContent = 'Think of me as the friend who helps you prepare for your doctor — not replace them. I listen to what you are experiencing, help you make sense of it in plain language, and make sure you walk into your next appointment feeling informed, not lost.';
+    if (hint) hint.placeholder = 'Describe what you are feeling — in your own words, any language. I will help you understand it...';
+    if (goBtn) goBtn.innerHTML = '<i class="ti ti-heart-handshake"></i> Help Me Understand This';
+    if (chipsWrap) chipsWrap.style.display = '';
   }
 }
 
