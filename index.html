@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Millennials Creatives LLC — Strategy. Systems. Results.</title>
+<meta name="description" content="Millennials Creatives LLC is a woman-owned, minority-founded consulting firm delivering AI engineering, digital strategy, healthcare consulting, nonprofit leadership, and public health & safety services to public agencies and institutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── TOKENS ───────────────────────────────────────────── */
+  :root {
+    --ink:       #0D0F1A;
+    --ink2:      #1C1F35;
+    --ink3:      #2E3354;
+    --cream:     #F5F2EC;
+    --cream2:    #EDE9E0;
+    --gold:      #C9A84C;
+    --gold2:     #E8C97A;
+    --white:     #FFFFFF;
+    --muted:     #8B90A8;
+    --border:    rgba(255,255,255,0.08);
+    --border2:   rgba(201,168,76,0.25);
+
+    --c-finesse:  #4A90D9;
+    --c-jeanie:   #4CAF7D;
+    --c-londa:    #E8A84C;
+    --c-vannessa: #E05C7A;
+
+    --ff-display: 'Fraunces', Georgia, serif;
+    --ff-body:    'DM Sans', sans-serif;
+    --ff-mono:    'DM Mono', monospace;
+
+    --max: 1200px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ── RESET ────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--ff-body);
+    background: var(--ink);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+  /* ── NOISE OVERLAY ────────────────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ──────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(13,15,26,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s var(--ease);
+  }
+  .nav-logo {
+    font-family: var(--ff-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--ink) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold2) !important; transform: translateY(-1px); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+  .nav-hamburger span { width: 24px; height: 2px; background: var(--cream); border-radius: 1px; transition: all 0.3s; }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2.5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 70%, rgba(74,144,217,0.05) 0%, transparent 60%),
+      linear-gradient(160deg, var(--ink) 0%, var(--ink2) 100%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: var(--max);
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--ff-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.75rem;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: var(--ff-display);
+    font-size: clamp(3.2rem, 7vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.35s forwards;
+  }
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.5s forwards;
+  }
+  .hero-sub strong { color: var(--cream); font-weight: 500; }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.65s forwards;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.3); }
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--cream);
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s var(--ease);
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-credentials {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: fadeLeft 0.8s var(--ease) 0.8s forwards;
+  }
+  .cred-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.6rem 1.1rem 0.6rem 0.6rem;
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+  }
+  .cred-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .cred-pill span { font-size: 0.78rem; font-weight: 500; color: var(--cream); }
+  .cred-pill small { font-size: 0.68rem; color: var(--muted); display: block; }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.8s var(--ease) 0.9s forwards;
+  }
+  .stat-num {
+    font-family: var(--ff-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── GOVERNMENT BADGE ─────────────────────────────────── */
+  .gov-bar {
+    background: var(--ink2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2.5rem;
+    overflow: hidden;
+  }
+  .gov-bar-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .gov-label {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .gov-items {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .gov-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .gov-item-label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .gov-item-val { font-family: var(--ff-mono); font-size: 0.82rem; color: var(--cream); font-weight: 500; }
+
+  /* ── SECTIONS ─────────────────────────────────────────── */
+  section { padding: 6rem 2.5rem; }
+  .section-inner { max-width: var(--max); margin: 0 auto; }
+  .section-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  .section-h2 {
+    font-family: var(--ff-display);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .section-h2 em { font-style: italic; font-weight: 300; color: var(--gold); }
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ── SERVICES ─────────────────────────────────────────── */
+  #services { background: var(--ink2); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    margin-top: 4rem;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .service-card {
+    background: var(--ink2);
+    padding: 2.5rem;
+    transition: background 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease);
+  }
+  .service-card:hover { background: var(--ink3); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+  .service-num {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .service-name {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+  .service-tag {
+    font-size: 0.68rem;
+    font-family: var(--ff-mono);
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ── FOUNDERS ─────────────────────────────────────────── */
+  #founders { background: var(--ink); }
+  .founders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .founders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .founder-card {
+    background: var(--ink2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease), border-color 0.3s;
+    position: relative;
+  }
+  .founder-card:hover { transform: translateY(-4px); }
+  .founder-bar {
+    height: 4px;
+    width: 100%;
+  }
+  .founder-body { padding: 1.75rem; }
+  .founder-initials {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .founder-name {
+    font-family: var(--ff-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+  .founder-title {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    font-family: var(--ff-mono);
+    letter-spacing: 0.04em;
+  }
+  .founder-creds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .founder-cred {
+    font-family: var(--ff-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+  .founder-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+  .founder-focus {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .founder-focus strong { color: var(--cream); display: block; margin-bottom: 0.25rem; font-size: 0.72rem; font-family: var(--ff-mono); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ── GOVERNMENT ───────────────────────────────────────── */
+  #government {
+    background: linear-gradient(160deg, var(--ink2) 0%, var(--ink) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .gov-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  .gov-naics {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .naics-badge {
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--border2);
+    border-radius: 2px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+  .gov-contract-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .gov-contract {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+  .gov-contract:hover { border-color: var(--gold); }
+  .gov-contract-status {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+  }
+  .status-active { background: #4CAF7D; box-shadow: 0 0 6px rgba(76,175,125,0.5); }
+  .status-pending { background: var(--gold); box-shadow: 0 0 6px rgba(201,168,76,0.5); }
+  .gov-contract-name { font-size: 0.9rem; font-weight: 500; color: var(--cream); margin-bottom: 0.2rem; }
+  .gov-contract-meta { font-size: 0.75rem; color: var(--muted); font-family: var(--ff-mono); }
+
+  /* ── PROCESS ──────────────────────────────────────────── */
+  #process { background: var(--ink); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold), transparent);
+    opacity: 0.3;
+  }
+  .process-step {
+    padding: 0 2rem 0 0;
+    position: relative;
+  }
+  .step-num {
+    width: 4rem; height: 4rem;
+    border-radius: 50%;
+    background: var(--ink2);
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .step-title {
+    font-family: var(--ff-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .step-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── CONTACT ──────────────────────────────────────────── */
+  #contact {
+    background: var(--ink2);
+    border-top: 1px solid var(--border);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .contact-item-label { font-size: 0.68rem; font-family: var(--ff-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+  .contact-item-val { font-size: 1rem; color: var(--cream); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-size: 0.72rem; font-family: var(--ff-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .form-input, .form-select, .form-textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+    font-family: var(--ff-body);
+    font-size: 0.9rem;
+    color: var(--cream);
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-select option { background: var(--ink2); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 1rem 2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s var(--ease);
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--gold2); transform: translateY(-1px); }
+
+  /* ── FOOTER ───────────────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2.5rem;
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .footer-logo {
+    font-family: var(--ff-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-meta { font-size: 0.78rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.78rem; color: var(--muted); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+
+  /* ── ANIMATIONS ───────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translate(24px, -50%); }
+    to   { opacity: 1; transform: translate(0, -50%); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ───────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero-credentials { display: none; }
+    .gov-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::before { display: none; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    section { padding: 4rem 1.5rem; }
+    nav { padding: 1rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .gov-bar { padding: 1rem 1.5rem; }
+    .hero-stats { gap: 2rem; flex-wrap: wrap; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .process-steps { grid-template-columns: 1fr; }
+    .founders-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; gap: 1px; }
+    .hero-h1 { font-size: 2.8rem; }
+  }
+
+  /* ── MOBILE MENU ──────────────────────────────────────── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--ff-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">MC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#founders">Our Team</a></li>
+    <li><a href="#government">Government</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Work With Us</a></li>
+  </ul>
+  <button class="nav-hamburger" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="menuClose">✕</button>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#founders" onclick="closeMobileMenu()">Our Team</a>
+  <a href="#government" onclick="closeMobileMenu()">Government</a>
+  <a href="#process" onclick="closeMobileMenu()">Process</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Woman-Owned · Minority-Founded · SAM.gov Registered</div>
+    <h1 class="hero-h1">Strategy.<br><em>Systems.</em><br>Results.</h1>
+    <p class="hero-sub">
+      Millennials Creatives LLC is a <strong>four-founder consulting firm</strong> delivering AI engineering, digital strategy, healthcare consulting, nonprofit leadership, and public health & safety services to public agencies and growing organizations.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a Conversation →</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Credentialed Co-Founders</div>
+      </div>
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years in Practice</div>
+      </div>
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Service Domains</div>
+      </div>
+      <div>
+        <div class="stat-num">AZ</div>
+        <div class="stat-label">State & Federal Vendor</div>
+      </div>
+    </div>
+
+    <div class="hero-credentials">
+      <div class="cred-pill">
+        <div class="cred-dot" style="background:var(--c-finesse)"></div>
+        <div><span>L. Finesse Humxn</span><small>Co-Founder · AI Engineer · CEO</small></div>
+      </div>
+      <div class="cred-pill">
+        <div class="cred-dot" style="background:var(--c-jeanie)"></div>
+        <div><span>Jeanie Vatelia</span><small>Co-Founder · BSN, RN, PHN</small></div>
+      </div>
+      <div class="cred-pill">
+        <div class="cred-dot" style="background:var(--c-londa)"></div>
+        <div><span>Londa Rozier-Taylor</span><small>Co-Founder · MBA · MS Nonprofit Leadership</small></div>
+      </div>
+      <div class="cred-pill">
+        <div class="cred-dot" style="background:var(--c-vannessa)"></div>
+        <div><span>Vannessa Rozier-Taylor</span><small>Co-Founder · MS Public Health & Safety</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNMENT CREDENTIALS BAR -->
+<div class="gov-bar">
+  <div class="gov-bar-inner">
+    <div class="gov-label">Gov. Credentials</div>
+    <div class="gov-items">
+      <div class="gov-item"><span class="gov-item-label">UEI</span><span class="gov-item-val">WBGAAWMD3YE5</span></div>
+      <div class="gov-item"><span class="gov-item-label">CAGE</span><span class="gov-item-val">18ZQ0</span></div>
+      <div class="gov-item"><span class="gov-item-label">EIN</span><span class="gov-item-val">84-3960409</span></div>
+      <div class="gov-item"><span class="gov-item-label">SAM.gov</span><span class="gov-item-val">Registered ✓</span></div>
+      <div class="gov-item"><span class="gov-item-label">Entity</span><span class="gov-item-val">Millennials Creatives LLC</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-h2">Eight domains.<br><em>One team.</em></h2>
+    <p class="section-desc">Our co-founders deliver across these service areas — no subcontracting required for core work. Every engagement is led by a credentialed principal.</p>
+    <div class="services-grid reveal" style="margin-top:3rem;">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-name">AI Engineering & Digital Operations</div>
+        <div class="service-desc">Custom AI systems, automation workflows, CRM integration, and digital infrastructure design that reduce administrative burden and scale institutional capacity.</div>
+        <div class="service-tags"><span class="service-tag">AI Systems</span><span class="service-tag">CRM</span><span class="service-tag">Automation</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-name">Brand Strategy & Marketing</div>
+        <div class="service-desc">Strategic brand development, outreach campaigns, content systems, and digital marketing that build institutional credibility and drive audience engagement.</div>
+        <div class="service-tags"><span class="service-tag">Brand</span><span class="service-tag">Outreach</span><span class="service-tag">Digital</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-name">Institutional & Operational Consulting</div>
+        <div class="service-desc">Process reviews, organizational assessments, workflow optimization, and interim leadership support. Led by Londa Rozier-Taylor, MBA, MS Nonprofit Organizational Leadership.</div>
+        <div class="service-tags"><span class="service-tag">MBA</span><span class="service-tag">Org Design</span><span class="service-tag">Process</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-name">Healthcare & Public Health Consulting</div>
+        <div class="service-desc">Clinical compliance, community health program design, health equity strategy, and regulatory consulting. Led by Jeanie Vatelia, BSN, RN, PHN.</div>
+        <div class="service-tags"><span class="service-tag">PHN</span><span class="service-tag">Compliance</span><span class="service-tag">Health Equity</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-name">Public Health & Safety Systems</div>
+        <div class="service-desc">Public health program evaluation, safety systems management, emergency preparedness, and risk assessment. Led by Vannessa Rozier-Taylor, MS Public Health & Safety.</div>
+        <div class="service-tags"><span class="service-tag">MS PH&S</span><span class="service-tag">Safety</span><span class="service-tag">Policy</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-name">Data Systems & Institutional Research</div>
+        <div class="service-desc">Dashboard development, data governance frameworks, IPEDS and accreditation reporting, predictive analytics, and business intelligence design for institutions.</div>
+        <div class="service-tags"><span class="service-tag">Dashboards</span><span class="service-tag">Analytics</span><span class="service-tag">IR</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">07</div>
+        <div class="service-name">Training & Professional Development</div>
+        <div class="service-desc">Staff onboarding programs, compliance training curricula, AI literacy workshops, leadership development, and executive coaching across all credential areas.</div>
+        <div class="service-tags"><span class="service-tag">Training</span><span class="service-tag">Leadership</span><span class="service-tag">Coaching</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">08</div>
+        <div class="service-name">Nonprofit & Financial Advisory</div>
+        <div class="service-desc">Governance framework development, budget management, grant compliance support, financial modeling, and strategic planning for nonprofits and public agencies.</div>
+        <div class="service-tags"><span class="service-tag">Governance</span><span class="service-tag">Finance</span><span class="service-tag">Grants</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section id="founders">
+  <div class="section-inner">
+    <div class="founders-header">
+      <div>
+        <div class="section-eyebrow">The Team</div>
+        <h2 class="section-h2">Four founders.<br><em>All in.</em></h2>
+      </div>
+      <p class="section-desc" style="max-width:420px;">Our co-founders are practitioners, not figureheads. On every engagement, a named co-founder leads the work — not a junior analyst.</p>
+    </div>
+    <div class="founders-grid">
+
+      <div class="founder-card reveal" style="--accent:var(--c-finesse)">
+        <div class="founder-bar" style="background:var(--c-finesse)"></div>
+        <div class="founder-body">
+          <div class="founder-initials" style="background:rgba(74,144,217,0.15);color:var(--c-finesse)">LF</div>
+          <div class="founder-name">L. Finesse Humxn</div>
+          <div class="founder-title">Co-Founder · CEO · AI Engineer</div>
+          <div class="founder-creds">
+            <span class="founder-cred" style="background:rgba(74,144,217,0.1);color:var(--c-finesse)">AI Engineering</span>
+            <span class="founder-cred" style="background:rgba(74,144,217,0.1);color:var(--c-finesse)">Brand Strategy</span>
+            <span class="founder-cred" style="background:rgba(74,144,217,0.1);color:var(--c-finesse)">Digital Ops</span>
+          </div>
+          <div class="founder-bio">Founder and CEO of Millennials Creatives. AI engineer, brand strategist, and digital infrastructure architect with deep expertise in CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.</div>
+          <div class="founder-focus"><strong>Leads on</strong>AI engineering · Digital strategy · CRM systems · Marketing & outreach · Government proposals</div>
+        </div>
+      </div>
+
+      <div class="founder-card reveal" style="--accent:var(--c-jeanie); transition-delay:0.1s">
+        <div class="founder-bar" style="background:var(--c-jeanie)"></div>
+        <div class="founder-body">
+          <div class="founder-initials" style="background:rgba(76,175,125,0.15);color:var(--c-jeanie)">JV</div>
+          <div class="founder-name">Jeanie Vatelia</div>
+          <div class="founder-title">Co-Founder · BSN, RN, PHN</div>
+          <div class="founder-creds">
+            <span class="founder-cred" style="background:rgba(76,175,125,0.1);color:var(--c-jeanie)">BSN</span>
+            <span class="founder-cred" style="background:rgba(76,175,125,0.1);color:var(--c-jeanie)">RN</span>
+            <span class="founder-cred" style="background:rgba(76,175,125,0.1);color:var(--c-jeanie)">PHN</span>
+          </div>
+          <div class="founder-bio">Registered Nurse and Public Health Nurse with clinical practice, community health program design, and healthcare regulatory compliance experience. Brings clinical credibility no pure consulting firm can match.</div>
+          <div class="founder-focus"><strong>Leads on</strong>Healthcare consulting · Public health programs · Clinical compliance · Health equity · Regulatory analysis</div>
+        </div>
+      </div>
+
+      <div class="founder-card reveal" style="--accent:var(--c-londa); transition-delay:0.2s">
+        <div class="founder-bar" style="background:var(--c-londa)"></div>
+        <div class="founder-body">
+          <div class="founder-initials" style="background:rgba(232,168,76,0.15);color:var(--c-londa)">LR</div>
+          <div class="founder-name">Londa Rozier-Taylor</div>
+          <div class="founder-title">Co-Founder · MBA · MS Nonprofit Leadership</div>
+          <div class="founder-creds">
+            <span class="founder-cred" style="background:rgba(232,168,76,0.1);color:var(--c-londa)">MBA</span>
+            <span class="founder-cred" style="background:rgba(232,168,76,0.1);color:var(--c-londa)">MS Nonprofit Leadership</span>
+          </div>
+          <div class="founder-bio">MBA combined with a Master's in Nonprofit Organizational Leadership. Brings institutional governance, financial operations, and organizational change management expertise to public sector and higher education engagements.</div>
+          <div class="founder-focus"><strong>Leads on</strong>Institutional operations · Financial analysis · Org leadership · Governance · Higher ed consulting</div>
+        </div>
+      </div>
+
+      <div class="founder-card reveal" style="--accent:var(--c-vannessa); transition-delay:0.3s">
+        <div class="founder-bar" style="background:var(--c-vannessa)"></div>
+        <div class="founder-body">
+          <div class="founder-initials" style="background:rgba(224,92,122,0.15);color:var(--c-vannessa)">VR</div>
+          <div class="founder-name">Vannessa Rozier-Taylor</div>
+          <div class="founder-title">Co-Founder · MS Public Health & Safety</div>
+          <div class="founder-creds">
+            <span class="founder-cred" style="background:rgba(224,92,122,0.1);color:var(--c-vannessa)">MS Public Health & Safety</span>
+          </div>
+          <div class="founder-bio">Master's in Public Health & Safety with expertise in public health program evaluation, emergency preparedness, safety systems management, and policy analysis. Serves as MC's lead for safety and public health engagements.</div>
+          <div class="founder-focus"><strong>Leads on</strong>Public health systems · Safety compliance · Emergency preparedness · Risk assessment · Policy consulting</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNMENT -->
+<section id="government">
+  <div class="section-inner">
+    <div class="section-eyebrow">Public Sector</div>
+    <h2 class="section-h2">Built for<br><em>government work.</em></h2>
+    <div class="gov-grid">
+      <div class="reveal">
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:1.5rem;">Millennials Creatives is a registered federal and Arizona state vendor. Our co-founders' combined credentials span the service categories most in demand by public agencies — healthcare, public health, institutional operations, financial management, and technology systems.</p>
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:2rem;">We hold active bids with the State of Arizona and are positioned for cooperative purchasing through the SAVE network — meaning one awarded contract can serve multiple Arizona public agencies.</p>
+        <div>
+          <div style="font-size:0.72rem;font-family:var(--ff-mono);text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.75rem;">NAICS Codes</div>
+          <div class="gov-naics">
+            <span class="naics-badge">541611 — Admin Consulting</span>
+            <span class="naics-badge">541613 — Marketing Consulting</span>
+            <span class="naics-badge">541430 — Graphic Design</span>
+            <span class="naics-badge">541519 — IT Consulting</span>
+            <span class="naics-badge">621999 — Healthcare Services</span>
+            <span class="naics-badge">923120 — Public Health Admin</span>
+            <span class="naics-badge">611430 — Prof Development Training</span>
+            <span class="naics-badge">541612 — HR Consulting</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div style="font-size:0.72rem;font-family:var(--ff-mono);text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:1rem;">Active Arizona Procurements</div>
+        <div class="gov-contract-list">
+          <div class="gov-contract">
+            <div class="gov-contract-status status-pending"></div>
+            <div>
+              <div class="gov-contract-name">Higher Ed Admin & Consulting — CCC RFP #26-07</div>
+              <div class="gov-contract-meta">Coconino Community College · BPM007568 · Due May 28, 2026</div>
+            </div>
+          </div>
+          <div class="gov-contract">
+            <div class="gov-contract-status status-pending"></div>
+            <div>
+              <div class="gov-contract-name">Special Monitor (IDEA) — AZ Dept of Education</div>
+              <div class="gov-contract-meta">BPM007340 · Due May 28, 2026</div>
+            </div>
+          </div>
+          <div class="gov-contract">
+            <div class="gov-contract-status status-pending"></div>
+            <div>
+              <div class="gov-contract-name">School Receivership Services — AZ State Board of Ed</div>
+              <div class="gov-contract-meta">BPM007512 · Due June 1, 2026</div>
+            </div>
+          </div>
+          <div class="gov-contract">
+            <div class="gov-contract-status status-pending"></div>
+            <div>
+              <div class="gov-contract-name">RFI — AZ Board of Pharmacy Fee Analysis</div>
+              <div class="gov-contract-meta">BPM007566 · Due June 5, 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-eyebrow">How We Work</div>
+    <h2 class="section-h2">From discovery<br><em>to delivery.</em></h2>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-desc">We start by understanding your actual environment — not just your stated need. Stakeholder interviews, existing systems review, and baseline assessment before we recommend anything.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">System Design</div>
+        <div class="step-desc">We design the solution with your team, not for them. Every recommendation is documented, scoped, and tied to a measurable outcome before implementation begins.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Build & Launch</div>
+        <div class="step-desc">We deliver. Whether that's a data dashboard, a training program, a compliance framework, or an operational restructure — our co-founders execute the work directly.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Optimize & Scale</div>
+        <div class="step-desc">We don't disappear after delivery. We monitor outcomes, iterate based on real data, and scale what works — positioning your organization for long-term effectiveness.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-h2">Let's build<br><em>something real.</em></h2>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p style="color:var(--muted);line-height:1.7;margin-bottom:2.5rem;">Whether you're a public agency looking for a qualified vendor, a nonprofit that needs operational support, or a growing business ready to invest in systems that scale — we want to hear from you.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-item-label">Legal Name</span>
+            <span class="contact-item-val">Millennials Creatives LLC</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-label">Address</span>
+            <span class="contact-item-val">3104 E Camelback Rd, Phoenix AZ</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-label">Website</span>
+            <span class="contact-item-val">millennialscreatives.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-label">SAM.gov UEI</span>
+            <span class="contact-item-val" style="font-family:var(--ff-mono)">WBGAAWMD3YE5</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-label">CAGE Code</span>
+            <span class="contact-item-val" style="font-family:var(--ff-mono)">18ZQ0</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="First name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Organization</label>
+            <input type="text" class="form-input" placeholder="Your organization or agency">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">What do you need?</label>
+            <select class="form-select">
+              <option value="">Select a service area...</option>
+              <option>AI Engineering & Digital Operations</option>
+              <option>Brand Strategy & Marketing</option>
+              <option>Institutional & Operational Consulting</option>
+              <option>Healthcare & Public Health Consulting</option>
+              <option>Public Health & Safety Systems</option>
+              <option>Data Systems & Institutional Research</option>
+              <option>Training & Professional Development</option>
+              <option>Nonprofit & Financial Advisory</option>
+              <option>Government / Public Sector Contracting</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tell us about your project</label>
+            <textarea class="form-textarea" placeholder="Brief description of your needs, timeline, and any relevant context..."></textarea>
+          </div>
+          <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Millennials Creatives<span>.</span></div>
+    <div class="footer-meta">© 2026 Millennials Creatives LLC · Phoenix, AZ · SAM Registered · CAGE 18ZQ0</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#founders">Team</a>
+      <a href="#government">Government</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── NAV scroll effect ──────────────────────────────────
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.style.background = window.scrollY > 50
+      ? 'rgba(13,15,26,0.98)'
+      : 'rgba(13,15,26,0.85)';
+  });
+
+  // ── Mobile menu ────────────────────────────────────────
+  const menuBtn   = document.getElementById('menuBtn');
+  const menuClose = document.getElementById('menuClose');
+  const mobileMenu= document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', ()=> mobileMenu.classList.add('open'));
+  menuClose.addEventListener('click', ()=> mobileMenu.classList.remove('open'));
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+  // ── Scroll reveal ──────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Founder card hover ─────────────────────────────────
+  document.querySelectorAll('.founder-card').forEach(card => {
+    const bar = card.querySelector('.founder-bar');
+    const color = bar ? bar.style.background : 'var(--gold)';
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = color;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'var(--border)';
+    });
+  });
+
+  // ── Contact form ───────────────────────────────────────
+  function handleSubmit() {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#4CAF7D';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  }
+</script>
+</body>
+</html>
