@@ -25,7 +25,7 @@ const nav = (active) => {
   </a>
   <ul class="nav-links">
     ${link("work.html","Work")}${link("services.html","Services")}${link("team.html","Team")}
-    ${link("government.html","Gov Contracts")}${link("packages.html","Packages")}${link("culture.html","Culture")}
+    ${link("government.html","Gov")}${link("packages.html","Packages")}${link("blog.html","Blog")}${link("culture.html","Culture")}
     <li><a href="contact.html" class="nav-cta">Start a Project</a></li>
   </ul>
   <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
@@ -33,7 +33,7 @@ const nav = (active) => {
 <div class="mob" id="mob">
   <button class="mob-x" id="mobX">CLOSE ✕</button>
   ${mlink("work.html","Work")}${mlink("services.html","Services")}${mlink("team.html","Team")}
-  ${mlink("government.html","Gov Contracts")}${mlink("packages.html","Packages")}${mlink("culture.html","Culture")}
+  ${mlink("government.html","Gov Contracts")}${mlink("packages.html","Packages")}${mlink("blog.html","Blog")}${mlink("culture.html","Culture")}
   ${mlink("contact.html","Start a Project")}
 </div>`;
 };
@@ -52,7 +52,7 @@ const footerScript = `
     <div class="f-links">
       <a href="work.html">Work</a><a href="services.html">Services</a>
       <a href="team.html">Team</a><a href="government.html">Government</a>
-      <a href="packages.html">Packages</a><a href="culture.html">Culture</a>
+      <a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="culture.html">Culture</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="f-meta">© 2026 Millennials Creatives LLC<br>Phoenix AZ · Woman-Owned<br>CAGE 18ZQ0 · UEI WBGAAWMD3YE5 · SAM Registered<br><a href="https://instagram.com/millennials.creatives" style="color:var(--yellow)">@millennials.creatives</a> · <a href="https://twitter.com/MillenialsCr8" style="color:var(--yellow)">@MillenialsCr8</a></div>
