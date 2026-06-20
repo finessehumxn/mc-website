@@ -1,7 +1,7 @@
 // Auto-updating "Culture & Inspiration" news feed.
 // Pulls latest articles from real publication RSS feeds, generates clickable cards,
 // injects 3 into the homepage and builds the full culture.html feed.
-// Run weekly by .github/workflows/culture-weekly.yml (and locally via `node build-culture.cjs`).
+// Run daily by .github/workflows/culture-daily.yml (and locally via `node build-culture.cjs`).
 const fs = require("fs");
 const { head, nav, footerScript } = require("./build-pages.cjs");
 
@@ -13,6 +13,9 @@ const FEEDS = [
   { url: "https://www.blackenterprise.com/feed/",   source: "Black Enterprise" },
   { url: "https://www.essence.com/feed/",           source: "Essence" },
   { url: "https://www.forbes.com/business/feed/",   source: "Forbes" },
+  { url: "https://techcrunch.com/feed/",            source: "TechCrunch" },
+  { url: "https://venturebeat.com/feed/",           source: "VentureBeat" },
+  { url: "https://thestoryexchange.org/feed/",      source: "The Story Exchange" },
 ];
 
 // Keep entrepreneurship/culture stories; drop puzzles, horoscopes, sports, deals, etc.
@@ -130,7 +133,7 @@ function cardHTML(item, idx, extraClass = "") {
       </div>
     </div>`;
 
-  const body = `<div class="updated">Updated weekly · last refreshed ${updated}</div>
+  const body = `<div class="updated">Updated daily · last refreshed ${updated}</div>
     <div class="culture-grid">
       ${grid}
     </div>
@@ -138,7 +141,7 @@ function cardHTML(item, idx, extraClass = "") {
 
   const page = head("Culture & Inspiration", "The latest on millennial & Gen-Z entrepreneurs, women-owned business, and the culture shift Millennials Creatives operates in.") +
     nav("culture.html") +
-    `<main class="pg"><div class="pg-eyebrow">Culture &amp; Inspiration</div><h1 class="pg-h1">The founders <em>crushing the game.</em></h1><p class="pg-lead">Millennial &amp; Gen-Z entrepreneurs, women-owned business, and the publications documenting the shift — refreshed every week. This is the world we operate in, and the company we keep.</p>${body}</main>` +
+    `<main class="pg"><div class="pg-eyebrow">Culture &amp; Inspiration</div><h1 class="pg-h1">The founders <em>crushing the game.</em></h1><p class="pg-lead">Millennial &amp; Gen-Z entrepreneurs, women-owned business, and the publications documenting the shift — refreshed every day. This is the world we operate in, and the company we keep.</p>${body}</main>` +
     footerScript;
   fs.writeFileSync("culture.html", page);
   console.log("Built culture.html feed (" + feed.length + " articles)");

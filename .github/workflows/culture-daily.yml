@@ -1,8 +1,8 @@
-name: Weekly Culture News Refresh
+name: Daily Culture News Refresh
 
 on:
   schedule:
-    - cron: "0 13 * * 1"   # every Monday 13:00 UTC (~6am Phoenix)
+    - cron: "0 13 * * *"   # every day 13:00 UTC (~6am Phoenix)
   workflow_dispatch:        # lets you run it manually from the Actions tab anytime
 
 permissions:
@@ -29,9 +29,9 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           if [ -n "$(git status --porcelain index.html culture.html)" ]; then
             git add index.html culture.html
-            git commit -m "Weekly culture news refresh [skip ci]"
+            git commit -m "Daily culture news refresh [skip ci]"
             git push
             echo "Pushed refreshed news."
           else
-            echo "No changes this week."
+            echo "No changes today."
           fi
