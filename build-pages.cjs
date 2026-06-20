@@ -55,7 +55,7 @@ const footerScript = `
       <a href="packages.html">Packages</a><a href="culture.html">Culture</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="f-meta">© 2026 Millennials Creatives LLC<br>Phoenix AZ · Woman-Owned<br>CAGE 18ZQ0 · SAM Registered</div>
+    <div class="f-meta">© 2026 Millennials Creatives LLC<br>Phoenix AZ · Woman-Owned<br>CAGE 18ZQ0 · UEI WBGAAWMD3YE5 · SAM Registered<br><a href="https://instagram.com/millennials.creatives" style="color:var(--yellow)">@millennials.creatives</a> · <a href="https://twitter.com/MillenialsCr8" style="color:var(--yellow)">@MillenialsCr8</a></div>
   </div>
 </footer>
 <script>
@@ -71,6 +71,7 @@ document.querySelectorAll('a,button,.pg-card,.capbox').forEach(el=>{el.addEventL
 </body></html>`;
 
 const card = (ic, h, p, extra="") => `<div class="pg-card"><span class="ic">${ic}</span><h3>${h}</h3><p>${p}</p>${extra}</div>`;
+const imgCard = (img, h, p, tags=[]) => `<div class="pg-card img"><img class="thumb" src="${img}" alt="${h}" loading="lazy"><h3>${h}</h3><p>${p}</p>${tags.length?`<div class="tagrow">${tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>`:""}</div>`;
 const ul = (items) => `<ul>${items.map(i=>`<li>${i}</li>`).join("")}</ul>`;
 
 const pageShell = (file, active, title, desc, eyebrow, h1, lead, body) =>
@@ -90,22 +91,34 @@ const pages = {
       ${card("🎬","Content & Creative","Campaigns, video, and content that turns attention into action.")}
     </div>`),
 
-  "work.html": pageShell("work.html","work.html","Work","Selected work from Millennials Creatives LLC.",
-    "Selected work","Boring in. <em>Iconic</em> out.","Products, brands, and visual systems we have engineered — from healthcare AI to packaging and motion design.",
-    `<div class="pg-grid">
+  "work.html": pageShell("work.html","work.html","Work","Selected client work from Millennials Creatives LLC — branding, packaging, AI products, and editorial design.",
+    "Selected work","Boring in. <em>Iconic</em> out.","From healthcare AI to packaging, brand systems, and editorial illustration — real work, for real clients, shipped.",
+    `<div class="work-feature">
+       <img src="media/art-retro.jpg" alt="Editorial illustrated portrait" loading="lazy">
+       <div class="wf-cap"><span class="k">Featured · Editorial Illustration</span><h3>Illustrated Portrait Series</h3><p>Hand-crafted editorial portraits with botanical linework and a signature halo motif — art-directed for print, calendars, and brand campaigns.</p></div>
+     </div>
+
+     <h2 class="work-cat">AI &amp; Software</h2>
+     <div class="pg-grid">
       ${card("🩺","MedCompanion AI","Safety-first AI health platform — LangGraph + Claude — that helps patients understand their care in plain language and partner with their doctor.",`<div class="tagrow"><span class="tag">AI Engineering</span><span class="tag">Healthcare</span></div>`)}
       ${card("🤝","BarterThat","AI-matched barter marketplace connecting people to trade skills and goods without cash.",`<div class="tagrow"><span class="tag">AI</span><span class="tag">Marketplace</span></div>`)}
       ${card("🧁","Three Wishes Bakery","Full brand identity and web experience for a nurse-owned California bakery.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Web</span></div>`)}
-      ${card("🌀","Retro Culture Collection","Nostalgia-driven visual collection blending vintage type with modern 3D craft.",`<div class="tagrow"><span class="tag">3D Design</span><span class="tag">Motion</span></div>`)}
-      ${card("✨","Gold Explosion Series","High-impact 3D visual system built around luxury, light, and motion.",`<div class="tagrow"><span class="tag">3D Design</span><span class="tag">Visual Systems</span></div>`)}
-      ${card("📦","Product Visual Identity","Product branding and packaging that makes shelves stop people.",`<div class="tagrow"><span class="tag">Product Branding</span><span class="tag">Packaging</span></div>`)}
-      ${card("💃","The Wendy S Collection","Bold personal brand identity and social presence with a signature look.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Social</span></div>`)}
-      ${card("🎀","Bella High","Playful, premium brand identity and product styling.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Product</span></div>`)}
-      ${card("🎥","We Are Finesse","Content, social, and video building a movement-driven brand presence.",`<div class="tagrow"><span class="tag">Content</span><span class="tag">Video</span></div>`)}
-      ${card("🌿","Fruitful Remedies","Wellness packaging and label design with a clean, natural identity.",`<div class="tagrow"><span class="tag">Packaging</span><span class="tag">Label Design</span></div>`)}
-      ${card("✅","First Choice","Packaging and brand identity built for trust and clarity.",`<div class="tagrow"><span class="tag">Packaging</span><span class="tag">Brand Identity</span></div>`)}
-      ${card("📻","LesTalk Radio","Graphic design and print identity for an on-air brand.",`<div class="tagrow"><span class="tag">Graphic Design</span><span class="tag">Print</span></div>`)}
-    </div>`),
+     </div>
+
+     <h2 class="work-cat">Branding &amp; Packaging</h2>
+     <div class="pg-grid">
+      ${imgCard("media/work-first-choice.jpg","First Choice CBD","Full broad-spectrum CBD line — Goji Orange, Cucumber, and Peach Mango pain creams — with cohesive label design and compliant packaging.",["Packaging","Label Design","CBD"])}
+      ${imgCard("media/work-fruitful-remedies.jpg","Fruitful Remedies","Premium CBD product rebrand — Cherry Wine &amp; Jack Frost lines — with a bold, trustworthy label system.",["Packaging","Rebrand"])}
+      ${imgCard("media/work-bella-high.jpg","Bella High","Branding, product styling, and social content for a premium lifestyle accessory brand.",["Branding","Product"])}
+      ${imgCard("media/work-wendy-s.jpg","The Wendy S Collection","Logo rebrand and a fresh teal-and-coral identity system, plus social content, banners, and flyers.",["Logo Rebrand","Identity"])}
+     </div>
+
+     <h2 class="work-cat">Content, Print &amp; Social</h2>
+     <div class="pg-grid">
+      ${imgCard("media/work-we-are-finesse.jpg","We Are Finesse","Social content and video direction — including the Survival Bag Challenge series with custom thumbnails for a nonprofit mentorship brand.",["Content","Video","Social"])}
+      ${imgCard("media/work-lestalk-radio.jpg","LesTalk Radio","2020 wall-calendar design featuring custom illustrated portraits and print-ready layout for an on-air radio brand.",["Calendar","Print","Illustration"])}
+      ${imgCard("media/art-gold.jpg","Editorial Illustration","Signature halo-and-botanical portrait illustrations created for calendars, covers, and brand campaigns.",["Illustration","Art Direction"])}
+     </div>`),
 
   "team.html": pageShell("team.html","team.html","Team","The credentialed co-founders behind Millennials Creatives LLC.",
     "Who we are","Four founders. <em>One</em> obsession.","Credentialed co-founders spanning AI engineering, clinical nursing, institutional governance, and public health — a depth no pure creative agency can match.",
