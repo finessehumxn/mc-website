@@ -266,3 +266,6 @@ footer{background:var(--purple2);border-top:3px solid var(--yellow);padding:3rem
 .field input,.field textarea,.field select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 16px;color:var(--white);font-family:var(--ff-body);font-size:15px}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--yellow)}
 .note{color:var(--cream);opacity:.6;font-size:13px;margin-top:12px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-family:var(--ff-mono);font-size:11px;letter-spacing:.05em;color:var(--cream);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:5px 11px}
+.pg-card .tag{background:rgba(255,45,120,.1);border-color:rgba(255,45,120,.35)}

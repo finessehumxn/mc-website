@@ -91,42 +91,61 @@ const pages = {
     </div>`),
 
   "work.html": pageShell("work.html","work.html","Work","Selected work from Millennials Creatives LLC.",
-    "Selected work","Boring in. <em>Iconic</em> out.","A few of the products and brands we have engineered. (Add screenshots and case-study links as you go.)",
+    "Selected work","Boring in. <em>Iconic</em> out.","Products, brands, and visual systems we have engineered — from healthcare AI to packaging and motion design.",
     `<div class="pg-grid">
-      ${card("🩺","MedCompanion AI","A safety-first AI health companion — LangGraph + Claude — that helps patients understand their care and partner with their doctor.")}
-      ${card("🤝","BarterThat","An AI-matched barter marketplace connecting people to trade skills and goods without cash.")}
-      ${card("🧁","Three Wishes Bakery","Full brand identity and web experience for a nurse-owned California bakery.")}
-      ${card("✦","[Your Client]","[Short result-focused blurb — what you did and the outcome.]")}
-      ${card("✦","[Your Client]","[Short result-focused blurb.]")}
-      ${card("✦","[Your Client]","[Short result-focused blurb.]")}
-    </div>
-    <p class="note">Tip: replace the bracketed cards with real projects and add links/images as case studies are ready.</p>`),
+      ${card("🩺","MedCompanion AI","Safety-first AI health platform — LangGraph + Claude — that helps patients understand their care in plain language and partner with their doctor.",`<div class="tagrow"><span class="tag">AI Engineering</span><span class="tag">Healthcare</span></div>`)}
+      ${card("🤝","BarterThat","AI-matched barter marketplace connecting people to trade skills and goods without cash.",`<div class="tagrow"><span class="tag">AI</span><span class="tag">Marketplace</span></div>`)}
+      ${card("🧁","Three Wishes Bakery","Full brand identity and web experience for a nurse-owned California bakery.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Web</span></div>`)}
+      ${card("🌀","Retro Culture Collection","Nostalgia-driven visual collection blending vintage type with modern 3D craft.",`<div class="tagrow"><span class="tag">3D Design</span><span class="tag">Motion</span></div>`)}
+      ${card("✨","Gold Explosion Series","High-impact 3D visual system built around luxury, light, and motion.",`<div class="tagrow"><span class="tag">3D Design</span><span class="tag">Visual Systems</span></div>`)}
+      ${card("📦","Product Visual Identity","Product branding and packaging that makes shelves stop people.",`<div class="tagrow"><span class="tag">Product Branding</span><span class="tag">Packaging</span></div>`)}
+      ${card("💃","The Wendy S Collection","Bold personal brand identity and social presence with a signature look.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Social</span></div>`)}
+      ${card("🎀","Bella High","Playful, premium brand identity and product styling.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Product</span></div>`)}
+      ${card("🎥","We Are Finesse","Content, social, and video building a movement-driven brand presence.",`<div class="tagrow"><span class="tag">Content</span><span class="tag">Video</span></div>`)}
+      ${card("🌿","Fruitful Remedies","Wellness packaging and label design with a clean, natural identity.",`<div class="tagrow"><span class="tag">Packaging</span><span class="tag">Label Design</span></div>`)}
+      ${card("✅","First Choice","Packaging and brand identity built for trust and clarity.",`<div class="tagrow"><span class="tag">Packaging</span><span class="tag">Brand Identity</span></div>`)}
+      ${card("📻","LesTalk Radio","Graphic design and print identity for an on-air brand.",`<div class="tagrow"><span class="tag">Graphic Design</span><span class="tag">Print</span></div>`)}
+    </div>`),
 
   "team.html": pageShell("team.html","team.html","Team","The credentialed co-founders behind Millennials Creatives LLC.",
-    "Who we are","Four founders. <em>One</em> obsession.","Credentialed co-founders across brand, technology, healthcare, and operations. (Replace the placeholders with real names, roles, and bios.)",
+    "Who we are","Four founders. <em>One</em> obsession.","Credentialed co-founders spanning AI engineering, clinical nursing, institutional governance, and public health — a depth no pure creative agency can match.",
     `<div class="pg-grid">
-      ${card("👤","[Co-Founder Name]","[Role — e.g. Creative Director]. [One-line bio / credential.]")}
-      ${card("👤","[Co-Founder Name]","[Role — e.g. Head of AI / Engineering]. [One-line bio.]")}
-      ${card("👤","[Co-Founder Name]","[Role — e.g. Healthcare Lead]. [One-line bio.]")}
-      ${card("👤","[Co-Founder Name]","[Role — e.g. Operations & Contracts]. [One-line bio.]")}
-    </div>
-    <p class="note">Send me the real names, roles, and short bios and I will drop them in.</p>`),
+      ${card("👤","L. Finesse Humxn","<b>Co-Founder · AI Engineer · CEO</b><br>Founder and CEO of Millennials Creatives. AI engineer, brand strategist, and digital infrastructure architect with deep expertise in CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.")}
+      ${card("👤","Jeanie Vatelia","<b>Co-Founder · BSN, RN, PHN</b><br>Registered Nurse and Public Health Nurse with clinical practice, community health program design, and healthcare regulatory compliance experience. Brings clinical credibility no pure consulting firm can match.")}
+      ${card("👤","Londa Rozier-Taylor","<b>Co-Founder · MBA · MS Nonprofit Leadership</b><br>Institutional governance, financial operations, and organizational change management for public-sector and higher-education engagements.")}
+      ${card("👤","Vannessa Rozier-Taylor","<b>Co-Founder · MS Public Health &amp; Safety</b><br>Public-health program evaluation, emergency preparedness, safety systems management, and policy analysis. MC's lead for safety and public-health engagements.")}
+    </div>`),
 
   "government.html": pageShell("government.html","government.html","Government Contracts","Woman-owned, minority-founded, SAM.gov-registered consulting for the public sector.",
     "Public sector","Government <em>ready.</em>","A woman-owned, minority-founded firm registered and ready to deliver for federal, state, and local agencies.",
     `<div class="capgrid">
       <div class="capbox"><div class="k">Status</div><div class="v">Woman-Owned · Minority-Founded</div></div>
       <div class="capbox"><div class="k">SAM.gov</div><div class="v">Registered &amp; Active</div></div>
+      <div class="capbox"><div class="k">UEI</div><div class="v">WBGAAWMD3YE5</div></div>
       <div class="capbox"><div class="k">CAGE Code</div><div class="v">18ZQ0</div></div>
       <div class="capbox"><div class="k">Location</div><div class="v">Phoenix, AZ</div></div>
-      <div class="capbox"><div class="k">UEI</div><div class="v">[Add your UEI]</div></div>
-      <div class="capbox"><div class="k">NAICS</div><div class="v">[Add NAICS codes]</div></div>
+      <div class="capbox"><div class="k">NAICS (Primary)</div><div class="v">541611 · 541613</div></div>
+    </div>
+    <div class="pg-section"><h2>NAICS Codes</h2>
+      <div class="tagrow" style="margin-top:8px">
+        <span class="tag">541611 — Admin & Management Consulting</span>
+        <span class="tag">541613 — Marketing Consulting</span>
+        <span class="tag">541430 — Graphic Design</span>
+        <span class="tag">541519 — IT Consulting</span>
+        <span class="tag">621999 — Healthcare Services</span>
+        <span class="tag">923120 — Public Health Administration</span>
+        <span class="tag">611430 — Professional Development Training</span>
+        <span class="tag">541612 — HR Consulting</span>
+      </div>
     </div>
     <div class="pg-section"><h2>Core Competencies</h2>
       <div class="pg-grid">
         ${card("🎯","Brand & Communications","Public-facing campaigns, identity, and outreach for agencies and programs.")}
         ${card("🤖","AI & Digital Modernization","AI systems, automation, web apps, and accessible digital services.")}
-        ${card("🩺","Health Programs","Health communication, patient-facing tools, and health-equity initiatives.")}
+        ${card("🩺","Health Programs","Health communication, patient-facing tools, and health-equity initiatives — backed by a Registered Nurse co-founder.")}
+        ${card("🛡️","Public Health & Safety","Program evaluation, emergency preparedness, and policy analysis from credentialed public-health leadership.")}
+        ${card("🏛️","Governance & Operations","Institutional governance, financial operations, and organizational change management.")}
+        ${card("🎓","Training & Development","Professional development and workforce training for public-sector teams.")}
       </div>
     </div>
     <div class="pg-section"><h2>Let's work together</h2>
