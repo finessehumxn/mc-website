@@ -161,8 +161,12 @@ const pages = {
         ${card("🎓","Training & Development","Professional development and workforce training for public-sector teams.")}
       </div>
     </div>
-    <div class="pg-section"><h2>Let's work together</h2>
-      <p class="pg-lead">Contracting officers and primes: reach us at <a href="mailto:contact@millennialscreatives.com" style="color:var(--yellow)">contact@millennialscreatives.com</a> for a capability statement.</p>
+    <div class="pg-section"><h2>Capability Statement</h2>
+      <p class="pg-lead">Contracting officers and primes: view or download our full capability statement — company data, NAICS, differentiators, and past performance on one page.</p>
+      <div class="cta-actions" style="margin-top:18px">
+        <a href="capability.html" class="btn-primary" style="background:var(--yellow);color:var(--dark);border:none">View Capability Statement →</a>
+        <a href="mailto:contact@millennialscreatives.com?subject=Capability%20Statement%20Request" class="btn-ghost" style="border-color:var(--yellow);color:var(--yellow)">Request by Email</a>
+      </div>
     </div>`),
 
   "packages.html": pageShell("packages.html","packages.html","Packages","Transparent packages from $5K brand builds to $100K+ government engagements.",
