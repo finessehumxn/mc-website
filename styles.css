@@ -157,7 +157,8 @@ section{padding:6rem 2.5rem}
 
 /* ── CULTURE FEED ── */
 .culture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.culture-card{background:var(--purple2);border:1px solid rgba(255,255,255,.08);overflow:hidden;transition:transform .3s,border-color .3s;cursor:pointer;position:relative}
+.culture-card{background:var(--purple2);border:1px solid rgba(255,255,255,.08);overflow:hidden;transition:transform .3s,border-color .3s;cursor:pointer;position:relative;display:block;text-decoration:none}
+.updated{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);opacity:.8;margin-top:28px}
 .culture-card:hover{transform:translateY(-4px);border-color:var(--yellow)}
 .cc-img{height:180px;background:var(--purple3);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .cc-img-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-size:4rem;opacity:.15}

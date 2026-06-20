@@ -179,16 +179,7 @@ const pages = {
     </div>
     <p class="note">Custom scopes welcome — tell us your goal and budget and we will shape the right package.</p>`),
 
-  "culture.html": pageShell("culture.html","culture.html","Culture","What Millennials Creatives stands for.",
-    "How we move","Built <em>different.</em>","We are a woman-owned, minority-founded studio that treats every brand like it deserves to be iconic — because it does.",
-    `<div class="pg-grid">
-      ${card("🔥","Bold over boring","If it is safe and forgettable, we have not done our job yet.")}
-      ${card("🤝","Partners, not vendors","We sit on your side of the table and own the outcome.")}
-      ${card("🌍","Built for everyone","Representation and accessibility are defaults, not afterthoughts.")}
-      ${card("⚙️","We ship","Strategy is nothing without a thing in the world. We build and launch.")}
-      ${card("📈","Outcomes first","Pretty is the baseline. We are here to move the numbers.")}
-      ${card("💛","Human","Real people, real care — in the work and with each other.")}
-    </div>`),
+  // culture.html is owned by build-culture.cjs (auto-updating news feed) — see that file.
 
   "contact.html": pageShell("contact.html","contact.html","Start a Project","Start a project with Millennials Creatives LLC.",
     "Start a project","Let's make it <em>iconic.</em>","Tell us what you are building. We reply fast.",
@@ -214,5 +205,10 @@ const pages = {
     </script>`),
 };
 
-Object.entries(pages).forEach(([file, html]) => { fs.writeFileSync(file, html); console.log("wrote", file, html.length, "bytes"); });
-console.log("done");
+// Export the shared shell so build-culture.cjs renders the news page identically.
+module.exports = { head, nav, footerScript, card };
+
+if (require.main === module) {
+  Object.entries(pages).forEach(([file, html]) => { fs.writeFileSync(file, html); console.log("wrote", file, html.length, "bytes"); });
+  console.log("done");
+}
