@@ -121,10 +121,10 @@ const pages = {
      </div>`),
 
   "team.html": pageShell("team.html","team.html","Team","The credentialed co-founders behind Millennials Creatives LLC.",
-    "Who we are","Four founders. <em>One</em> obsession.","Credentialed co-founders spanning AI engineering, clinical nursing, institutional governance, and public health — a depth no pure creative agency can match.",
+    "Who we are","Four founders. <em>One</em> obsession.","Credentialed co-founders spanning AI engineering, clinical &amp; legal nursing, institutional governance, and public health — a depth no pure creative agency can match.",
     `<div class="pg-grid">
       ${card("👤","L. Finesse Humxn","<b>Co-Founder · AI Engineer · CEO</b><br>Founder and CEO of Millennials Creatives. AI engineer, brand strategist, and digital infrastructure architect with deep expertise in CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.")}
-      ${card("👤","Jeanie Vatelia","<b>Co-Founder · BSN, RN, PHN</b><br>Registered Nurse and Public Health Nurse with clinical practice, community health program design, and healthcare regulatory compliance experience. Brings clinical credibility no pure consulting firm can match.")}
+      ${card("👤","Jeanie Vatelia","<b>Co-Founder · BSN, RN, PHN, LNC</b><br>Registered Nurse, Public Health Nurse, and Legal Nurse Consultant with clinical practice, community health program design, medical-legal record review, and healthcare regulatory compliance experience. Brings clinical and medical-legal credibility no pure consulting firm can match.")}
       ${card("👤","Londa Rozier-Taylor","<b>Co-Founder · MBA · MS Nonprofit Leadership</b><br>Institutional governance, financial operations, and organizational change management for public-sector and higher-education engagements.")}
       ${card("👤","Vannessa Rozier-Taylor","<b>Co-Founder · MS Public Health &amp; Safety</b><br>Public-health program evaluation, emergency preparedness, safety systems management, and policy analysis. MC's lead for safety and public-health engagements.")}
     </div>`),
@@ -155,7 +155,8 @@ const pages = {
       <div class="pg-grid">
         ${card("🎯","Brand & Communications","Public-facing campaigns, identity, and outreach for agencies and programs.")}
         ${card("🤖","AI & Digital Modernization","AI systems, automation, web apps, and accessible digital services.")}
-        ${card("🩺","Health Programs","Health communication, patient-facing tools, and health-equity initiatives — backed by a Registered Nurse co-founder.")}
+        ${card("🩺","Health Programs","Health communication, patient-facing tools, and health-equity initiatives — backed by a Registered Nurse &amp; Legal Nurse Consultant co-founder.")}
+        ${card("⚖️","Medical-Legal & Compliance","Medical-record review, regulatory compliance, and medical-legal analysis from a credentialed Legal Nurse Consultant.")}
         ${card("🛡️","Public Health & Safety","Program evaluation, emergency preparedness, and policy analysis from credentialed public-health leadership.")}
         ${card("🏛️","Governance & Operations","Institutional governance, financial operations, and organizational change management.")}
         ${card("🎓","Training & Development","Professional development and workforce training for public-sector teams.")}
