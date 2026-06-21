@@ -130,14 +130,33 @@ const pages = {
     </div>`),
 
   "government.html": pageShell("government.html","government.html","Government Contracts","Woman-owned, minority-founded, SAM.gov-registered consulting for the public sector.",
-    "Public sector","Government <em>ready.</em>","A woman-owned, minority-founded firm registered and ready to deliver for federal, state, and local agencies.",
+    "Public sector","Government <em>ready.</em>","A <strong>certified woman-owned, minority-founded</strong> firm (WOSB &middot; MBE/WBE &middot; DBE) — registered federal-to-local and ready to deliver for federal, state, and local agencies.",
     `<div class="capgrid">
       <div class="capbox"><div class="k">Status</div><div class="v">Woman-Owned · Minority-Founded</div></div>
+      <div class="capbox"><div class="k">Certified</div><div class="v">WOSB · MBE/WBE · DBE</div></div>
       <div class="capbox"><div class="k">SAM.gov</div><div class="v">Registered &amp; Active</div></div>
       <div class="capbox"><div class="k">UEI</div><div class="v">WBGAAWMD3YE5</div></div>
       <div class="capbox"><div class="k">CAGE Code</div><div class="v">18ZQ0</div></div>
       <div class="capbox"><div class="k">Location</div><div class="v">Phoenix, AZ</div></div>
-      <div class="capbox"><div class="k">NAICS (Primary)</div><div class="v">541611 · 541613</div></div>
+    </div>
+    <div class="pg-section"><h2>Certifications</h2>
+      <div class="tagrow" style="margin-top:8px">
+        <span class="tag">WOSB / EDWOSB (SBA)</span>
+        <span class="tag">Minority Business Enterprise (MBE/WBE)</span>
+        <span class="tag">Disadvantaged Business Enterprise (DBE)</span>
+      </div>
+      <p class="note">Certification numbers provided in our capability packet and on request.</p>
+    </div>
+    <div class="pg-section"><h2>Registered &amp; Ready — Federal to Local</h2>
+      <div class="tagrow" style="margin-top:8px">
+        <span class="tag">SAM.gov (Federal)</span>
+        <span class="tag">Arizona Procurement Portal (APP)</span>
+        <span class="tag">Maricopa County</span>
+        <span class="tag">City of Phoenix</span>
+        <span class="tag">1GPA Cooperative</span>
+        <span class="tag">Mohave Cooperative</span>
+        <span class="tag">AZ Cooperative (AZCoop)</span>
+      </div>
     </div>
     <div class="pg-section"><h2>NAICS Codes</h2>
       <div class="tagrow" style="margin-top:8px">
@@ -162,8 +181,11 @@ const pages = {
         ${card("🎓","Training & Development","Professional development and workforce training for public-sector teams.")}
       </div>
     </div>
+    <div class="pg-section"><h2>Teaming &amp; Subcontracting</h2>
+      <p class="pg-lead">Available for <strong>prime, subcontract, and teaming</strong> roles. As a certified WOSB/MBE/DBE, we help primes meet small-business and diversity subcontracting goals while delivering brand, AI/digital, healthcare, and public-health work.</p>
+    </div>
     <div class="pg-section"><h2>Capability Statement</h2>
-      <p class="pg-lead">Contracting officers and primes: view or download our full capability statement — company data, NAICS, differentiators, and past performance on one page.</p>
+      <p class="pg-lead">Contracting officers and primes: view or download our full capability statement — company data, certifications, NAICS, differentiators, and relevant experience on one page.</p>
       <div class="cta-actions" style="margin-top:18px">
         <a href="capability.html" class="btn-primary" style="background:var(--yellow);color:var(--dark);border:none">View Capability Statement →</a>
         <a href="mailto:contact@millennialscreatives.com?subject=Capability%20Statement%20Request" class="btn-ghost" style="border-color:var(--yellow);color:var(--yellow)">Request by Email</a>
