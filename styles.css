@@ -165,6 +165,14 @@ section{padding:6rem 2.5rem}
 .blog-card:hover{transform:translateY(-6px);border-color:var(--yellow)}
 .bc-img{height:170px;position:relative;display:flex;align-items:center;justify-content:center}
 .bc-mono{font-family:var(--ff-display);font-size:3.4rem;color:rgba(255,255,255,.9);letter-spacing:2px}
+.bc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s ease}
+.blog-card:hover .bc-photo{transform:scale(1.05)}
+.art-photo .art-hero-name{text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.art-photo .art-hero-brand{text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.art-credit{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.06em;color:rgba(255,255,255,.4);margin:-18px 0 24px;text-align:right}
+.art-credit a{color:rgba(255,255,255,.55)}
+.mc-img img{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:10px}
+.mc-img{overflow:hidden}
 .bc-badge{position:absolute;top:.7rem;left:.7rem;background:rgba(8,8,16,.55);color:#fff;font-family:var(--ff-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .6rem;border-radius:100px;backdrop-filter:blur(4px)}
 .bc-body{padding:1.3rem}
 .bc-date{font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:.5rem}
