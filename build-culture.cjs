@@ -32,6 +32,19 @@ const LOOKS = [
   { grad: "linear-gradient(135deg,#06283d,#1fb6ff)", color: "#7fd6ff",      badge: "background:#1fb6ff;color:#fff" },
 ];
 
+// Publication brand logos (self-hosted; fetched by fetch-news-logos.py)
+const SOURCE_LOGO = {
+  "Entrepreneur": "media/news-logos/entrepreneur.png",
+  "Inc.": "media/news-logos/inc.png",
+  "Fast Company": "media/news-logos/fastcompany.png",
+  "Black Enterprise": "media/news-logos/blackenterprise.png",
+  "Essence": "media/news-logos/essence.png",
+  "Forbes": "media/news-logos/forbes.png",
+  "TechCrunch": "media/news-logos/techcrunch.png",
+  "VentureBeat": "media/news-logos/venturebeat.png",
+  "The Story Exchange": "media/news-logos/thestoryexchange.png",
+};
+
 const decode = (s = "") => s
   .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
   .replace(/<[^>]+>/g, "")
@@ -85,9 +98,12 @@ function pickDiverse(all, n) {
 
 function cardHTML(item, idx, extraClass = "") {
   const look = LOOKS[idx % LOOKS.length];
-  const big = esc(item.source.split(" ")[0]);
+  const logo = SOURCE_LOGO[item.source];
+  const art = logo
+    ? `<div class="cc-img" style="background:${look.grad}"><span class="cc-logo-wrap"><img class="cc-logo" src="${logo}" alt="${esc(item.source)}" loading="lazy"></span></div>`
+    : `<div class="cc-img" style="background:${look.grad}"><div class="cc-img-bg" style="color:${look.color}">${esc(item.source.split(" ")[0])}</div><span class="cc-badge" style="${look.badge}">${esc(item.source)}</span></div>`;
   return `<a class="culture-card${extraClass}" href="${esc(item.link)}" target="_blank" rel="noopener">
-        <div class="cc-img" style="background:${look.grad}"><div class="cc-img-bg" style="color:${look.color}">${big}</div><span class="cc-badge" style="${look.badge}">${esc(item.source)}</span></div>
+        ${art}
         <div class="cc-body">
           <div class="cc-source">${esc(item.source)}${item.date ? " · " + esc(fmtDate(item.date)) : ""}</div>
           <div class="cc-title">${esc(truncate(item.title, 110))}</div>
