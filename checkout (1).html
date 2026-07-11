@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout — Millennials Creatives LLC</title>
+<meta name="description" content="Secure checkout — Millennials Creatives LLC digital products.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.co-wrap{max-width:560px;margin:0 auto}
+.co-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);padding:2rem;margin-top:2rem}
+.co-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.co-name{font-family:var(--ff-head);font-weight:700;font-size:1.05rem}
+.co-desc{color:rgba(255,255,255,.6);font-size:.9rem;margin-top:.5rem;line-height:1.5}
+.co-price{font-family:var(--ff-display);font-size:2rem;color:var(--yellow);white-space:nowrap}
+.co-pay{display:block;width:100%;margin-top:1.75rem;background:var(--pink);color:var(--white);padding:1rem;text-align:center;font-family:var(--ff-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer}
+.co-pay.yellow{background:var(--yellow);color:var(--dark);font-weight:700}
+.co-secure{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:1rem;font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.co-back{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
+<nav id="nav">
+  <a class="nav-logo" href="index.html" style="text-decoration:none">
+    <img src="mc-logo.jpeg" alt="Millennials Creatives Logo">
+    <span class="nav-logo-text">MC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="services.html">Services</a></li><li><a href="team.html">Team</a></li>
+    <li><a href="government.html">Gov</a></li><li><a href="packages.html">Packages</a></li>
+    <li><a href="shop.html" style="color:var(--yellow);font-weight:600">Shop</a></li>
+    <li><a href="blog.html">Blog</a></li><li><a href="culture.html">Culture</a></li>
+    <li><a href="contact.html" class="nav-cta">Start a Project</a></li>
+  </ul>
+  <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-x" id="mobX">CLOSE ✕</button>
+  <a href="work.html" onclick="cm()">Work</a><a href="services.html" onclick="cm()">Services</a><a href="team.html" onclick="cm()">Team</a>
+  <a href="government.html" onclick="cm()">Gov Contracts</a><a href="packages.html" onclick="cm()">Packages</a>
+  <a href="shop.html" onclick="cm()" style="color:var(--yellow)">Shop</a>
+  <a href="blog.html" onclick="cm()">Blog</a><a href="culture.html" onclick="cm()">Culture</a>
+  <a href="contact.html" onclick="cm()">Start a Project</a>
+</div>
+<main class="pg">
+  <div class="co-wrap">
+    <a href="shop.html" class="co-back">← Back to Shop</a>
+    <div class="pg-eyebrow" style="margin-top:1.5rem">Secure checkout</div>
+    <h1 class="pg-h1" style="font-size:clamp(2rem,5vw,3rem)">Almost <em>yours.</em></h1>
+    <div class="co-card" id="coCard">
+      <div class="co-row">
+        <div>
+          <span class="ic" id="coIcon" style="font-size:1.6rem">🛒</span>
+          <div class="co-name" id="coName">Loading…</div>
+          <div class="co-desc" id="coDesc"></div>
+        </div>
+        <div class="co-price" id="coPrice"></div>
+      </div>
+      <a class="co-pay" id="coPay" href="#">Pay Securely with Stripe →</a>
+      <div class="co-secure">🔒 Payments processed by Stripe · Card, Apple Pay, Google Pay</div>
+    </div>
+    <p class="note" style="margin-top:1.5rem">Instant delivery to your email after payment. Questions? <a href="mailto:contact@millennialscreatives.com" style="color:var(--yellow)">contact@millennialscreatives.com</a></p>
+  </div>
+</main>
+<footer>
+  <div class="footer-in">
+    <div class="f-logo"><img src="mc-logo.jpeg" alt="MC Logo"></div>
+    <div class="f-links">
+      <a href="work.html">Work</a><a href="services.html">Services</a>
+      <a href="team.html">Team</a><a href="government.html">Government</a>
+      <a href="packages.html">Packages</a><a href="shop.html">Shop</a><a href="blog.html">Blog</a><a href="culture.html">Culture</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="f-meta">© 2026 Millennials Creatives LLC<br>Phoenix AZ · Woman-Owned<br>CAGE 18ZQ0 · UEI WBGAAWMD3YE5 · SAM Registered<br><a href="https://instagram.com/millennials.creatives" style="color:var(--yellow)">@millennials.creatives</a> · <a href="https://twitter.com/MillenialsCr8" style="color:var(--yellow)">@MillenialsCr8</a></div>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   PRODUCT CONFIG
+   paymentLink: paste each product's Stripe Payment Link URL
+   (Stripe Dashboard → Product catalog → Payment Links → New)
+   The page works the moment the links are filled in.
+   ============================================================ */
+const PRODUCTS={
+  govcontract:{
+    name:"Win Your First Gov Contract",icon:"📋",price:"$97",
+    desc:"Everything MC learned submitting $1M+ in bids — Arizona APP portal, SAM.gov, proposals, pricing.",
+    paymentLink:"PASTE_STRIPE_PAYMENT_LINK_GOVCONTRACT"
+  },
+  llckit:{
+    name:"LLC Legal Document Kit",icon:"⚖️",price:"$127",
+    desc:"20 documents attorneys charge $3K–$5K for. Plain-language explanations included. Instant download.",
+    paymentLink:"PASTE_STRIPE_PAYMENT_LINK_LLCKIT"
+  },
+  aiwebinar:{
+    name:"AI Tools for Small Business",icon:"🤖",price:"$47",
+    desc:"60-min masterclass on using Claude, ChatGPT, and AI automation to write proposals and save 10+ hrs/week.",
+    paymentLink:"PASTE_STRIPE_PAYMENT_LINK_AIWEBINAR"
+  },
+  bundle:{
+    name:"Small Business Starter Bundle",icon:"🎯",price:"$197",
+    desc:"All three guides + AI webinar + bonus templates. Save $74 vs buying separate.",
+    paymentLink:"PASTE_STRIPE_PAYMENT_LINK_BUNDLE",highlight:true
+  }
+};
+
+const p=new URLSearchParams(location.search).get("p");
+const prod=PRODUCTS[p];
+const payBtn=document.getElementById("coPay");
+if(prod){
+  document.title=prod.name+" — Checkout — Millennials Creatives LLC";
+  document.getElementById("coIcon").textContent=prod.icon;
+  document.getElementById("coName").textContent=prod.name;
+  document.getElementById("coDesc").textContent=prod.desc;
+  document.getElementById("coPrice").textContent=prod.price;
+  if(prod.highlight)payBtn.classList.add("yellow");
+  if(prod.paymentLink&&!prod.paymentLink.startsWith("PASTE_")){
+    payBtn.href=prod.paymentLink;
+  }else{
+    /* Fallback until payment links are configured: route to email order */
+    payBtn.textContent="Order by Email →";
+    payBtn.href="mailto:contact@millennialscreatives.com?subject="+encodeURIComponent("Order: "+prod.name+" ("+prod.price+")")+"&body="+encodeURIComponent("I'd like to purchase "+prod.name+" for "+prod.price+". Please send me an invoice.");
+  }
+}else{
+  document.getElementById("coName").textContent="Product not found";
+  document.getElementById("coDesc").textContent="That product link looks off. Head back to the shop to browse everything.";
+  payBtn.textContent="Browse the Shop →";
+  payBtn.href="shop.html";
+}
+
+document.getElementById('ham').onclick=()=>document.getElementById('mob').classList.add('open');
+document.getElementById('mobX').onclick=()=>document.getElementById('mob').classList.remove('open');
+function cm(){document.getElementById('mob').classList.remove('open')}
+const navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>{if(window.scrollY>60)navEl.classList.add('stuck');else navEl.classList.remove('stuck')});
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+if(cur){document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);});
+document.querySelectorAll('a,button,.pg-card,.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
+</script>
+</body></html>
