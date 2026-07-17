@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Law-School Dropout Who Sold a Lifestyle in a T-Shirt — MC Blog — Millennials Creatives LLC</title>
+<title>The Law-School Dropout Who Sold a Lifestyle in a T-Shirt, MC Blog, Millennials Creatives LLC</title>
 <meta name="description" content="Bobby Hundreds blogged, sketched, and storytold his way into streetwear royalty, one Adam Bomb at a time.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -64,6 +64,6 @@ const navEl=document.getElementById('nav');
 window.addEventListener('scroll',()=>{if(window.scrollY>60)navEl.classList.add('stuck');else navEl.classList.remove('stuck')});
 const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
 if(cur){document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);});
-document.querySelectorAll('a,button,.pg-card,.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
+document.querySelectorAll('a,button.pg-card.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
 </script>
 </body></html>

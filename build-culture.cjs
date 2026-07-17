@@ -51,7 +51,7 @@ const decode = (s = "") => s
   .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
   .replace(/&quot;/g, '"').replace(/&#0?39;|&apos;|&rsquo;|&#8217;/g, "'")
   .replace(/&#8216;/g, "'").replace(/&#8220;|&#8221;|&ldquo;|&rdquo;/g, '"')
-  .replace(/&hellip;|&#8230;/g, "…").replace(/&mdash;|&#8212;/g, "—")
+  .replace(/&hellip;|&#8230;/g, "…").replace(/, |&#8212;/g, ", ")
   .replace(/&nbsp;/g, " ").replace(/&[a-z]+;/gi, " ")
   .replace(/\s+/g, " ").trim();
 
@@ -122,7 +122,7 @@ function cardHTML(item, idx, extraClass = "") {
   all = all.filter(x => { const k = x.title.toLowerCase().slice(0, 60); if (seen.has(k)) return false; seen.add(k); return true; });
   console.log("Collected", all.length, "unique articles");
 
-  if (all.length < 4) { console.log("Too few articles fetched — leaving existing content untouched."); process.exit(0); }
+  if (all.length < 4) { console.log("Too few articles fetched, leaving existing content untouched."); process.exit(0); }
 
   const feed = pickDiverse(all, 9);
   const homeThree = feed.slice(0, 3);
@@ -144,7 +144,7 @@ function cardHTML(item, idx, extraClass = "") {
             "03|Built for everyone|Representation and accessibility are defaults, not afterthoughts.",
             "04|We ship|Strategy is nothing without a thing in the world. We build and launch.",
             "05|Outcomes first|Pretty is the baseline. We are here to move the numbers.",
-            "06|Human|Real people, real care — in the work and with each other."]
+            "06|Human|Real people, real care, in the work and with each other."]
           .map(v => { const [ic,h,p] = v.split("|"); return `<div class="pg-card"><span class="ic">${ic}</span><h3>${h}</h3><p>${p}</p></div>`; }).join("\n        ")}
       </div>
     </div>`;
@@ -157,7 +157,7 @@ function cardHTML(item, idx, extraClass = "") {
 
   const page = head("Culture & Inspiration", "The latest on millennial & Gen-Z entrepreneurs, women-owned business, and the culture shift Millennials Creatives operates in.") +
     nav("culture.html") +
-    `<main class="pg"><div class="pg-eyebrow">Culture &amp; Inspiration</div><h1 class="pg-h1">The founders <em>crushing the game.</em></h1><p class="pg-lead">Millennial &amp; Gen-Z entrepreneurs, women-owned business, and the publications documenting the shift — refreshed every day. This is the world we operate in, and the company we keep.</p>${body}</main>` +
+    `<main class="pg"><div class="pg-eyebrow">Culture &amp; Inspiration</div><h1 class="pg-h1">The founders <em>crushing the game.</em></h1><p class="pg-lead">Millennial &amp; Gen-Z entrepreneurs, women-owned business, and the publications documenting the shift, refreshed every day. This is the world we operate in, and the company we keep.</p>${body}</main>` +
     footerScript;
   fs.writeFileSync("culture.html", page);
   console.log("Built culture.html feed (" + feed.length + " articles)");

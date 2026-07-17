@@ -25,7 +25,7 @@ const initials = (name) => name.split(/\s+/).map(w => w[0]).join("").slice(0, 2)
 const credits = fs.existsSync("media/blog/credits.json") ? JSON.parse(fs.readFileSync("media/blog/credits.json", "utf8")) : {};
 const photoOf = (slug) => fs.existsSync(`media/blog/${slug}.jpg`) ? `media/blog/${slug}.jpg` : null;
 
-// "today" — posts dated in the future stay unpublished until their date arrives.
+// "today", posts dated in the future stay unpublished until their date arrives.
 // Override for testing with BLOG_TODAY=YYYY-MM-DD. The weekly action re-runs and surfaces the next post.
 const TODAY = (process.env.BLOG_TODAY || new Date().toISOString().slice(0, 10));
 
@@ -51,7 +51,7 @@ function heroBlock(p) {
   const ph = photoOf(p.slug), cr = credits[p.slug];
   const label = `<span class="art-hero-name">${esc(p.name)}</span><span class="art-hero-brand">${esc(p.brand)}</span>`;
   if (!ph) return `<div class="art-hero" style="background:${GRADS[p.accent]}">${label}</div>`;
-  const style = `background-image:linear-gradient(180deg,rgba(8,8,16,.2),rgba(8,8,16,.8)),url(${ph})`;
+  const style = `background-image:linear-gradient(180deg,rgba(8,8,16.2),rgba(8,8,16.8)),url(${ph})`;
   let credit = "";
   if (cr) {
     const lic = cr.license && !/commons$/i.test(cr.license) ? " · " + esc(cr.license) : "";
@@ -73,7 +73,7 @@ function articlePage(p, prev, next) {
   const more = [prev, next].filter(Boolean).map(o =>
     `<a class="more-card" href="blog-${o.slug}.html">${moreImg(o)}<div><div class="mc-cat">${esc(o.industry)}</div><div class="mc-t">${esc(o.title)}</div></div></a>`
   ).join("");
-  const body = head(p.title + " — MC Blog", p.dek) + nav("blog.html") +
+  const body = head(p.title + ", MC Blog", p.dek) + nav("blog.html") +
     `<main class="article">
   <a class="art-back" href="blog.html">← All stories</a>
   <div class="art-meta"><span class="art-cat">${esc(p.industry)}</span><span>·</span><time>${fmtDate(p.date)}</time><span>·</span><span>${esc(p.readtime || "5 min read")}</span></div>
@@ -103,12 +103,12 @@ const cards = posts.map(p =>
     </a>`
 ).join("\n      ");
 
-const indexPage = head("Blog — Money, Creativity & Culture", "Fun, pop-culture profiles of the millennial & Gen-Z millionaires and billionaires building the most creative brands on the planet.") +
+const indexPage = head("Blog, Money, Creativity & Culture", "Fun, pop-culture profiles of the millennial & Gen-Z millionaires and billionaires building the most creative brands on the planet.") +
   nav("blog.html") +
   `<main class="pg">
     <div class="pg-eyebrow">The Blog</div>
     <h1 class="pg-h1">Money, creativity &amp; <em>culture.</em></h1>
-    <p class="pg-lead">A weekly drop on the millennial &amp; Gen-Z millionaires and billionaires turning wild ideas into empires — the products, the websites, the brand worlds, and the come-up stories behind them. No boring business-school energy. Just the good stuff.</p>
+    <p class="pg-lead">A weekly drop on the millennial &amp; Gen-Z millionaires and billionaires turning wild ideas into empires, the products, the websites, the brand worlds, and the come-up stories behind them. No boring business-school energy. Just the good stuff.</p>
     <div class="blog-grid">
       ${cards}
     </div>

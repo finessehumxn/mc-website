@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Team — Millennials Creatives LLC</title>
+<title>Team, Millennials Creatives LLC</title>
 <meta name="description" content="The credentialed co-founders behind Millennials Creatives LLC.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -26,12 +26,12 @@
   <a href="work.html" onclick="cm()">Work</a><a href="services.html" onclick="cm()">Services</a><a href="team.html" onclick="cm()">Team</a>
   <a href="government.html" onclick="cm()">Gov Contracts</a><a href="packages.html" onclick="cm()">Packages</a><a href="blog.html" onclick="cm()">Blog</a><a href="culture.html" onclick="cm()">Culture</a>
   <a href="contact.html" onclick="cm()">Start a Project</a>
-</div><main class="pg"><div class="pg-eyebrow">Who we are</div><h1 class="pg-h1">Four founders. <em>One</em> obsession.</h1><p class="pg-lead">Credentialed co-founders spanning AI engineering, clinical &amp; legal nursing, institutional governance, and public health — a depth no pure creative agency can match.</p><div class="pg-grid">
-      <div class="pg-card"><span class="ic">Team</span><h3>Built by a collective</h3><p>A group of leaders from technology, healthcare, business, and public health &amp; safety came together to build something new of its kind — a woman-led, minority-owned firm that ships its own products and delivers for clients and government with the same hands.</p></div>
-      <div class="pg-card"><span class="ic">Tech</span><h3>Technology &amp; AI</h3><p><b>CEO · AI Engineer</b><br>AI systems architecture, brand strategy, and digital infrastructure — CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.</p></div>
-      <div class="pg-card"><span class="ic">Clinical</span><h3>Clinical Healthcare</h3><p><b>BSN, RN, PHN, LNC</b><br>Registered Nurse, Public Health Nurse, and Legal Nurse Consultant — clinical practice, community health program design, medical-legal record review, and healthcare regulatory compliance. Clinical credibility no pure consulting firm can match.</p></div>
+</div><main class="pg"><div class="pg-eyebrow">Who we are</div><h1 class="pg-h1">Four founders. <em>One</em> obsession.</h1><p class="pg-lead">Credentialed co-founders spanning AI engineering, clinical &amp; legal nursing, institutional governance, and public health, a depth no pure creative agency can match.</p><div class="pg-grid">
+      <div class="pg-card"><span class="ic">Team</span><h3>Built by a collective</h3><p>A group of leaders from technology, healthcare, business, and public health &amp; safety came together to build something new of its kind, a woman-led, minority-owned firm that ships its own products and delivers for clients and government with the same hands.</p></div>
+      <div class="pg-card"><span class="ic">Tech</span><h3>Technology &amp; AI</h3><p><b>CEO · AI Engineer</b><br>AI systems architecture, brand strategy, and digital infrastructure, CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.</p></div>
+      <div class="pg-card"><span class="ic">Clinical</span><h3>Clinical Healthcare</h3><p><b>BSN, RN, PHN, LNC</b><br>Registered Nurse, Public Health Nurse, and Legal Nurse Consultant, clinical practice, community health program design, medical-legal record review, and healthcare regulatory compliance. Clinical credibility no pure consulting firm can match.</p></div>
       <div class="pg-card"><span class="ic">Business</span><h3>Business &amp; Governance</h3><p><b>MBA · MS Nonprofit Leadership</b><br>Institutional governance, financial operations, and organizational change management for public-sector and higher-education engagements.</p></div>
-      <div class="pg-card"><span class="ic">Safety</span><h3>Public Health &amp; Safety</h3><p><b>MS Public Health &amp; Safety</b><br>Program evaluation, emergency preparedness, safety systems management, and policy analysis — MC's lead discipline for safety and public-health engagements.</p></div>
+      <div class="pg-card"><span class="ic">Safety</span><h3>Public Health &amp; Safety</h3><p><b>MS Public Health &amp; Safety</b><br>Program evaluation, emergency preparedness, safety systems management, and policy analysis, MC's lead discipline for safety and public-health engagements.</p></div>
     </div></main>
 <div class="cta-band">
   <div class="cta-h">READY TO<br>GO FROM BORING<br>TO ICONIC?</div>
@@ -60,6 +60,6 @@ const navEl=document.getElementById('nav');
 window.addEventListener('scroll',()=>{if(window.scrollY>60)navEl.classList.add('stuck');else navEl.classList.remove('stuck')});
 const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
 if(cur){document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);});
-document.querySelectorAll('a,button,.pg-card,.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
+document.querySelectorAll('a,button.pg-card.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
 </script>
 </body></html>

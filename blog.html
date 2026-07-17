@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog — Money, Creativity & Culture — Millennials Creatives LLC</title>
+<title>Blog, Money, Creativity & Culture, Millennials Creatives LLC</title>
 <meta name="description" content="Fun, pop-culture profiles of the millennial & Gen-Z millionaires and billionaires building the most creative brands on the planet.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -29,7 +29,7 @@
 </div><main class="pg">
     <div class="pg-eyebrow">The Blog</div>
     <h1 class="pg-h1">Money, creativity &amp; <em>culture.</em></h1>
-    <p class="pg-lead">A weekly drop on the millennial &amp; Gen-Z millionaires and billionaires turning wild ideas into empires — the products, the websites, the brand worlds, and the come-up stories behind them. No boring business-school energy. Just the good stuff.</p>
+    <p class="pg-lead">A weekly drop on the millennial &amp; Gen-Z millionaires and billionaires turning wild ideas into empires, the products, the websites, the brand worlds, and the come-up stories behind them. No boring business-school energy. Just the good stuff.</p>
     <div class="blog-grid">
       <a class="blog-card" href="blog-tyler-the-creator-golf-wang.html">
       <div class="bc-img"><img class="bc-photo" src="media/blog/tyler-the-creator-golf-wang.jpg" loading="lazy" alt="Tyler, the Creator"><span class="bc-badge">Fashion &amp; Music</span></div>
@@ -162,7 +162,7 @@
       <div class="bc-body">
         <div class="bc-date">April 9, 2026 · 5 min read</div>
         <div class="bc-title">From Mall Counter to Makeup Mogul</div>
-        <div class="bc-dek">He preached that makeup has no gender or size — then built a beauty brand that put its money where its mantra is.</div>
+        <div class="bc-dek">He preached that makeup has no gender or size, then built a beauty brand that put its money where its mantra is.</div>
         <div class="bc-read">Read story</div>
       </div>
     </a>
@@ -180,7 +180,7 @@
       <div class="bc-body">
         <div class="bc-date">March 26, 2026 · 5 min read</div>
         <div class="bc-title">The Kid Who Gamified Generosity Into an Empire</div>
-        <div class="bc-dek">He gives away cars, islands, and fortunes on camera — and somehow that math made him a mogul.</div>
+        <div class="bc-dek">He gives away cars, islands, and fortunes on camera, and somehow that math made him a mogul.</div>
         <div class="bc-read">Read story</div>
       </div>
     </a>
@@ -321,6 +321,6 @@ const navEl=document.getElementById('nav');
 window.addEventListener('scroll',()=>{if(window.scrollY>60)navEl.classList.add('stuck');else navEl.classList.remove('stuck')});
 const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
 if(cur){document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);});
-document.querySelectorAll('a,button,.pg-card,.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
+document.querySelectorAll('a,button.pg-card.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
 </script>
 </body></html>

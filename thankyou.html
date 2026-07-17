@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Your Download — Millennials Creatives LLC</title>
+<title>Your Download, Millennials Creatives LLC</title>
 <meta name="robots" content="noindex,nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -11,7 +11,7 @@
 <main class="pg" style="max-width:620px;margin:0 auto">
   <div class="pg-eyebrow">Payment received</div>
   <h1 class="pg-h1" style="font-size:clamp(2rem,5vw,3rem)">It's <em>yours.</em></h1>
-  <p class="pg-lead">Thank you for your purchase! Your downloads are below — save them somewhere safe. A receipt from Stripe is on its way to your email.</p>
+  <p class="pg-lead">Thank you for your purchase! Your downloads are below, save them somewhere safe. A receipt from Stripe is on its way to your email.</p>
   <div id="dl" style="margin-top:2rem"></div>
   <p class="note" style="margin-top:2rem">Problems with your download? Email <a href="mailto:contact@millennialscreatives.com" style="color:var(--yellow)">contact@millennialscreatives.com</a> with your receipt and we'll take care of you same-day.</p>
 </main>
@@ -19,10 +19,10 @@
 const FILES={
   govcontract:[["Win Your First Government Contract (PDF)","win-your-first-gov-contract.pdf"]],
   llckit:[["LLC Legal Document Kit","llc-legal-document-kit.zip"]],
-  aiwebinar:[["AI Tools for Small Business — Masterclass Pack","ai-tools-masterclass.zip"]],
+  aiwebinar:[["AI Tools for Small Business, Masterclass Pack","ai-tools-masterclass.zip"]],
   bundle:[["Win Your First Government Contract (PDF)","win-your-first-gov-contract.pdf"],
           ["LLC Legal Document Kit","llc-legal-document-kit.zip"],
-          ["AI Tools for Small Business — Masterclass Pack","ai-tools-masterclass.zip"]]
+          ["AI Tools for Small Business, Masterclass Pack","ai-tools-masterclass.zip"]]
 };
 const p=new URLSearchParams(location.search).get("p");
 const items=FILES[p]||Object.values(FILES).flat().filter((v,i,a)=>a.findIndex(x=>x[1]===v[1])===i);
