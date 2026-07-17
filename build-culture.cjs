@@ -139,12 +139,12 @@ function cardHTML(item, idx, extraClass = "") {
   const grid = feed.map((it, i) => cardHTML(it, i)).join("\n      ");
   const values = `<div class="pg-section"><h2>What we stand for</h2>
       <div class="pg-grid">
-        ${["🔥|Bold over boring|If it is safe and forgettable, we have not done our job yet.",
-            "🤝|Partners, not vendors|We sit on your side of the table and own the outcome.",
-            "🌍|Built for everyone|Representation and accessibility are defaults, not afterthoughts.",
-            "⚙️|We ship|Strategy is nothing without a thing in the world. We build and launch.",
-            "📈|Outcomes first|Pretty is the baseline. We are here to move the numbers.",
-            "💛|Human|Real people, real care — in the work and with each other."]
+        ${["01|Bold over boring|If it is safe and forgettable, we have not done our job yet.",
+            "02|Partners, not vendors|We sit on your side of the table and own the outcome.",
+            "03|Built for everyone|Representation and accessibility are defaults, not afterthoughts.",
+            "04|We ship|Strategy is nothing without a thing in the world. We build and launch.",
+            "05|Outcomes first|Pretty is the baseline. We are here to move the numbers.",
+            "06|Human|Real people, real care — in the work and with each other."]
           .map(v => { const [ic,h,p] = v.split("|"); return `<div class="pg-card"><span class="ic">${ic}</span><h3>${h}</h3><p>${p}</p></div>`; }).join("\n        ")}
       </div>
     </div>`;

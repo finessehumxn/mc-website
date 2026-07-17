@@ -83,12 +83,12 @@ const pages = {
   "services.html": pageShell("services.html","services.html","Services","Brand strategy, AI systems, healthcare consulting, and government contracting.",
     "What we do","We do the <em>whole</em> transformation.","Four credentialed co-founders covering brand, technology, healthcare, and government — so you do not need five different agencies.",
     `<div class="pg-grid">
-      ${card("🎯","Brand Strategy & Identity","Positioning, naming, identity systems, and the story that makes you impossible to ignore.")}
-      ${card("🤖","AI Systems & Engineering","Custom AI products, automation, and full-stack builds — from prototype to launched app.")}
-      ${card("🩺","Healthcare Consulting","Health-tech strategy, clinical-aware product design, and compliance-minded builds.")}
-      ${card("🏛️","Government Contracting","Capability statements, SAM.gov-ready proposals, and delivery for public-sector work.")}
-      ${card("🌐","Web & Digital","High-converting sites, web apps, and PWAs engineered to perform.")}
-      ${card("🎬","Content & Creative","Campaigns, video, and content that turns attention into action.")}
+      ${card("Brand","Brand Strategy & Identity","Positioning, naming, identity systems, and the story that makes you impossible to ignore.")}
+      ${card("AI","AI Systems & Engineering","Custom AI products, automation, and full-stack builds — from prototype to launched app.")}
+      ${card("Health","Healthcare Consulting","Health-tech strategy, clinical-aware product design, and compliance-minded builds.")}
+      ${card("Gov","Government Contracting","Capability statements, SAM.gov-ready proposals, and delivery for public-sector work.")}
+      ${card("Web","Web & Digital","High-converting sites, web apps, and PWAs engineered to perform.")}
+      ${card("Media","Content & Creative","Campaigns, video, and content that turns attention into action.")}
     </div>`),
 
   "work.html": pageShell("work.html","work.html","Work","Selected client work from Millennials Creatives LLC — branding, packaging, AI products, and editorial design.",
@@ -100,9 +100,9 @@ const pages = {
 
      <h2 class="work-cat">AI &amp; Software</h2>
      <div class="pg-grid">
-      ${card("🩺","MedCompanion AI","Safety-first AI health platform — LangGraph + Claude — that helps patients understand their care in plain language and partner with their doctor.",`<div class="tagrow"><span class="tag">AI Engineering</span><span class="tag">Healthcare</span></div>`)}
-      ${card("🤝","BarterThat","AI-matched barter marketplace connecting people to trade skills and goods without cash.",`<div class="tagrow"><span class="tag">AI</span><span class="tag">Marketplace</span></div>`)}
-      ${card("🧁","Three Wishes Bakery","Full brand identity and web experience for a nurse-owned California bakery.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Web</span></div>`)}
+      ${card("AI","MedCompanion AI","Safety-first AI health platform — LangGraph + Claude — that helps patients understand their care in plain language and partner with their doctor.",`<div class="tagrow"><span class="tag">AI Engineering</span><span class="tag">Healthcare</span></div>`)}
+      ${card("App","BarterThat","AI-matched barter marketplace connecting people to trade skills and goods without cash.",`<div class="tagrow"><span class="tag">AI</span><span class="tag">Marketplace</span></div>`)}
+      ${card("Client","Three Wishes Bakery","Full brand identity and web experience for a nurse-owned California bakery.",`<div class="tagrow"><span class="tag">Brand Identity</span><span class="tag">Web</span></div>`)}
      </div>
 
      <h2 class="work-cat">Branding &amp; Packaging</h2>
@@ -123,10 +123,10 @@ const pages = {
   "team.html": pageShell("team.html","team.html","Team","The credentialed co-founders behind Millennials Creatives LLC.",
     "Who we are","Four founders. <em>One</em> obsession.","Credentialed co-founders spanning AI engineering, clinical &amp; legal nursing, institutional governance, and public health — a depth no pure creative agency can match.",
     `<div class="pg-grid">
-      ${card("👤","L. Finesse Humxn","<b>Co-Founder · AI Engineer · CEO</b><br>Founder and CEO of Millennials Creatives. AI engineer, brand strategist, and digital infrastructure architect with deep expertise in CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.")}
-      ${card("👤","Jeanie Vatelia","<b>Co-Founder · BSN, RN, PHN, LNC</b><br>Registered Nurse, Public Health Nurse, and Legal Nurse Consultant with clinical practice, community health program design, medical-legal record review, and healthcare regulatory compliance experience. Brings clinical and medical-legal credibility no pure consulting firm can match.")}
-      ${card("👤","Londa Rozier-Taylor","<b>Co-Founder · MBA · MS Nonprofit Leadership</b><br>Institutional governance, financial operations, and organizational change management for public-sector and higher-education engagements.")}
-      ${card("👤","Vannessa Rozier-Taylor","<b>Co-Founder · MS Public Health &amp; Safety</b><br>Public-health program evaluation, emergency preparedness, safety systems management, and policy analysis. MC's lead for safety and public-health engagements.")}
+      ${card("Team","L. Finesse Humxn","<b>Co-Founder · AI Engineer · CEO</b><br>Founder and CEO of Millennials Creatives. AI engineer, brand strategist, and digital infrastructure architect with deep expertise in CRM systems, automation, and government consulting. Leads all client-facing engagements and proposal development.")}
+      ${card("Team","Jeanie Vatelia","<b>Co-Founder · BSN, RN, PHN, LNC</b><br>Registered Nurse, Public Health Nurse, and Legal Nurse Consultant with clinical practice, community health program design, medical-legal record review, and healthcare regulatory compliance experience. Brings clinical and medical-legal credibility no pure consulting firm can match.")}
+      ${card("Team","Londa Rozier-Taylor","<b>Co-Founder · MBA · MS Nonprofit Leadership</b><br>Institutional governance, financial operations, and organizational change management for public-sector and higher-education engagements.")}
+      ${card("Team","Vannessa Rozier-Taylor","<b>Co-Founder · MS Public Health &amp; Safety</b><br>Public-health program evaluation, emergency preparedness, safety systems management, and policy analysis. MC's lead for safety and public-health engagements.")}
     </div>`),
 
   "government.html": pageShell("government.html","government.html","Government Contracts","Woman-owned, minority-founded, SAM.gov-registered consulting for the public sector.",
@@ -172,13 +172,13 @@ const pages = {
     </div>
     <div class="pg-section"><h2>Core Competencies</h2>
       <div class="pg-grid">
-        ${card("🎯","Brand & Communications","Public-facing campaigns, identity, and outreach for agencies and programs.")}
-        ${card("🤖","AI & Digital Modernization","AI systems, automation, web apps, and accessible digital services.")}
-        ${card("🩺","Health Programs","Health communication, patient-facing tools, and health-equity initiatives — backed by a Registered Nurse &amp; Legal Nurse Consultant co-founder.")}
-        ${card("⚖️","Medical-Legal & Compliance","Medical-record review, regulatory compliance, and medical-legal analysis from a credentialed Legal Nurse Consultant.")}
-        ${card("🛡️","Public Health & Safety","Program evaluation, emergency preparedness, and policy analysis from credentialed public-health leadership.")}
-        ${card("🏛️","Governance & Operations","Institutional governance, financial operations, and organizational change management.")}
-        ${card("🎓","Training & Development","Professional development and workforce training for public-sector teams.")}
+        ${card("Brand","Brand & Communications","Public-facing campaigns, identity, and outreach for agencies and programs.")}
+        ${card("AI","AI & Digital Modernization","AI systems, automation, web apps, and accessible digital services.")}
+        ${card("Health","Health Programs","Health communication, patient-facing tools, and health-equity initiatives — backed by a Registered Nurse &amp; Legal Nurse Consultant co-founder.")}
+        ${card("Legal","Medical-Legal & Compliance","Medical-record review, regulatory compliance, and medical-legal analysis from a credentialed Legal Nurse Consultant.")}
+        ${card("Safety","Public Health & Safety","Program evaluation, emergency preparedness, and policy analysis from credentialed public-health leadership.")}
+        ${card("Gov","Governance & Operations","Institutional governance, financial operations, and organizational change management.")}
+        ${card("Training","Training & Development","Professional development and workforce training for public-sector teams.")}
       </div>
     </div>
     <div class="pg-section"><h2>Teaming &amp; Subcontracting</h2>
@@ -196,10 +196,10 @@ const pages = {
   "packages.html": pageShell("packages.html","packages.html","Packages","Transparent packages from $5K brand builds to $100K+ government engagements.",
     "Packages & pricing","Pick your <em>level</em>.","From a fast brand spark to full government delivery — clear scopes, no mystery pricing.",
     `<div class="pg-grid">
-      ${card("⚡","Spark","Brand identity for new and growing ventures.",`<div class="price">$5K+</div>`+ul(["Logo & identity system","Brand voice & messaging","One-page or landing site","Launch-ready assets"]))}
-      ${card("🚀","Surge","Brand + digital for businesses ready to scale.",`<div class="price">$15–25K</div>`+ul(["Full brand system","Multi-page website / web app","Content & campaign kit","90-day growth plan"]))}
-      ${card("🏗️","Scale","AI products & custom builds end to end.",`<div class="price">$50K+</div>`+ul(["Custom AI / software build","Product & UX design","Engineering & deployment","Ongoing iteration"]))}
-      ${card("🏛️","Government / Enterprise","Public-sector & enterprise engagements.",`<div class="price">$100K+</div>`+ul(["Scoped to solicitation","Compliance-minded delivery","Dedicated team","Past-performance support"]))}
+      ${card("Tier 01","Spark","Brand identity for new and growing ventures.",`<div class="price">$5K+</div>`+ul(["Logo & identity system","Brand voice & messaging","One-page or landing site","Launch-ready assets"]))}
+      ${card("Tier 02","Surge","Brand + digital for businesses ready to scale.",`<div class="price">$15–25K</div>`+ul(["Full brand system","Multi-page website / web app","Content & campaign kit","90-day growth plan"]))}
+      ${card("Tier 03","Scale","AI products & custom builds end to end.",`<div class="price">$50K+</div>`+ul(["Custom AI / software build","Product & UX design","Engineering & deployment","Ongoing iteration"]))}
+      ${card("Tier 04","Government / Enterprise","Public-sector & enterprise engagements.",`<div class="price">$100K+</div>`+ul(["Scoped to solicitation","Compliance-minded delivery","Dedicated team","Past-performance support"]))}
     </div>
     <p class="note">Custom scopes welcome — tell us your goal and budget and we will shape the right package.</p>`),
 

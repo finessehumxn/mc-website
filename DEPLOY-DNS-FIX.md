@@ -61,6 +61,6 @@ Tell me when DNS is changed and I'll re-run the live checks to confirm all paths
 ## Reference — current verified state (2026-06-20)
 
 - **Host:** Netlify, site `mcre8.netlify.app`, auto-deploys from GitHub repo `finessehumxn/mc-website` on push.
-- **mcre8.com:** fully live, all pages + images return HTTP 200. ✅
+- **mcre8.com:** fully live, all pages + images return HTTP 200. 
 - **millennialscreatives.com:** GoDaddy Forwarding → root redirects to mcre8.com, but **all deep links 404**; `www` has no SSL. ← what Steps 1–2 fix.
 - Netlify apex IP used above: `75.2.60.5` (Netlify's load balancer; `99.83.190.102` is the documented alternate).

@@ -304,7 +304,8 @@ footer{background:var(--purple2);border-top:3px solid var(--yellow);padding:3rem
 .pg-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;transition:.3s var(--ease)}
 .pg-card:hover{transform:translateY(-6px);border-color:var(--yellow);background:rgba(255,255,255,.07)}
 .pg-card h3{font-family:var(--ff-head);font-weight:700;font-size:1.3rem;margin-bottom:8px}
-.pg-card .ic{font-size:30px;margin-bottom:12px;display:block}
+.pg-card .ic{display:inline-block;font-family:var(--ff-mono);font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(248,200,28,.4);border-radius:6px;padding:5px 11px;margin-bottom:14px}
+.ic{display:inline-block;font-family:var(--ff-mono);font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(248,200,28,.4);border-radius:6px;padding:5px 11px}
 .pg-card p{color:var(--cream);opacity:.82;font-size:15px}
 .pg-card .price{font-family:var(--ff-display);font-size:2.6rem;color:var(--yellow);margin:8px 0;letter-spacing:1px}
 .pg-card ul{list-style:none;margin-top:14px;padding:0}
