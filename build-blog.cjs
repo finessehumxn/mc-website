@@ -51,7 +51,7 @@ function heroBlock(p) {
   const ph = photoOf(p.slug), cr = credits[p.slug];
   const label = `<span class="art-hero-name">${esc(p.name)}</span><span class="art-hero-brand">${esc(p.brand)}</span>`;
   if (!ph) return `<div class="art-hero" style="background:${GRADS[p.accent]}">${label}</div>`;
-  const style = `background-image:linear-gradient(180deg,rgba(8,8,16.2),rgba(8,8,16.8)),url(${ph})`;
+  const style = `background-image:linear-gradient(180deg,rgba(8,8,16,.2),rgba(8,8,16,.8)),url(${ph})`;
   let credit = "";
   if (cr) {
     const lic = cr.license && !/commons$/i.test(cr.license) ? " · " + esc(cr.license) : "";
