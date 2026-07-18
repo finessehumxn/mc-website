@@ -100,6 +100,8 @@
   .work-tile{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
   .work-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
   .work-tile:hover img{transform:scale(1.05)}
+  .reels-2{grid-template-columns:repeat(2,1fr)!important;max-width:900px;margin-left:auto;margin-right:auto}
+  @media(max-width:700px){.reels-2{grid-template-columns:1fr!important}}
   .wgroup{margin-top:2.4rem}
   .wgroup-head{font-family:var(--ff-mono,inherit);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow,#FFD84D);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
   .wgroup-head span{opacity:.5}
@@ -301,7 +303,16 @@
     <h2>Brands, campaigns & <span class="graffiti">platforms we've built.</span></h2>
     <p class="lead">A snapshot of recent client work across fashion, beauty, wellness, tech, and public sector.</p>
     <div class="wgroup">
-      <div class="wgroup-head"><span>01</span> Websites &amp; Platforms</div>
+      <div class="wgroup-head"><span>01</span> Signature Work</div>
+      <div class="grid-3">
+        <a class="work-tile" href="work.html#products"><img src="assets/work-bella-v2.jpg" alt="Bella High Royal Highness eyeshadow palette"><div class="meta"><h4>Bella High, Royal Highness</h4><p>Beauty · 3D · Packaging</p></div></a>
+        <a class="work-tile" href="work.html#branding"><img src="assets/art-queen-blue.jpg" alt="Illustrated portrait, blue crown"><div class="meta"><h4>Royal Blue Series</h4><p>Illustration · Editorial</p></div></a>
+        <a class="work-tile" href="work.html#branding"><img src="assets/work-wendys-v2.jpg" alt="The Wendy S Collection lookbook"><div class="meta"><h4>The Wendy S Collection</h4><p>Fashion · Campaign · Brand</p></div></a>
+      </div>
+    </div>
+
+    <div class="wgroup">
+      <div class="wgroup-head"><span>02</span> Websites &amp; Platforms</div>
       <div class="grid-3">
         <a class="work-tile" href="work.html#websites"><img src="lnj-site.jpg" alt="Legal Nurse Jeanie website"><div class="meta"><h4>Legal Nurse Jeanie</h4><p>Web · Brand · Licensed Practice</p></div></a>
         <a class="work-tile" href="work.html#websites"><img src="tw-site.jpg" alt="Three Wishes Bakery website"><div class="meta"><h4>Three Wishes Bakery</h4><p>Web · E-commerce · Brand</p></div></a>
@@ -310,19 +321,10 @@
     </div>
 
     <div class="wgroup">
-      <div class="wgroup-head"><span>02</span> Branding &amp; Identity</div>
+      <div class="wgroup-head"><span>03</span> Brand Systems &amp; Print</div>
       <div class="grid-3">
-        <a class="work-tile" href="work.html#branding"><img src="assets/work-wendys-v2.jpg" alt="The Wendy S Collection lookbook"><div class="meta"><h4>The Wendy S Collection</h4><p>Fashion · Lookbook · Brand</p></div></a>
         <a class="work-tile" href="work.html#branding"><img src="assets/work-fruitful.jpg" alt="Fruitful Remedies wellness brand"><div class="meta"><h4>Fruitful Remedies</h4><p>Wellness · Brand · Web</p></div></a>
-        <a class="work-tile" href="work.html#branding"><img src="assets/work-first-choice.jpg" alt="First Choice brand identity"><div class="meta"><h4>First Choice</h4><p>Brand · Landing Page</p></div></a>
-      </div>
-    </div>
-
-    <div class="wgroup">
-      <div class="wgroup-head"><span>03</span> Product, Packaging &amp; Illustration</div>
-      <div class="grid-3">
-        <a class="work-tile" href="work.html#products"><img src="assets/work-bella-v2.jpg" alt="Bella High Royal Highness eyeshadow palette"><div class="meta"><h4>Bella High, Royal Highness</h4><p>Beauty · 3D · Packaging</p></div></a>
-        <a class="work-tile" href="work.html#branding"><img src="assets/art-queen-blue.jpg" alt="Illustrated portrait, blue crown"><div class="meta"><h4>Royal Blue Series</h4><p>Illustration · Editorial</p></div></a>
+        <a class="work-tile" href="work.html#branding"><img src="assets/art-portrait-pink.jpg" alt="Illustrated portrait, pink"><div class="meta"><h4>Bloom Series</h4><p>Illustration · Portrait</p></div></a>
         <a class="work-tile" href="work.html#branding"><img src="assets/business-card.jpg" alt="Millennials Creatives business card"><div class="meta"><h4>MC Studio Identity</h4><p>Brand · Print · Collateral</p></div></a>
       </div>
     </div>
@@ -335,19 +337,15 @@
   <div class="container">
     <div class="eyebrow">Motion</div>
     <h2>Video reels <span class="graffiti">that move.</span></h2>
-    <p class="lead">Three recent motion case studies, autoplaying, muted, straight from the cut.</p>
-    <div class="reels">
+    <p class="lead">Motion built in house. Autoplaying, muted, straight from the cut.</p>
+    <div class="reels reels-2">
       <div class="reel">
-        <video src="assets/finesse.mp4" autoplay muted loop playsinline></video>
-        <div class="reel-meta"><h4>Finesse Our Minds</h4><p>Brand film · Motion</p></div>
+        <video src="assets/seesh-slay-case.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="reel-meta"><h4>Seesh N Slay</h4><p>Product film · 3D · Motion</p></div>
       </div>
       <div class="reel">
-        <video src="assets/love-take-1.mp4" autoplay muted loop playsinline></video>
-        <div class="reel-meta"><h4>Love, Take One</h4><p>Short film · Editorial</p></div>
-      </div>
-      <div class="reel">
-        <video src="assets/seesh-slay-case.mp4" autoplay muted loop playsinline></video>
-        <div class="reel-meta"><h4>Seesh N Slay</h4><p>Case study · Music/Content</p></div>
+        <video src="assets/finesse.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="reel-meta"><h4>Character Animation</h4><p>Brand film · Motion</p></div>
       </div>
     </div>
   </div>
