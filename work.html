@@ -67,6 +67,12 @@
 .wk-cta a{display:inline-block;background:var(--yellow);color:var(--dark);font-family:var(--ff-mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:18px 40px;border-radius:10px;text-decoration:none;transition:.3s var(--ease)}
 .wk-cta a:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(248,200,28,.35)}
 @media(max-width:600px){.wk-metrics{gap:24px}.wk-metric .n{font-size:2.1rem}}
+.wk-tabs{position:sticky;top:0;z-index:50;background:var(--dark,#1A0F40);border-bottom:1px solid rgba(255,255,255,.1);padding:0 6vw;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.wk-tab{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);background:none;border:none;padding:16px 14px;cursor:pointer;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap}
+.wk-tab:hover{color:#fff}
+.wk-tab.active{color:var(--yellow);border-bottom-color:var(--yellow)}
+.wk-sect.hidden,.wk-gov.hidden{display:none}
+@media(max-width:640px){.wk-tab{font-size:.64rem;padding:14px 9px}}
 </style><main>
 <section class="wk-hero">
   <div class="eyebrow">Millennials Creatives · Selected Work</div>
@@ -79,8 +85,17 @@
     <div class="wk-metric"><div class="n">60+</div><div class="l">Technical certifications held</div></div>
   </div>
 </section>
+<div class="wk-tabs">
+  <button class="wk-tab active" data-filter="all">All Work</button>
+  <button class="wk-tab" data-filter="websites">Websites</button>
+  <button class="wk-tab" data-filter="branding">Branding &amp; Logos</button>
+  <button class="wk-tab" data-filter="media">Video &amp; Media</button>
+  <button class="wk-tab" data-filter="products">Apps &amp; Products</button>
+  <button class="wk-tab" data-filter="government">Government</button>
+</div>
 
-<section class="wk-sect">
+
+<section class="wk-sect" data-cat="websites">
   <div class="wk-sect-head"><span class="wk-sect-num">01</span><h2>Client Websites &amp; Platforms</h2></div>
   <p class="wk-sect-sub">Full-scope brand and web engagements, from licensed professional practices to multi-country nonprofits, designed, built, and shipped live.</p>
   <div class="wk-grid">
@@ -143,7 +158,7 @@
   </div>
 </section>
 
-<section class="wk-sect">
+<section class="wk-sect" data-cat="branding">
   <div class="wk-sect-head"><span class="wk-sect-num">02</span><h2>Brand &amp; Identity Design</h2></div>
   <p class="wk-sect-sub">Complete identity systems, logo design and rebrands, packaging labels, brand strategy, and the campaign content that carries them. Strategy documents included, not just marks.</p>
   <div class="wk-grid wk-grid-3">
@@ -207,7 +222,7 @@
   </div>
 </section>
 
-<section class="wk-sect">
+<section class="wk-sect" data-cat="media">
   <div class="wk-sect-head"><span class="wk-sect-num">03</span><h2>Media Production</h2></div>
   <p class="wk-sect-sub">Videography, photography, motion graphics, and editing, from animated brand films to civic and campaign documentation and full raw-footage delivery for clients across Georgia, Florida, and Texas.</p>
   <div class="wk-grid" style="margin-bottom:20px">
@@ -274,7 +289,7 @@
   </div>
 </section>
 
-<section class="wk-sect">
+<section class="wk-sect" data-cat="products">
   <div class="wk-sect-head"><span class="wk-sect-num">04</span><h2>Products We Ship</h2></div>
   <p class="wk-sect-sub">We don't just build for clients, we build and operate our own. Four consumer apps approved on the Apple App Store, three also on Google Play, our flagship government-contracting software platform, and published AI-safety research behind it all.</p>
   <div class="wk-grid wk-grid-3">
@@ -343,7 +358,7 @@
   </div>
 </section>
 
-<section class="wk-sect">
+<section class="wk-sect" data-cat="products">
   <div class="wk-sect-head"><span class="wk-sect-num">05</span><h2>Design to Production</h2></div>
   <p class="wk-sect-sub">Industrial design, not decoration. We take a concept from a hand-drawn sketch to a manufacturable product, with the engineering details, dielines, and 3D visualization that real production requires.</p>
   <div class="wk-grid">
@@ -374,7 +389,7 @@
   </div>
 </section>
 
-<section class="wk-gov">
+<section class="wk-gov" data-cat="government">
   <div class="wk-sect-head"><span class="wk-sect-num">06</span><h2>Government &amp; Public Sector</h2></div>
   <p class="wk-sect-sub">A certified small business actively engaged across Arizona state, municipal, and tribal procurement, with proposals spanning a deliberately broad range of agencies and mission areas.</p>
   <div class="wk-gov-wrap">
@@ -432,5 +447,19 @@ window.addEventListener('scroll',()=>{if(window.scrollY>60)navEl.classList.add('
 const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
 if(cur){document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);});
 document.querySelectorAll('a,button.pg-card.capbox').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='24px';cur.style.height='24px';ring.style.width='64px';ring.style.height='64px'});el.addEventListener('mouseleave',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px'});});}
+</script>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.wk-tab');
+  var secs=document.querySelectorAll('[data-cat]');
+  function apply(f){
+    secs.forEach(function(x){ x.classList.toggle('hidden', f!=='all' && x.getAttribute('data-cat')!==f); });
+    tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-filter')===f); });
+    if(f!=='all'){ history.replaceState(null,'','#'+f); }
+  }
+  tabs.forEach(function(t){ t.addEventListener('click',function(){ apply(t.getAttribute('data-filter')); window.scrollTo({top:0,behavior:'smooth'}); }); });
+  var h=(location.hash||'').replace('#',''); if(h && document.querySelector('[data-filter="'+h+'"]')) apply(h);
+})();
 </script>
 </body></html>
