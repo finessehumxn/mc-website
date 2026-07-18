@@ -161,7 +161,35 @@
   .can-item:hover img{transform:translateY(-10px) scale(1.04)}
   .can-item .can-word{font-family:var(--ff-head,inherit);font-weight:800;font-size:18px;margin-top:14px;letter-spacing:.02em}
   .can-item .can-sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .can-item.wide img{max-height:200px}
+  .can-item img{opacity:0;transform:translateY(28px)}
+  .cans-showcase.sprayed .can-item img{opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.3,1)}
+  .cans-showcase.sprayed .can-item:nth-child(1) img{transition-delay:.05s}
+  .cans-showcase.sprayed .can-item:nth-child(2) img{transition-delay:.20s}
+  .cans-showcase.sprayed .can-item:nth-child(3) img{transition-delay:.35s}
+  .cans-showcase.sprayed .can-item:nth-child(4) img{transition-delay:.50s}
+  .cans-showcase.sprayed .can-item:nth-child(5) img{transition-delay:.65s}
+  .can-word,.can-sub{opacity:0;filter:blur(6px);transform:scale(.94)}
+  .cans-showcase.sprayed .can-word,.cans-showcase.sprayed .can-sub{opacity:1;filter:blur(0);transform:scale(1);transition:opacity .5s ease,filter .5s ease,transform .5s ease}
+  .cans-showcase.sprayed .can-item:nth-child(1) .can-word{transition-delay:.45s}
+  .cans-showcase.sprayed .can-item:nth-child(2) .can-word{transition-delay:.60s}
+  .cans-showcase.sprayed .can-item:nth-child(3) .can-word{transition-delay:.75s}
+  .cans-showcase.sprayed .can-item:nth-child(4) .can-word{transition-delay:.90s}
+  .cans-showcase.sprayed .can-item:nth-child(5) .can-word{transition-delay:1.05s}
+  .cans-showcase.sprayed .can-item:nth-child(1) .can-sub{transition-delay:.55s}
+  .cans-showcase.sprayed .can-item:nth-child(2) .can-sub{transition-delay:.70s}
+  .cans-showcase.sprayed .can-item:nth-child(3) .can-sub{transition-delay:.85s}
+  .cans-showcase.sprayed .can-item:nth-child(4) .can-sub{transition-delay:1.0s}
+  .cans-showcase.sprayed .can-item:nth-child(5) .can-sub{transition-delay:1.15s}
+  @media(prefers-reduced-motion:reduce){.can-item img,.can-word,.can-sub{opacity:1!important;filter:none!important;transform:none!important}}
   @media(max-width:900px){.cans-showcase{grid-template-columns:repeat(2,1fr);gap:16px}}
+  .app-card{display:flex;flex-direction:column}
+  .app-icon{width:56px;height:56px;border-radius:14px;margin-bottom:12px;object-fit:cover}
+  .store-links{margin-top:auto;padding-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+  .store-links a{font-family:var(--ff-mono,inherit);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border:1px solid rgba(255,255,255,.25);border-radius:20px;text-decoration:none;transition:.2s}
+  .store-links a:hover{background:var(--yellow,#FFD84D);color:#1A0F40;border-color:transparent}
+  .buy-btn{display:inline-block;margin-top:12px;background:var(--yellow,#FFD84D);color:#1A0F40;font-weight:700;padding:.6rem 1.3rem;border-radius:26px;text-decoration:none;font-size:.85rem;transition:.2s}
+  .buy-btn:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body id="top">
@@ -251,9 +279,10 @@
     <div class="cans-showcase">
       <div class="can-item"><img src="assets/can-design.png" alt="Design spray can"><div class="can-word">Design</div><div class="can-sub">Brand &amp; Visual</div></div>
       <div class="can-item"><img src="assets/can-create.png" alt="Create spray can"><div class="can-word">Create</div><div class="can-sub">Content &amp; Motion</div></div>
+      <div class="can-item wide"><img src="assets/can-connect.png" alt="Connect spray can"><div class="can-word">Connect</div><div class="can-sub">Network &amp; Advisory</div></div>
       <div class="can-item"><img src="assets/can-believe.png" alt="Believe spray can"><div class="can-word">Believe</div><div class="can-sub">Strategy &amp; Coaching</div></div>
-      <div class="can-item"><img src="assets/can-connect.png" alt="Connect spray can"><div class="can-word">Connect</div><div class="can-sub">Network &amp; Advisory</div></div>
       <div class="can-item"><img src="assets/can-love.png" alt="Love spray can"><div class="can-word">Love</div><div class="can-sub">In Every Project</div></div>
+    </div>
     </div>
   </div>
 </section>
@@ -295,7 +324,7 @@
       </div>
       <div class="reel">
         <video src="assets/seesh-slay-case.mp4" autoplay muted loop playsinline></video>
-        <div class="reel-meta"><h4>Seesh Slay</h4><p>Case study · Music/Content</p></div>
+        <div class="reel-meta"><h4>Seesh N Slay</h4><p>Case study · Music/Content</p></div>
       </div>
     </div>
   </div>
@@ -325,12 +354,33 @@
     <h2>Products <span class="graffiti">we ship.</span></h2>
     <p class="lead">Original platforms built by our team, from consumer apps to government contracting infrastructure.</p>
     <div class="grid-3">
-      <div class="card"><h3>BarterThat</h3><p>Peer-to-peer skill & service bartering marketplace.</p></div>
-      <div class="card"><h3>MedCompanion AI</h3><p>AI health companion for patients, caregivers, and clinicians.</p></div>
-      <div class="card"><h3>FinesseKey</h3><p>Access & credential management for creative teams.</p></div>
-      <div class="card"><h3>FinesseEdge</h3><p>Competitive intelligence for growing brands.</p></div>
-      <div class="card"><h3>FinesseWins</h3><p>Flagship government contracting platform, opportunity discovery to award.</p></div>
-      <div class="card"><h3>Custom Builds</h3><p>SaaS, AI, and internal tools for clients, from prototype to production.</p></div>
+      <div class="card app-card">
+        <img class="app-icon" src="media/apps/barterthat.png" alt="BarterThat app icon">
+        <h3>BarterThat</h3><p>Peer-to-peer skill &amp; service bartering marketplace.</p>
+        <div class="store-links"><a href="https://apps.apple.com/app/id6784909030" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/search?q=BarterThat&amp;c=apps" target="_blank" rel="noopener">Google Play</a></div>
+      </div>
+      <div class="card app-card">
+        <img class="app-icon" src="media/apps/medcompanion.png" alt="MedCompanion AI app icon">
+        <h3>MedCompanion AI</h3><p>AI health companion for patients, caregivers, and clinicians.</p>
+        <div class="store-links"><a href="https://apps.apple.com/search?term=MedCompanion%20AI" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/search?q=MedCompanion%20AI&amp;c=apps" target="_blank" rel="noopener">Google Play</a></div>
+      </div>
+      <div class="card app-card">
+        <img class="app-icon" src="media/apps/finessekey.png" alt="Finesse Key app icon">
+        <h3>Finesse Key</h3><p>Credit and financial access for people who are credit-invisible.</p>
+        <div class="store-links"><a href="https://apps.apple.com/app/id6786938952" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/search?q=Finesse%20Key&amp;c=apps" target="_blank" rel="noopener">Google Play</a></div>
+      </div>
+      <div class="card app-card">
+        <h3>FinesseEdge</h3><p>Know Your Edge. Documented stats and an Edge Score for what you are watching.</p>
+        <div class="store-links"><a href="https://apps.apple.com/app/id6790193060" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/search?q=FinesseEdge&amp;c=apps" target="_blank" rel="noopener">Google Play</a></div>
+      </div>
+      <div class="card app-card">
+        <h3>FinesseWins</h3><p>Flagship government contracting platform, opportunity discovery to award.</p>
+        <div class="store-links"><a href="https://finessehumxn.github.io/finessewins/" target="_blank" rel="noopener">Visit Platform</a></div>
+      </div>
+      <div class="card app-card">
+        <h3>Custom Builds</h3><p>SaaS, AI, and internal tools for clients, from prototype to production.</p>
+        <div class="store-links"><a href="#contact">Start a Build</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -342,10 +392,10 @@
     <h2>Buy something. Right now. <span class="graffiti">No call needed.</span></h2>
     <p class="lead">Instant downloads to help you launch, fund, and scale your business.</p>
     <div class="grid-4">
-      <div class="card"><h3>Win Your First Gov Contract</h3><p>Step-by-step playbook for small businesses entering federal, state, and local markets.</p><div class="price">$97</div></div>
-      <div class="card"><h3>LLC Legal Document Kit</h3><p>Operating agreements, contracts, NDAs, and compliance templates.</p><div class="price">$127</div></div>
-      <div class="card"><h3>AI Tools for Small Business</h3><p>Curated stack + ready-to-use prompts to run leaner and faster.</p><div class="price">$47</div></div>
-      <div class="card"><h3>Small Business Starter Bundle</h3><p>Everything above + bonus templates, checklists, and swipe files.</p><div class="price">$197</div></div>
+      <div class="card"><h3>Small Business Starter Bundle</h3><p>Everything below plus bonus templates, checklists, and swipe files.</p><div class="price">$197</div><a class="buy-btn" href="checkout.html?p=bundle">Buy Now</a></div>
+      <div class="card"><h3>LLC Legal Document Kit</h3><p>Operating agreements, contracts, NDAs, and compliance templates.</p><div class="price">$127</div><a class="buy-btn" href="checkout.html?p=llckit">Buy Now</a></div>
+      <div class="card"><h3>Win Your First Gov Contract</h3><p>Step-by-step playbook for small businesses entering federal, state, and local markets.</p><div class="price">$97</div><a class="buy-btn" href="checkout.html?p=govcontract">Buy Now</a></div>
+      <div class="card"><h3>AI Tools for Small Business</h3><p>Curated stack plus ready-to-use prompts to run leaner and faster.</p><div class="price">$47</div><a class="buy-btn" href="checkout.html?p=aiwebinar">Buy Now</a></div>
     </div>
   </div>
 </section>
@@ -411,7 +461,7 @@
     <div class="eyebrow">Let's Build</div>
     <h2>Tell us what you need. <span class="graffiti">We'll respond in 24h.</span></h2>
     <p class="lead">Book a discovery call or send a project brief, we'll route it to the right founder.</p>
-    <form action="mailto:hello@millennialscreatives.com" method="post" enctype="text/plain">
+    <form action="mailto:contact@millennialscreatives.com" method="post" enctype="text/plain">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Email address" required>
       <input type="text" name="company" placeholder="Company / organization">
@@ -419,7 +469,7 @@
       <textarea name="message" placeholder="What are you building? Share timeline, deliverables, and links." required></textarea>
       <button type="submit" class="btn">Send Inquiry</button>
     </form>
-    <p style="margin-top:24px;color:var(--muted);font-size:14px">Or email directly: <a href="mailto:hello@millennialscreatives.com">hello@millennialscreatives.com</a></p>
+    <p style="margin-top:24px;color:var(--muted);font-size:14px">Or email directly: <a href="mailto:contact@millennialscreatives.com">contact@millennialscreatives.com</a></p>
   </div>
 </section>
 
@@ -433,12 +483,20 @@
     <p>Branding · Video · Web · Apps · Government Contracting</p>
     <div class="socials">
       <a href="https://millennialscreatives.com">Website</a>
-      <a href="mailto:hello@millennialscreatives.com">Email</a>
+      <a href="mailto:contact@millennialscreatives.com">Email</a>
       <a href="#top">Back to top</a>
     </div>
     <p style="opacity:.6">© 2026 Millennials Creatives LLC. All rights reserved.</p>
   </div>
 </footer>
 
+<script>
+(function(){
+  var el=document.querySelector('.cans-showcase'); if(!el) return;
+  if(!('IntersectionObserver' in window)){el.classList.add('sprayed');return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){el.classList.add('sprayed');io.disconnect();}});},{threshold:.25});
+  io.observe(el);
+})();
+</script>
 </body>
 </html>
