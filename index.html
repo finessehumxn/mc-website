@@ -162,26 +162,26 @@
   .can-item .can-word{font-family:var(--ff-head,inherit);font-weight:800;font-size:18px;margin-top:14px;letter-spacing:.02em}
   .can-item .can-sub{font-size:12px;color:var(--muted);margin-top:2px}
   .can-item.wide img{max-height:200px}
-  .can-item img{opacity:0;transform:translateY(28px)}
-  .cans-showcase.sprayed .can-item img{opacity:1;transform:translateY(0);transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.3,1)}
-  .cans-showcase.sprayed .can-item:nth-child(1) img{transition-delay:.05s}
-  .cans-showcase.sprayed .can-item:nth-child(2) img{transition-delay:.20s}
-  .cans-showcase.sprayed .can-item:nth-child(3) img{transition-delay:.35s}
-  .cans-showcase.sprayed .can-item:nth-child(4) img{transition-delay:.50s}
-  .cans-showcase.sprayed .can-item:nth-child(5) img{transition-delay:.65s}
-  .can-word,.can-sub{opacity:0;filter:blur(6px);transform:scale(.94)}
-  .cans-showcase.sprayed .can-word,.cans-showcase.sprayed .can-sub{opacity:1;filter:blur(0);transform:scale(1);transition:opacity .5s ease,filter .5s ease,transform .5s ease}
-  .cans-showcase.sprayed .can-item:nth-child(1) .can-word{transition-delay:.45s}
-  .cans-showcase.sprayed .can-item:nth-child(2) .can-word{transition-delay:.60s}
-  .cans-showcase.sprayed .can-item:nth-child(3) .can-word{transition-delay:.75s}
-  .cans-showcase.sprayed .can-item:nth-child(4) .can-word{transition-delay:.90s}
-  .cans-showcase.sprayed .can-item:nth-child(5) .can-word{transition-delay:1.05s}
-  .cans-showcase.sprayed .can-item:nth-child(1) .can-sub{transition-delay:.55s}
-  .cans-showcase.sprayed .can-item:nth-child(2) .can-sub{transition-delay:.70s}
-  .cans-showcase.sprayed .can-item:nth-child(3) .can-sub{transition-delay:.85s}
-  .cans-showcase.sprayed .can-item:nth-child(4) .can-sub{transition-delay:1.0s}
-  .cans-showcase.sprayed .can-item:nth-child(5) .can-sub{transition-delay:1.15s}
-  @media(prefers-reduced-motion:reduce){.can-item img,.can-word,.can-sub{opacity:1!important;filter:none!important;transform:none!important}}
+  @keyframes canRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes sprayOn{from{opacity:0;filter:blur(7px);transform:scale(.93)}to{opacity:1;filter:blur(0);transform:scale(1)}}
+  .can-item img{animation:canRise .7s cubic-bezier(.2,.8,.3,1) both}
+  .can-item .can-word,.can-item .can-sub{animation:sprayOn .55s ease both}
+  .can-item:nth-child(1) img{animation-delay:.05s}
+  .can-item:nth-child(2) img{animation-delay:.20s}
+  .can-item:nth-child(3) img{animation-delay:.35s}
+  .can-item:nth-child(4) img{animation-delay:.50s}
+  .can-item:nth-child(5) img{animation-delay:.65s}
+  .cans-showcase .can-item:nth-child(1) .can-word{animation-delay:.50s}
+  .cans-showcase .can-item:nth-child(2) .can-word{animation-delay:.65s}
+  .cans-showcase .can-item:nth-child(3) .can-word{animation-delay:.80s}
+  .cans-showcase .can-item:nth-child(4) .can-word{animation-delay:.95s}
+  .cans-showcase .can-item:nth-child(5) .can-word{animation-delay:1.10s}
+  .cans-showcase .can-item:nth-child(1) .can-sub{animation-delay:.60s}
+  .cans-showcase .can-item:nth-child(2) .can-sub{animation-delay:.75s}
+  .cans-showcase .can-item:nth-child(3) .can-sub{animation-delay:.90s}
+  .cans-showcase .can-item:nth-child(4) .can-sub{animation-delay:1.05s}
+  .cans-showcase .can-item:nth-child(5) .can-sub{animation-delay:1.20s}
+  @media(prefers-reduced-motion:reduce){.can-item img,.can-word,.can-sub{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}}
   @media(max-width:900px){.cans-showcase{grid-template-columns:repeat(2,1fr);gap:16px}}
   .app-card{display:flex;flex-direction:column}
   .app-icon{width:56px;height:56px;border-radius:14px;margin-bottom:12px;object-fit:cover}
@@ -370,14 +370,17 @@
         <div class="store-links"><a href="https://apps.apple.com/app/id6786938952" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/search?q=Finesse%20Key&amp;c=apps" target="_blank" rel="noopener">Google Play</a></div>
       </div>
       <div class="card app-card">
+        <img class="app-icon" src="media/apps/finessewins.svg" alt="FinesseEdge icon" style="opacity:.85">
         <h3>FinesseEdge</h3><p>Know Your Edge. Documented stats and an Edge Score for what you are watching.</p>
         <div class="store-links"><a href="https://apps.apple.com/app/id6790193060" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/search?q=FinesseEdge&amp;c=apps" target="_blank" rel="noopener">Google Play</a></div>
       </div>
       <div class="card app-card">
+        <img class="app-icon" src="media/apps/finessewins.svg" alt="FinesseWins logo">
         <h3>FinesseWins</h3><p>Flagship government contracting platform, opportunity discovery to award.</p>
         <div class="store-links"><a href="https://finessehumxn.github.io/finessewins/" target="_blank" rel="noopener">Visit Platform</a></div>
       </div>
       <div class="card app-card">
+        <img class="app-icon" src="media/apps/custombuilds.png" alt="Millennials Creatives custom builds">
         <h3>Custom Builds</h3><p>SaaS, AI, and internal tools for clients, from prototype to production.</p>
         <div class="store-links"><a href="#contact">Start a Build</a></div>
       </div>
@@ -490,13 +493,5 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  var el=document.querySelector('.cans-showcase'); if(!el) return;
-  if(!('IntersectionObserver' in window)){el.classList.add('sprayed');return;}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){el.classList.add('sprayed');io.disconnect();}});},{threshold:.25});
-  io.observe(el);
-})();
-</script>
 </body>
 </html>
