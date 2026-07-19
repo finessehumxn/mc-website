@@ -48,9 +48,13 @@ li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;bac
 .foot .c2{font-family:var(--ff-mono)}
 @media print{body{background:#fff;padding:0}.bar{display:none}.sheet{box-shadow:none;max-width:100%}@page{size:letter;margin:.3in}}
 @media(max-width:680px){.grid{grid-template-columns:1fr}.pastp{grid-template-columns:1fr}.head h1{font-size:32px}}
+  .skip-link{position:absolute;left:-9999px;top:0;background:#FFD84D;color:#1A0F40;padding:12px 20px;z-index:9999;font-weight:700;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="bar">
   <a href="government.html">← Back to site</a>
   <a href="capability-statement.pdf" download>⤓ Download PDF</a>

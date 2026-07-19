@@ -12,11 +12,15 @@
 .badge-soon{display:inline-flex;align-items:center;height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.25);border-radius:7px;font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .app-tile{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-weight:900;font-size:1.05rem;color:var(--dark);margin-bottom:1rem}
 .buy-link{display:block;margin-top:1rem;background:var(--pink);color:var(--white);padding:.75rem;text-align:center;font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .skip-link{position:absolute;left:-9999px;top:0;background:#FFD84D;color:#1A0F40;padding:12px 20px;z-index:9999;font-weight:700;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
-<nav id="nav">
+<nav aria-label="Main navigation" id="nav">
   <a class="nav-logo" href="index.html" style="text-decoration:none">
     <img src="mc-logo.jpeg" alt="Millennials Creatives Logo">
     <span class="nav-logo-text">MC</span>
@@ -38,7 +42,7 @@
   <a href="blog.html" onclick="cm()">Blog</a><a href="culture.html" onclick="cm()">Culture</a>
   <a href="contact.html" onclick="cm()">Start a Project</a>
 </div>
-<main class="pg">
+<main id="main" class="pg">
   <div class="pg-eyebrow">Digital products</div>
   <h1 class="pg-h1">Buy something <em>right now.</em></h1>
   <p class="pg-lead">Guides, templates, and toolkits built from real experience, the same playbooks we use to win contracts and ship products. Instant delivery after checkout.</p>

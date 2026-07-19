@@ -23,11 +23,15 @@
 .app-desc{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.65;flex:1}
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
 .svc-section-label{font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
+  .skip-link{position:absolute;left:-9999px;top:0;background:#FFD84D;color:#1A0F40;padding:12px 20px;z-index:9999;font-weight:700;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
-<nav id="nav">
+<nav aria-label="Main navigation" id="nav">
   <a class="nav-logo" href="index.html" style="text-decoration:none">
     <img src="mc-logo.jpeg" alt="Millennials Creatives Logo">
     <span class="nav-logo-text">MC</span>
@@ -50,7 +54,7 @@
   <a href="contact.html" onclick="cm()">Start a Project</a>
 </div>
 
-<main class="pg">
+<main id="main" class="pg">
 
   <div class="pg-eyebrow">What we do</div>
   <h1 class="pg-h1">We do the <em>whole</em> transformation.</h1>

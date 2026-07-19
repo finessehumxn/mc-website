@@ -217,12 +217,16 @@
   .store-links a:hover{background:var(--yellow,#FFD84D);color:#1A0F40;border-color:transparent}
   .buy-btn{display:inline-block;margin-top:12px;background:var(--yellow,#FFD84D);color:#1A0F40;font-weight:700;padding:.6rem 1.3rem;border-radius:26px;text-decoration:none;font-size:.85rem;transition:.2s}
   .buy-btn:hover{transform:translateY(-2px)}
+  .skip-link{position:absolute;left:-9999px;top:0;background:#FFD84D;color:#1A0F40;padding:12px 20px;z-index:9999;font-weight:700;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
 </style>
 </head>
 <body id="top">
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header>
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="#top" class="brand">
       <img src="assets/mc-logo.png" alt="Millennials Creatives logo" />
     </a>
@@ -238,7 +242,7 @@
   </nav>
 </header>
 
-<main>
+<main id="main">
 
 <!-- HERO -->
 <section class="hero">
@@ -357,11 +361,11 @@
     <p class="lead">Motion built in house. Autoplaying, muted, straight from the cut.</p>
     <div class="reels reels-2">
       <div class="reel">
-        <video src="assets/seesh-slay-case.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <video aria-label="Motion showreel, decorative, no audio" src="assets/seesh-slay-case.mp4" autoplay muted loop playsinline preload="metadata"></video>
         <div class="reel-meta"><h4>Seesh N Slay</h4><p>Product film · 3D · Motion</p></div>
       </div>
       <div class="reel">
-        <video src="assets/finesse.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <video aria-label="Motion showreel, decorative, no audio" src="assets/finesse.mp4" autoplay muted loop playsinline preload="metadata"></video>
         <div class="reel-meta"><h4>Character Animation</h4><p>Brand film · Motion</p></div>
       </div>
     </div>

@@ -8,8 +8,9 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
-<nav id="nav">
+<nav aria-label="Main navigation" id="nav">
   <a class="nav-logo" href="index.html" style="text-decoration:none">
     <img src="mc-logo.jpeg" alt="Millennials Creatives Logo">
     <span class="nav-logo-text">MC</span>
@@ -73,7 +74,10 @@
 .wk-tab.active{color:var(--yellow);border-bottom-color:var(--yellow)}
 .wk-sect.hidden,.wk-gov.hidden{display:none}
 @media(max-width:640px){.wk-tab{font-size:.64rem;padding:14px 9px}}
-</style><main>
+  .skip-link{position:absolute;left:-9999px;top:0;background:#FFD84D;color:#1A0F40;padding:12px 20px;z-index:9999;font-weight:700;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
+</style><main id="main">
 <section class="wk-hero">
   <div class="eyebrow">Millennials Creatives · Selected Work</div>
   <h1>Sketch to <em>shipped.</em><br>Brand to <em>build.</em></h1>
@@ -235,7 +239,7 @@
   <p class="wk-sect-sub">Videography, photography, motion graphics, and editing, from animated brand films to civic and campaign documentation and full raw-footage delivery for clients across Georgia, Florida, and Texas.</p>
   <div class="wk-grid" style="margin-bottom:20px">
     <div class="wk-card">
-      <div class="wk-video-wrap"><div class="wk-video"><video src="media/video/mograph-finesse.mp4" autoplay muted loop playsinline preload="metadata"></video></div><span class="wk-play-note">Motion</span></div>
+      <div class="wk-video-wrap"><div class="wk-video"><video aria-label="Motion showreel, decorative, no audio" src="media/video/mograph-finesse.mp4" autoplay muted loop playsinline preload="metadata"></video></div><span class="wk-play-note">Motion</span></div>
       <div class="wk-body">
         <h3>Character Animation</h3>
         <div class="wk-tags"><span class="wtag">Motion Graphics</span><span class="wtag">Animation</span><span class="wtag">Brand</span></div>
@@ -243,7 +247,7 @@
       </div>
     </div>
     <div class="wk-card">
-      <div class="wk-video-wrap"><div class="wk-video"><video src="media/video/mograph-love.mp4" autoplay muted loop playsinline preload="metadata"></video></div><span class="wk-play-note">Motion</span></div>
+      <div class="wk-video-wrap"><div class="wk-video"><video aria-label="Motion showreel, decorative, no audio" src="media/video/mograph-love.mp4" autoplay muted loop playsinline preload="metadata"></video></div><span class="wk-play-note">Motion</span></div>
       <div class="wk-body">
         <h3>Brand Motion</h3>
         <div class="wk-tags"><span class="wtag">Motion Graphics</span><span class="wtag">Animation</span></div>
@@ -393,7 +397,7 @@
       </div>
     </div>
     <div class="wk-card">
-      <div class="wk-video-wrap"><div class="wk-video"><video src="media/video/bella-seesh-slay.mp4" autoplay muted loop playsinline preload="metadata"></video></div><span class="wk-play-note">Film</span></div>
+      <div class="wk-video-wrap"><div class="wk-video"><video aria-label="Motion showreel, decorative, no audio" src="media/video/bella-seesh-slay.mp4" autoplay muted loop playsinline preload="metadata"></video></div><span class="wk-play-note">Film</span></div>
       <div class="wk-body">
         <h3>Seesh &amp; Slay Product Film</h3>
         <div class="wk-tags"><span class="wtag">Product Film</span><span class="wtag">3D Animation</span><span class="wtag">Motion</span></div>
