@@ -25,7 +25,7 @@ const nav = (active) => {
   </a>
   <ul class="nav-links">
     ${link("work.html","Work")}${link("services.html","Services")}${link("team.html","Team")}
-    ${link("government.html","Gov")}${link("packages.html","Packages")}${link("blog.html","Blog")}${link("culture.html","Culture")}
+    ${link("government.html","Gov")}${link("industries.html","Industries")}${link("packages.html","Packages")}${link("blog.html","Blog")}${link("culture.html","Culture")}
     <li><a href="contact.html" class="nav-cta">Start a Project</a></li>
   </ul>
   <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
@@ -33,7 +33,7 @@ const nav = (active) => {
 <div class="mob" id="mob">
   <button class="mob-x" id="mobX">CLOSE ✕</button>
   ${mlink("work.html","Work")}${mlink("services.html","Services")}${mlink("team.html","Team")}
-  ${mlink("government.html","Gov Contracts")}${mlink("packages.html","Packages")}${mlink("blog.html","Blog")}${mlink("culture.html","Culture")}
+  ${mlink("government.html","Gov Contracts")}${mlink("industries.html","Industries")}${mlink("packages.html","Packages")}${mlink("blog.html","Blog")}${mlink("culture.html","Culture")}
   ${mlink("contact.html","Start a Project")}
 </div>`;
 };

@@ -1,0 +1,51 @@
+name: Weekly Blog Auto-Publish
+
+on:
+  schedule:
+    - cron: "0 14 * * 4"   # every Thursday 14:00 UTC (~7am Phoenix) — posts are dated Thursdays
+  workflow_dispatch:        # run manually anytime from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow (for photo fetch)
+        continue-on-error: true
+        run: pip install Pillow
+
+      - name: Fetch any missing founder photos
+        continue-on-error: true   # never block publishing if Wikimedia is unreachable
+        run: python fetch-photos.py
+
+      - name: Rebuild site pages + blog (surfaces any post whose date has arrived)
+        run: |
+          node build-blog.cjs
+
+      - name: Commit & push if a new post went live
+        run: |
+          git config user.name  "MC Blog Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add blog.html blog-*.html index.html media/blog || true
+          if [ -n "$(git status --porcelain blog.html blog-*.html index.html media/blog)" ]; then
+            git commit -m "Auto-publish scheduled blog post [skip ci]"
+            git push
+            echo "Published the next scheduled post."
+          else
+            echo "No post scheduled to publish this week."
+          fi
