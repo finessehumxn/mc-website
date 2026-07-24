@@ -18,6 +18,7 @@
 </main>
 <script>
 const FILES={
+  bidbox:[["START HERE: Open your course, Bid-in-a-Box: The Gov Contracting Course","bid-system.html"],["Download the 12-file template arsenal (ZIP)","bid-in-a-box.zip"]],
   govcontract:[["Win Your First Government Contract (PDF)","win-your-first-gov-contract.pdf"]],
   llckit:[["LLC Legal Document Kit","llc-legal-document-kit.zip"]],
   aiwebinar:[["AI Tools for Small Business, Masterclass Pack","ai-tools-masterclass.zip"]],
@@ -28,6 +29,6 @@ const FILES={
 const p=new URLSearchParams(location.search).get("p");
 const items=FILES[p]||Object.values(FILES).flat().filter((v,i,a)=>a.findIndex(x=>x[1]===v[1])===i);
 document.getElementById("dl").innerHTML=items.map(([n,f])=>
- `<a href="${f}" download style="display:block;background:var(--pink);color:var(--white);padding:1rem;text-align:center;font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;margin-bottom:.75rem">${n}</a>`).join("");
+ `<a href="${f}" ${f.endsWith(".html")?"":"download"} style="display:block;background:var(--pink);color:var(--white);padding:1rem;text-align:center;font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;margin-bottom:.75rem">${n}</a>`).join("");
 </script>
 </body></html>

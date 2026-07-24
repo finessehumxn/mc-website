@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bid-in-a-Box: The Government Contracting Course, Millennials Creatives LLC</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080810;--panel:#1A0F40;--purple:#2D1B69;--yellow:#FFD84D;--pink:#FF2D78;--cyan:#00D4FF;--text:#FDFDFD;--muted:#B8B8C8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.55}
+.app{display:grid;grid-template-columns:320px 1fr;min-height:100vh}
+/* -------- sidebar -------- */
+.side{background:#0d0a20;border-right:1px solid var(--purple);padding:1.4rem 1.1rem 2rem;overflow-y:auto;max-height:100vh;position:sticky;top:0}
+.brand{font-family:'Unbounded',sans-serif;font-weight:900;color:var(--yellow);font-size:1.05rem;line-height:1.3}
+.brand small{display:block;font-family:'Space Grotesk',sans-serif;font-weight:400;color:var(--cyan);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.3rem}
+.sprog{margin:1rem 0 1.2rem}
+.bar{height:10px;background:#080810;border-radius:5px;overflow:hidden;margin-top:.4rem}
+.bar>div{height:100%;width:0%;background:linear-gradient(90deg,var(--pink),var(--yellow));transition:width .4s}
+.plabel{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+.mod{margin-bottom:1rem}
+.modt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:.4rem .5rem;display:flex;gap:.5rem;align-items:center}
+.modt .mn{color:var(--yellow);font-family:'Unbounded',sans-serif}
+.item{display:flex;align-items:center;gap:.6rem;padding:.5rem .55rem;border-radius:8px;cursor:pointer;font-size:.86rem;color:var(--text);border-left:3px solid transparent}
+.item:hover{background:var(--panel)}
+.item.current{background:var(--panel);border-left-color:var(--pink)}
+.item.locked{color:#55516b;cursor:not-allowed}
+.mark{width:20px;height:20px;border-radius:50%;border:2px solid var(--purple);display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+.item.done .mark{background:var(--yellow);border-color:var(--yellow);color:#080810;font-weight:900}
+.item.locked .mark{border-color:#2a2540}
+.itype{margin-left:auto;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* -------- main -------- */
+.main{padding:2.2rem clamp(1rem,5vw,3.5rem);max-width:900px}
+.crumb{color:var(--cyan);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:.6rem}
+h1{font-family:'Unbounded',sans-serif;font-size:clamp(1.3rem,3vw,2rem);color:var(--yellow);margin-bottom:1rem}
+.lesson-card{background:var(--panel);border:1px solid var(--purple);border-radius:14px;padding:1.8rem;font-size:1.03rem}
+.lesson-card p{margin-bottom:1rem}
+.lesson-card p:last-child{margin-bottom:0}
+.footerbar{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--pink);color:#fff;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;letter-spacing:.05em;padding:.75rem 1.3rem;border-radius:9px;cursor:pointer;text-decoration:none}
+.btn.y{background:var(--yellow);color:#080810}
+.btn.ghost{background:transparent;border:1px solid var(--purple);color:var(--muted)}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.hint{color:var(--muted);font-size:.85rem}
+.note{background:#0d0a20;border-left:3px solid var(--pink);padding:.8rem 1rem;font-size:.9rem;color:var(--muted);border-radius:0 8px 8px 0;margin:1rem 0}
+.qopt{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--purple);border-radius:10px;color:var(--text);padding:.85rem 1rem;margin:.5rem 0;cursor:pointer;font-family:inherit;font-size:.95rem}
+.qopt:hover{border-color:var(--pink)}
+.qopt.right{border-color:var(--yellow);background:#221c05}
+.qopt.wrong{border-color:var(--pink);background:#26050f}
+.qwhy{margin-top:.9rem;padding:.85rem 1rem;border-radius:10px;font-size:.92rem;display:none}
+.qwhy.show{display:block}
+.qwhy.good{background:#221c05;border-left:3px solid var(--yellow)}
+.qwhy.bad{background:#26050f;border-left:3px solid var(--pink)}
+.task{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.task input[type=checkbox]{width:20px;height:20px;accent-color:var(--pink);margin-top:.15rem;flex-shrink:0}
+.task label{cursor:pointer}
+.field{margin:.7rem 0}
+.field label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.3rem}
+.field input,.field select{width:100%;background:#0d0a20;border:1px solid var(--purple);border-radius:8px;color:var(--text);padding:.6rem .7rem;font-family:inherit;font-size:.95rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.calc-out{background:#0d0a20;border:1px solid var(--purple);border-radius:10px;padding:1rem;margin-top:1rem;text-align:center}
+.big{font-family:'Unbounded',sans-serif;font-size:1.45rem;font-weight:900}
+.verdict-bid{color:var(--yellow)}.verdict-maybe{color:var(--cyan)}.verdict-no{color:var(--pink)}
+.cert{background:#FDFDFD;color:#080810;border:6px double var(--purple);border-radius:8px;padding:2.4rem;text-align:center;margin-top:1.2rem}
+.cert .cy{font-family:'Unbounded',sans-serif;color:#B0006D;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.cert h2{font-family:'Unbounded',sans-serif;font-size:1.5rem;margin:.7rem 0}
+.cert .nm{font-size:1.6rem;font-weight:700;border-bottom:2px solid #080810;display:inline-block;padding:0 1.5rem .2rem;margin:.6rem 0}
+.cert p{font-size:.92rem}
+.cert .sig{margin-top:1.6rem;display:flex;justify-content:space-around;font-size:.8rem}
+.cert .sig div{border-top:1px solid #080810;padding-top:.3rem;min-width:180px}
+.menu-btn{display:none;position:fixed;top:.8rem;right:.8rem;z-index:20}
+@media(max-width:840px){
+ .app{grid-template-columns:1fr}
+ .side{position:fixed;left:0;top:0;bottom:0;width:290px;z-index:15;transform:translateX(-100%);transition:transform .25s;max-height:none}
+ .side.open{transform:none}
+ .menu-btn{display:inline-block}
+ .grid2{grid-template-columns:1fr}
+}
+@media print{
+ .side,.menu-btn,.footerbar,.crumb{display:none!important}
+ body{background:#fff}.main{max-width:none;padding:0}
+ h1{display:none}
+ .cert{border-color:#000}
+}
+</style>
+</head>
+<body>
+<button class="btn menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">Course menu</button>
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <main class="main" id="main"></main>
+</div>
+
+<script>
+/* ---------------- COURSE DATA ---------------- */
+const COURSE=[
+ {m:"Start here",items:[
+  {t:"Welcome to the course",type:"lesson",body:["<p>Welcome to <b>Bid-in-a-Box: The Government Contracting Course</b>, built by Millennials Creatives, a certified woman owned small business that bids federal, state, and local contracts every single week. Nothing here is theory: every checklist is one we run, every template is one we use, every trap named is one that costs real bidders real money.</p><p>The course runs in 8 modules. Each module teaches you in short lessons, checks that you got it, then puts you to work on your real business. Modules unlock in order, your progress saves on this device, and the green-lit path in the sidebar always shows where you are.</p>"]},
+  {t:"Download your arsenal",type:"lesson",body:["<p>Your purchase includes the <b>12-file arsenal</b>: this course, the 13-part playbook PDF, 7 editable Word proposal templates, the bid tracker, the pricing worksheet, and 5 copy-paste emails for contracting officers. Download it now and keep it beside the course, the work phases will send you into these files.</p><p><a class='btn y' href='bid-in-a-box.zip' download>Download the 12-file arsenal</a></p><p class='hint'>Stuck at any point? Email <a href='mailto:contact@millennialscreatives.com'>contact@millennialscreatives.com</a>, we answer same day on business days.</p>"]},
+ ]},
+ {m:"Get registered",items:[
+  {t:"The first scam of your career",type:"lesson",body:["<p>Registration for government contracting is <b>FREE</b>. Completely. An entire industry charges hundreds of dollars to fill in the free forms, and if anyone offers to register you in SAM.gov for money, that is your first scam. Decline it.</p><p>This module and the checklist ahead are all you need, and if you want a human beside you, APEX Accelerators do it for free. More on them at graduation.</p>"]},
+  {t:"The path, in plain words",type:"lesson",body:["<p>The registration path is five steps wearing scary acronyms:</p><p><b>EIN</b>, your business tax number from the IRS, you likely have it. <b>SAM.gov</b>, the federal master vendor list, one long free form, block an afternoon. SAM automatically issues your <b>UEI</b>, your unique entity ID, and a <b>CAGE code</b>, think of it as your federal customer number, arrives when registration activates. Then pick 3 to 6 <b>NAICS codes</b>, standardized labels describing what you sell.</p><p>Then repeat the vendor registration at your STATE portal, your county, your city, and your school districts, each is separate and usually fast.</p>"]},
+  {t:"Set-asides: the fairness lanes",type:"lesson",body:["<p>The government reserves entire categories of contracts for small businesses, with lanes for woman owned, minority owned, and veteran owned firms. There is even a rule of thumb, the <b>rule of two</b>: when at least two capable small businesses can do the work, the buy can be set aside for small businesses only, locking the giants out of the room.</p><p>Certifications are proof that unlocks specific lanes. But hear this clearly: <b>you can bid general small business set-asides the DAY your SAM registration activates.</b> Certifications widen lanes, they are not the toll gate.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"A company emails offering to complete your SAM.gov registration for $599. What is the move?",
+   o:["Pay it, the form is complicated","Negotiate them down to $299","Decline, registration is completely free","Ask if they take payment plans"],c:2,
+   why:"SAM.gov registration is free, always. Block an afternoon and file it yourself, or get FREE help from an APEX Accelerator."},
+  {t:"Do the work: register",type:"work",note:"Check each box as it becomes TRUE for your business. This is your module assignment, and the next module unlocks when it is done.",
+   tasks:["EIN confirmed (irs.gov, free)","SAM.gov registration submitted (2-3 hours, free)","UEI written down","CAGE code received (arrives with activation)","3-6 NAICS codes chosen","STATE procurement portal vendor registration done","My set-asides identified"],
+   fields:[["My UEI","uei"],["My CAGE","cage"],["My NAICS codes","naics"]]},
+ ]},
+ {m:"Set your hunting ground",items:[
+  {t:"There is no one government",type:"lesson",body:["<p>There are thousands of buyers: federal agencies, your state, counties, cities, tribal governments, school districts, transit authorities. Each has its own portal, its own budget, and its own shopping list.</p><p>Federal opportunities post publicly at SAM.gov, searchable by your NAICS codes. Your state's procurement portal is one search away: your state's name plus procurement portal.</p>"]},
+  {t:"Boring wins quiet money",type:"lesson",body:["<p>Everyone chases the glamorous hundred million dollar contract. Meanwhile agencies quietly buy training, websites, supplies, and services in awards small enough that giant corporations never bother competing.</p><p><b>Small awards are how past performance is born</b>, and past performance is the currency of this entire world. The bidder who wins three small contracts this year outranks the bidder who almost won one big one.</p>"]},
+  {t:"The early doorbell",type:"lesson",body:["<p>Sources-sought and RFI notices are not contracts, they are the government asking <i>who exists</i>. When small businesses respond, the rule of two can trigger a set-aside before the competition even starts, and your name lands in the buyer's head first.</p><p>Your arsenal includes <b>Sources-Sought-Response-Template.docx</b>, the exact letter, ready to fill.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"Where does the LEAST competition usually live?",
+   o:["Big federal defense contracts","State, county, city, and school district buys","Contracts posted on the news","Wherever the highest dollar amounts are"],c:1,
+   why:"State and local buys get a fraction of the attention. Less competition, faster awards, past performance that compounds."},
+  {t:"Do the work: build your watchlist",type:"work",note:"Thirty minutes a day, same time daily. That is the whole habit.",
+   tasks:["SAM.gov saved search created (my NAICS + Total Small Business Set-Aside)","State portal open-solicitations page bookmarked","County, city, and school district vendor pages found","Daily 30-minute opportunity check on my calendar","One sources-sought notice identified to respond to"]},
+ ]},
+ {m:"Score like a professional",items:[
+  {t:"The discipline that saves you",type:"lesson",body:["<p>You are not trying to bid everything. You are trying to <b>WIN something</b>. A confident no-bid is a professional skill: when an opportunity scores low, write one line about why and move on without guilt.</p><p>Bidders who chase everything burn out before their first win. Bidders who score everything win on schedule.</p>"]},
+  {t:"The five questions",type:"lesson",body:["<p>Score each 0 to 2:</p><p>1. Can we actually deliver this scope, on time, at quality?<br>2. Can we price it profitably after ALL costs?<br>3. Can we PROVE capability with past work, even adjacent or commercial?<br>4. Do we meet EVERY hard requirement? One miss scores zero, licenses, insurance, bonding are disqualifiers.<br>5. Is the field survivable? A sole-source notice naming another company scores zero.</p><p><b>8+ bid · 5-7 only with spare capacity · under 5 walk.</b></p>"]},
+  {t:"Knowledge check",type:"quiz",q:"An opportunity scores 4 out of 10 on your card. What do you do?",
+   o:["Bid anyway, you never know","Lower your price to compensate","No-bid, write one line why, move on","Wait and see if the deadline extends"],c:2,
+   why:"Under 5 is a no-bid. One line about why, into the tracker, next opportunity. That discipline is why professionals win."},
+  {t:"Do the work: score a real one",type:"work",note:"Use the live scorecard on a REAL opportunity from your watchlist. The verdict is the assignment.",scorecard:true},
+ ]},
+ {m:"Read it like an evaluator",items:[
+  {t:"Evaluators read with a scoresheet",type:"lesson",body:["<p>The solicitation literally tells you how it will be scored: the <b>evaluation factors</b> section is the answer key. Structure your response in THEIR order, using THEIR vocabulary.</p><p>Most bidders never read that section twice. Evaluators can always tell who did.</p>"]},
+  {t:"The mandatory-meeting trap",type:"lesson",body:["<p>Some solicitations require a pre-proposal meeting or site visit. Miss a <b>MANDATORY</b> one and you are disqualified before you write a word. No appeals, no exceptions, no mercy.</p><p>It is the cruelest trap in bidding, which is why the meeting goes on your calendar the minute you open the file, not the day you decide to bid.</p>"]},
+  {t:"Five passes, every time",type:"lesson",body:["<p><b>Pass 1</b>, the gate check: deadline WITH time zone, submission method, mandatory meetings. <b>Pass 2</b>, the scope: highlight every shall and must, each is a compliance item. <b>Pass 3</b>, evaluation factors, the answer key. <b>Pass 4</b>, the fine print: page limits, fonts, forms, amendments, insurance minimums. <b>Pass 5</b>, the money mechanics: fixed or hourly, invoice terms, price validity.</p><p>Five passes reads slow. Loses fast beats it every time.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"You discover a mandatory pre-proposal meeting happened yesterday and you missed it. What now?",
+   o:["Submit anyway with an apology note","Email the officer asking for an exception","You are disqualified: no-bid, fix your calendar process, move on","Attend the award ceremony instead"],c:2,
+   why:"Mandatory means mandatory. The bid is dead; the lesson is free: gate-check every solicitation the minute it opens."},
+  {t:"Do the work: the five passes",type:"work",note:"Run all five passes on your live opportunity.",
+   tasks:["PASS 1 done: deadline + time zone + method + mandatory meetings on calendar","PASS 2 done: every shall and must highlighted","PASS 3 done: evaluation factors read twice","PASS 4 done: page limits, forms, amendments checked","PASS 5 done: price mechanics understood"],
+   fields:[["Mandatory meeting date (if any)","meet"]]},
+ ]},
+ {m:"Price it to survive",items:[
+  {t:"The most common injury",type:"lesson",body:["<p>The most common small business bidding injury is <b>winning at a losing price</b>. A win that loses money is worse than a loss, you end up funding the government's project with your savings.</p><p>Every line gets priced BEFORE you quote: labor at loaded rates (wages plus taxes plus benefits), materials with written supplier quotes, compliance costs, subcontractors, overhead.</p>"]},
+  {t:"The line everyone forgets",type:"lesson",body:["<p><b>Freight.</b> Delivery, shipping, travel. It kills more resale margins than competition does. Always quote the DELIVERED cost, with the supplier's quote in writing.</p><p>And margin: 10 to 25 percent is typical, thin for commodities, thicker for services. Below 10 percent, the no-bid option deserves another look, before you win a loss.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"Which line item quietly kills more resale bids than any competitor?",
+   o:["Office supplies","Freight and delivery","Marketing costs","Software subscriptions"],c:1,
+   why:"Freight. Always price the DELIVERED cost, in writing, before your number goes anywhere."},
+  {t:"Do the work: price a real one",type:"work",note:"Price your live opportunity with the calculator. Every line, freight included.",pricing:true},
+ ]},
+ {m:"Build your arsenal",items:[
+  {t:"Seven weapons, already forged",type:"lesson",body:["<p>Your download contains <b>7 editable Word templates</b>: the proposal cover letter, the technical approach with the shall-by-shall compliance table, past performance frames, the price volume, the sources-sought letter, a contingent team agreement, and your capability statement.</p><p>Fill the pink brackets, delete the gray instructions, and every future bid starts half-done.</p>"]},
+  {t:"One page, two versions",type:"lesson",body:["<p>Your capability statement is your one-page federal resume. <b>ONE page, always.</b> Buying offices file hundreds of these; the one-pager that respects their time is the one that gets remembered.</p><p>Make two versions: FEDERAL leads with UEI, CAGE, and NAICS. STATE leads with your state vendor registration and local certifications. Send the one that matches the buyer, they notice.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"How long is a capability statement?",
+   o:["As long as it takes to impress","One page, always","Five pages with appendices","It depends on the agency"],c:1,
+   why:"One page. The one-pager that respects a buyer's time is the one that gets remembered and filed."},
+  {t:"Do the work: fill the templates",type:"work",note:"Open the arsenal and fill each template for YOUR business. This assignment is the module.",
+   tasks:["Capability Statement FEDERAL version filled","Capability Statement STATE version filled","Cover letter customized with my company block","Technical Approach compliance table started for a live opportunity","Past Performance: 2 projects written in the frame","Price Volume matched to the solicitation format","Team Agreement reviewed (attorney if teaming)"]},
+ ]},
+ {m:"Submit and confirm",items:[
+  {t:"Hours early, never minutes",type:"lesson",body:["<p>Submit early, <b>hours early minimum</b>. Portals crash at deadlines, attachments bounce, and government spam filters EAT vendor email.</p><p>After an email submission, request receipt confirmation and do not rest until you have it. A confirmed receipt is your insurance policy, it has saved real bids, including ours.</p>"]},
+  {t:"The tracker is the business",type:"lesson",body:["<p>Log every bid in <b>bid-tracker.csv</b>: number, agency, dates, amount, status, officer contact, next action.</p><p>Ten bids in, that spreadsheet IS your business intelligence: it tells you which agencies respond, which niches pay, and where your next win is hiding. And after every decision, win or lose, request a debrief, losing debriefs are free consulting.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"You emailed your bid and got silence. No receipt confirmation. What do you do?",
+   o:["Assume it arrived, government email is reliable","Follow up until receipt is CONFIRMED","Resubmit five more times","Post about it on social media"],c:1,
+   why:"Silence is not delivery. Politely confirm receipt before the deadline passes."},
+  {t:"Do the work: submit",type:"work",note:"The moment everything in this course points at.",
+   tasks:["Compliance pass done (limits, signatures, amendments)","Second person checked the package","SUBMITTED, hours early","Receipt confirmation received","Bid logged in bid-tracker.csv with next-action date"],
+   fields:[["My first submission date","subdate"]]},
+ ]},
+ {m:"Lock the rhythm",items:[
+  {t:"Losing is tuition",type:"lesson",body:["<p>Your first bids will probably lose. That is normal, temporary, and survivable, incumbents and experience exist.</p><p><b>Past performance compounds</b>: bid small, deliver flawlessly, and let each win buy the next bigger one. Plan in months, and let the tracker prove the trend.</p>"]},
+  {t:"The free advisor nobody uses",type:"lesson",body:["<p><b>APEX Accelerators</b> are government funded, one-on-one contracting advisors whose entire job is helping small businesses win. FREE.</p><p>apexaccelerators.us, find your local office, book a session. It is the single best free resource in this industry, and now you know.</p>"]},
+  {t:"Knowledge check",type:"quiz",q:"Your first three bids all lost. What does that mean?",
+   o:["Government contracting is rigged","You should stop bidding","That is normal tuition: request debriefs, bid smaller, keep the rhythm","Your business is too small"],c:2,
+   why:"Everyone's first bids lose. Debriefs turn each loss into free consulting, and the 2-bids-per-week rhythm turns months into wins."},
+  {t:"Do the work: your 90 days",type:"work",note:"The rhythm is the whole secret.",
+   tasks:["FREE APEX Accelerator session booked (apexaccelerators.us)","My pledge: 2 quality bids per week, on the calendar","Debrief rule adopted for every decision","Monthly tracker review scheduled","One teaming relationship or supplier account started"]},
+  {t:"Graduation + certificate",type:"cert"},
+ ]},
+];
+
+/* flatten */
+const FLAT=[];COURSE.forEach((m,mi)=>m.items.forEach((it,ii)=>FLAT.push({...it,mi,ii})));
+const S=JSON.parse(localStorage.getItem('bib3')||'{}');
+function save(){localStorage.setItem('bib3',JSON.stringify(S))}
+function key(f){return 'i'+f.mi+'_'+f.ii}
+function isDone(idx){
+  const f=FLAT[idx];
+  if(f.type==='lesson')return !!S['L'+key(f)];
+  if(f.type==='quiz')return !!S['Q'+key(f)];
+  if(f.type==='cert')return !!S['C'+key(f)];
+  if(f.scorecard)return !!S['sc_done'];
+  if(f.pricing)return !!S['pr_done'];
+  return f.tasks.every((_,j)=>S['t'+key(f)+'_'+j]);
+}
+function firstIncomplete(){for(let i=0;i<FLAT.length;i++){if(!isDone(i))return i}return FLAT.length-1}
+let cur = Math.min(S.cur??0, FLAT.length-1);
+if(cur>firstIncomplete())cur=firstIncomplete();
+
+function pct(){let d=0;FLAT.forEach((_,i)=>{if(isDone(i))d++});return Math.round(100*d/FLAT.length)}
+
+function renderSide(){
+  const fi=firstIncomplete();
+  let h=`<div class="brand"><small>Millennials Creatives presents</small>Bid-in-a-Box<br>The Gov Contracting Course</div>
+  <div class="sprog"><div class="plabel"><span>Course progress</span><span>${pct()}%</span></div><div class="bar"><div style="width:${pct()}%"></div></div></div>`;
+  COURSE.forEach((m,mi)=>{
+    h+=`<div class="mod"><div class="modt"><span class="mn">${String(mi).padStart(2,'0')}</span> ${m.m}</div>`;
+    m.items.forEach((it,ii)=>{
+      const idx=FLAT.findIndex(f=>f.mi===mi&&f.ii===ii);
+      const done=isDone(idx),locked=idx>fi,curc=idx===cur;
+      h+=`<div class="item ${done?'done':''} ${locked?'locked':''} ${curc?'current':''}" onclick="go(${idx},${locked})">
+        <div class="mark">${done?'✓':''}</div><span>${it.t}</span>
+        <span class="itype">${{lesson:'Lesson',quiz:'Check',work:'Assignment',cert:'Finale'}[it.type]}</span></div>`;
+    });
+    h+=`</div>`;
+  });
+  h+=`<button class="btn ghost" style="margin-top:.5rem;font-size:.72rem" onclick="if(confirm('Reset all course progress?')){localStorage.removeItem('bib3');location.reload()}">Reset progress</button>`;
+  document.getElementById('side').innerHTML=h;
+}
+function go(idx,locked){if(locked)return;cur=idx;S.cur=idx;save();renderAll();window.scrollTo(0,0);document.querySelector('.side').classList.remove('open')}
+
+function contBtn(idx,enabled,label){
+  const last=idx===FLAT.length-1;
+  return `<div class="footerbar">
+    <button class="btn ghost" ${idx===0?'disabled':''} onclick="go(${idx-1},false)">Back</button>
+    ${last?'':`<button class="btn y" ${enabled?'':'disabled'} onclick="completeAndGo(${idx})">${label||'Complete & Continue'}</button>`}
+  </div>`;
+}
+function completeAndGo(idx){
+  const f=FLAT[idx];
+  if(f.type==='lesson')S['L'+key(f)]=true;
+  save();
+  const next=Math.min(idx+1,FLAT.length-1);
+  go(next,false);
+}
+
+function renderMain(){
+  const f=FLAT[cur],m=COURSE[f.mi];
+  let h=`<div class="crumb">Module ${String(f.mi).padStart(2,'0')} · ${m.m} · ${{lesson:'Lesson',quiz:'Knowledge check',work:'Assignment',cert:'Graduation'}[f.type]}</div><h1>${f.t}</h1>`;
+  if(f.type==='lesson'){
+    h+=`<div class="lesson-card">${f.body.join('')}</div>`+contBtn(cur,true);
+  }
+  if(f.type==='quiz'){
+    const passed=isDone(cur);
+    h+=`<div class="lesson-card"><p><b>${f.q}</b></p></div>
+    <div id="qa">${f.o.map((o,j)=>`<button class="qopt" id="q_${j}" onclick="answer(${cur},${j})">${o}</button>`).join('')}</div>
+    <div class="qwhy ${passed?'show good':''}" id="qw">${passed?'Correct. '+f.why:''}</div>`+contBtn(cur,passed);
+  }
+  if(f.type==='work'){
+    h+=f.note?`<div class="note">${f.note}</div>`:'';
+    if(f.tasks)h+=f.tasks.map((t,j)=>`<div class="task"><input type="checkbox" id="c_${j}" ${S['t'+key(f)+'_'+j]?'checked':''} onchange="tick(${cur},${j},this.checked)"><label for="c_${j}">${t}</label></div>`).join('');
+    if(f.fields)h+=`<div class="grid2">`+f.fields.map(fl=>`<div class="field"><label>${fl[0]}</label><input value="${(S['f_'+fl[1]]||'').replace(/"/g,'&quot;')}" onchange="fld('${fl[1]}',this.value)"></div>`).join('')+`</div>`;
+    if(f.scorecard)h+=scorecardHTML();
+    if(f.pricing)h+=pricingHTML();
+    h+=contBtn(cur,isDone(cur),'Assignment complete, continue');
+  }
+  if(f.type==='cert'){
+    const nm=S['f_name']||'';
+    h+=`<div class="note">You finished every lesson, passed every check, and did the real work. Type your name, claim your certificate, and print it if you want it on the wall.</div>
+    <div class="field"><label>Your name, as it should appear</label><input value="${nm.replace(/"/g,'&quot;')}" onchange="fld('name',this.value);S['C'+key(FLAT[cur])]=!!this.value;save();renderAll()"></div>
+    <div class="cert">
+      <div class="cy">Certificate of Completion</div>
+      <h2>Bid-in-a-Box</h2>
+      <p>The Government Contracting Course</p>
+      <div class="nm">${nm||'&nbsp;'}</div>
+      <p>has completed all eight modules: registration, opportunity discovery, bid/no-bid discipline, solicitation analysis, pricing, proposal development, submission, and operating rhythm.</p>
+      <p style="margin-top:.6rem">${new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'})}</p>
+      <div class="sig"><div>Millennials Creatives LLC</div><div>Certified WOSB · Active Federal &amp; State Bidder</div></div>
+    </div>
+    <div class="footerbar">
+      <button class="btn ghost" onclick="go(${cur-1},false)">Back</button>
+      <button class="btn" onclick="window.print()">Print certificate</button>
+      <a class="btn y" href="mailto:contact@millennialscreatives.com?subject=I finished the Bid-in-a-Box course&body=My first bid is in. Here is what I submitted:">Tell us about your first bid</a>
+    </div>
+    <p class="hint" style="margin-top:1rem">Want it done WITH you? Proposal support and full bid services at <a href="https://millennialscreatives.com">millennialscreatives.com</a>. This certificate recognizes course completion; it is not a government credential.</p>`;
+  }
+  document.getElementById('main').innerHTML=h;
+  if(f.scorecard)scCalc();if(f.pricing)prCalc();
+}
+function renderAll(){renderSide();renderMain()}
+function tick(idx,j,v){S['t'+key(FLAT[idx])+'_'+j]=v;save();renderAll()}
+function fld(k,v){S['f_'+k]=v;save()}
+function answer(idx,j){
+  const f=FLAT[idx],w=document.getElementById('qw');
+  document.querySelectorAll('#qa .qopt').forEach(b=>b.classList.remove('right','wrong'));
+  if(j===f.c){document.getElementById('q_'+j).classList.add('right');w.className='qwhy show good';w.textContent='Correct. '+f.why;S['Q'+key(f)]=true;save();renderAll();
+    document.getElementById('q_'+j).classList.add('right');}
+  else{document.getElementById('q_'+j).classList.add('wrong');w.className='qwhy show bad';w.textContent='Not quite. Think back to the lessons and try again.';}
+}
+const SCQ=[["Can we actually deliver this scope, on time, at quality?",["0 · No","1 · With a partner","2 · Yes"]],
+ ["Can we price it profitably after ALL costs?",["0 · No","1 · Barely","2 · Yes"]],
+ ["Can we PROVE capability with past work?",["0 · No","1 · Adjacent work","2 · Directly"]],
+ ["Do we meet EVERY hard requirement?",["0 · Missing one or more","2 · All met"]],
+ ["Is the competitive field survivable?",["0 · Sole-source names another firm","1 · Crowded open field","2 · Open small biz set-aside"]]];
+function scorecardHTML(){
+  let h='<div class="grid2">';
+  SCQ.forEach((q,j)=>{h+=`<div class="field"><label>${q[0]}</label><select onchange="sc(${j},this.value)">`+
+   `<option value="">choose...</option>`+q[1].map(o=>`<option value="${o[0]}" ${S['sc_'+j]===o[0]?'selected':''}>${o}</option>`).join('')+`</select></div>`});
+  h+='</div><div class="calc-out"><div class="hint">Total score</div><div class="big" id="scout">--</div><div id="scv" class="hint"></div></div>';
+  h+=`<div class="task" style="margin-top:.6rem"><input type="checkbox" id="scd" ${S['sc_done']?'checked':''} onchange="S['sc_done']=this.checked;save();renderAll()"><label for="scd">I scored a REAL live opportunity with this card and made the call</label></div>`;
+  return h;
+}
+function sc(j,v){S['sc_'+j]=v;save();scCalc()}
+function scCalc(){
+  const out=document.getElementById('scout'),vd=document.getElementById('scv');if(!out)return;
+  let total=0,all=true;
+  SCQ.forEach((q,j)=>{const v=S['sc_'+j];if(v===''||v===undefined)all=false;else total+=parseInt(v)});
+  if(!all){out.textContent='--';vd.textContent='Answer all five to get the verdict';return}
+  out.textContent=total+' / 10';
+  if(total>=8){out.className='big verdict-bid';vd.textContent='VERDICT: BID. Go win it.'}
+  else if(total>=5){out.className='big verdict-maybe';vd.textContent='VERDICT: Only with spare capacity.'}
+  else{out.className='big verdict-no';vd.textContent='VERDICT: NO-BID. One line why, move on. Discipline, not defeat.'}
+}
+const PRL=[["Direct labor (loaded rates)","labor"],["Materials / product","mat"],["Delivery, freight, travel","freight"],["Compliance (insurance, bonds)","comp"],["Subcontractors","subs"],["Overhead share","oh"]];
+function pricingHTML(){
+  let h='<div class="grid2">';
+  PRL.forEach(f=>{h+=`<div class="field"><label>${f[0]} ($)</label><input type="number" min="0" value="${S['pr_'+f[1]]||''}" onchange="pr('${f[1]}',this.value)"></div>`});
+  h+=`<div class="field"><label>Margin %</label><input type="number" min="0" max="60" value="${S['pr_margin']||15}" onchange="pr('margin',this.value)"></div></div>`;
+  h+='<div class="calc-out"><div class="hint">True cost → your bid price</div><div class="big" id="prout">$0</div><div id="prw" class="hint"></div></div>';
+  h+=`<div class="task" style="margin-top:.6rem"><input type="checkbox" id="prd" ${S['pr_done']?'checked':''} onchange="S['pr_done']=this.checked;save();renderAll()"><label for="prd">I priced a REAL opportunity, every line filled, freight included</label></div>`;
+  return h;
+}
+function pr(k,v){S['pr_'+k]=v;save();prCalc()}
+function prCalc(){
+  const out=document.getElementById('prout'),w=document.getElementById('prw');if(!out)return;
+  let cost=0;PRL.forEach(f=>cost+=parseFloat(S['pr_'+f[1]]||0));
+  const m=parseFloat(S['pr_margin']||15),bid=cost*(1+m/100);
+  out.textContent='$'+bid.toLocaleString(undefined,{maximumFractionDigits:0})+'  (cost $'+cost.toLocaleString(undefined,{maximumFractionDigits:0})+')';
+  w.textContent=m<10?'Margin under 10 percent: revisit the no-bid option before you win a loss.':'Sanity check: if a competitor likely beats this by 30 percent, know why yours is worth it, or walk.';
+  w.style.color=m<10?'var(--pink)':'var(--muted)';
+}
+renderAll();
+</script>
+</body>
+</html>

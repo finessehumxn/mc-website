@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home Office Safety & Ergonomics: The Course, Millennials Creatives LLC</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080810;--panel:#1A0F40;--purple:#2D1B69;--yellow:#FFD84D;--pink:#FF2D78;--cyan:#00D4FF;--text:#FDFDFD;--muted:#B8B8C8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.55}
+.app{display:grid;grid-template-columns:320px 1fr;min-height:100vh}
+/* -------- sidebar -------- */
+.side{background:#0d0a20;border-right:1px solid var(--purple);padding:1.4rem 1.1rem 2rem;overflow-y:auto;max-height:100vh;position:sticky;top:0}
+.brand{font-family:'Unbounded',sans-serif;font-weight:900;color:var(--yellow);font-size:1.05rem;line-height:1.3}
+.brand small{display:block;font-family:'Space Grotesk',sans-serif;font-weight:400;color:var(--cyan);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.3rem}
+.sprog{margin:1rem 0 1.2rem}
+.bar{height:10px;background:#080810;border-radius:5px;overflow:hidden;margin-top:.4rem}
+.bar>div{height:100%;width:0%;background:linear-gradient(90deg,var(--pink),var(--yellow));transition:width .4s}
+.plabel{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+.mod{margin-bottom:1rem}
+.modt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:.4rem .5rem;display:flex;gap:.5rem;align-items:center}
+.modt .mn{color:var(--yellow);font-family:'Unbounded',sans-serif}
+.item{display:flex;align-items:center;gap:.6rem;padding:.5rem .55rem;border-radius:8px;cursor:pointer;font-size:.86rem;color:var(--text);border-left:3px solid transparent}
+.item:hover{background:var(--panel)}
+.item.current{background:var(--panel);border-left-color:var(--pink)}
+.item.locked{color:#55516b;cursor:not-allowed}
+.mark{width:20px;height:20px;border-radius:50%;border:2px solid var(--purple);display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+.item.done .mark{background:var(--yellow);border-color:var(--yellow);color:#080810;font-weight:900}
+.item.locked .mark{border-color:#2a2540}
+.itype{margin-left:auto;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* -------- main -------- */
+.main{padding:2.2rem clamp(1rem,5vw,3.5rem);max-width:900px}
+.crumb{color:var(--cyan);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:.6rem}
+h1{font-family:'Unbounded',sans-serif;font-size:clamp(1.3rem,3vw,2rem);color:var(--yellow);margin-bottom:1rem}
+.lesson-card{background:var(--panel);border:1px solid var(--purple);border-radius:14px;padding:1.8rem;font-size:1.03rem}
+.lesson-card p{margin-bottom:1rem}
+.lesson-card p:last-child{margin-bottom:0}
+.footerbar{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--pink);color:#fff;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;letter-spacing:.05em;padding:.75rem 1.3rem;border-radius:9px;cursor:pointer;text-decoration:none}
+.btn.y{background:var(--yellow);color:#080810}
+.btn.ghost{background:transparent;border:1px solid var(--purple);color:var(--muted)}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.hint{color:var(--muted);font-size:.85rem}
+.note{background:#0d0a20;border-left:3px solid var(--pink);padding:.8rem 1rem;font-size:.9rem;color:var(--muted);border-radius:0 8px 8px 0;margin:1rem 0}
+.qopt{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--purple);border-radius:10px;color:var(--text);padding:.85rem 1rem;margin:.5rem 0;cursor:pointer;font-family:inherit;font-size:.95rem}
+.qopt:hover{border-color:var(--pink)}
+.qopt.right{border-color:var(--yellow);background:#221c05}
+.qopt.wrong{border-color:var(--pink);background:#26050f}
+.qwhy{margin-top:.9rem;padding:.85rem 1rem;border-radius:10px;font-size:.92rem;display:none}
+.qwhy.show{display:block}
+.qwhy.good{background:#221c05;border-left:3px solid var(--yellow)}
+.qwhy.bad{background:#26050f;border-left:3px solid var(--pink)}
+.task{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.task input[type=checkbox]{width:20px;height:20px;accent-color:var(--pink);margin-top:.15rem;flex-shrink:0}
+.task label{cursor:pointer}
+.field{margin:.7rem 0}
+.field label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.3rem}
+.field input,.field select{width:100%;background:#0d0a20;border:1px solid var(--purple);border-radius:8px;color:var(--text);padding:.6rem .7rem;font-family:inherit;font-size:.95rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.calc-out{background:#0d0a20;border:1px solid var(--purple);border-radius:10px;padding:1rem;margin-top:1rem;text-align:center}
+.big{font-family:'Unbounded',sans-serif;font-size:1.45rem;font-weight:900}
+.verdict-bid{color:var(--yellow)}.verdict-maybe{color:var(--cyan)}.verdict-no{color:var(--pink)}
+.cert{background:#FDFDFD;color:#080810;border:6px double var(--purple);border-radius:8px;padding:2.4rem;text-align:center;margin-top:1.2rem}
+.cert .cy{font-family:'Unbounded',sans-serif;color:#B0006D;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.cert h2{font-family:'Unbounded',sans-serif;font-size:1.5rem;margin:.7rem 0}
+.cert .nm{font-size:1.6rem;font-weight:700;border-bottom:2px solid #080810;display:inline-block;padding:0 1.5rem .2rem;margin:.6rem 0}
+.cert p{font-size:.92rem}
+.cert .sig{margin-top:1.6rem;display:flex;justify-content:space-around;font-size:.8rem}
+.cert .sig div{border-top:1px solid #080810;padding-top:.3rem;min-width:180px}
+.menu-btn{display:none;position:fixed;top:.8rem;right:.8rem;z-index:20}
+@media(max-width:840px){
+ .app{grid-template-columns:1fr}
+ .side{position:fixed;left:0;top:0;bottom:0;width:290px;z-index:15;transform:translateX(-100%);transition:transform .25s;max-height:none}
+ .side.open{transform:none}
+ .menu-btn{display:inline-block}
+ .grid2{grid-template-columns:1fr}
+}
+@media print{
+ .side,.menu-btn,.footerbar,.crumb{display:none!important}
+ body{background:#fff}.main{max-width:none;padding:0}
+ h1{display:none}
+ .cert{border-color:#000}
+}
+</style>
+</head>
+<body>
+<button class="btn menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">Course menu</button>
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <main class="main" id="main"></main>
+</div>
+
+<script>
+/* ---------------- COURSE DATA ---------------- */
+const COURSE=[{"m":"Start here","items":[{"t":"Welcome","type":"lesson","body":["<p>Your company probably safety-checked the office you left, and nobody ever checked the kitchen table you actually work at. Taught by our Chief Safety Officer, this short course fixes that in an afternoon, and most fixes cost a stack of books and some tape.</p>"]}]},{"m":"Chair, screen, eyes","items":[{"t":"The laptop-on-books trick","type":"lesson","body":["<p>Feet flat, knees level with hips, and the TOP of your screen at eye level so your neck stays straight. Laptop workers: stack books under it until the screen top hits eye level, then add a separate keyboard and mouse. A cheap keyboard costs less than one massage, and you will need fewer massages. That 3 PM headache and stiff neck are not normal; they are furniture.</p>"]},{"t":"Twenty twenty twenty","type":"lesson","body":["<p>Every twenty minutes, look at something twenty feet away for twenty seconds. Your eye muscles relax and the end-of-day strain headache quietly disappears. Also: windows beside you, not behind you (glare) and not behind the screen (silhouette squinting).</p>"]},{"t":"Knowledge check","type":"quiz","q":"Where should the TOP of your monitor sit?","o":["Wherever the laptop opens","At about eye level","Below the desk","Facing a window"],"c":1,"why":"Screen top at eye level keeps the neck straight. Books under a laptop get you there free."},{"t":"Do the work: the setup","type":"work","note":null,"tasks":["Screen raised to eye level (books count)","Separate keyboard and mouse in place if on a laptop","20-20-20 rule practiced through one full workday","Window glare checked and fixed"]}]},{"m":"Cords, outlets, heat","items":[{"t":"The four-minute cord audit","type":"lesson","body":["<p>Walk your path from the door to your chair and count every cord crossing where feet travel: chargers, lamps, the printer's extension cord. Each is a trip waiting for the day your hands are full of coffee. Reroute along walls, tape what must cross, lift what can leave the floor.</p>"]},{"t":"Home electrical is wilder than any office","type":"lesson","body":["<p>One heat-producing device per outlet, and never on a power strip. Space heaters cause a shocking share of home fires: wall outlet only, three feet of clearance, off when you leave the room. A power strip that is warm to the touch is overloaded, and your computer deserves a surge-protected one.</p>"]},{"t":"Knowledge check","type":"quiz","q":"Where does a space heater plug in?","o":["The good power strip","The wall outlet, three feet from anything that burns","Behind the curtains","An extension cord under the rug"],"c":1,"why":"Wall outlet, clearance, off when you leave. Heat never rides a power strip."},{"t":"Do the work: the audit","type":"work","note":null,"tasks":["Cord audit walked, every crossing fixed","High-draw devices moved to wall outlets","Power strips checked: cool to the touch, surge-rated"]}]},{"m":"Emergency basics","items":[{"t":"Five checks even a home office needs","type":"lesson","body":["<p>Test your smoke alarm this week, ten seconds, annoy the dog. Know your exit and keep it clear, including the window upstairs. Phone charged during work hours, not at two percent across the room. And a first-aid kit somewhere you can name out loud right now, if you just thought um, the bathroom maybe, that is your homework.</p>"]},{"t":"Knowledge check","type":"quiz","q":"Which is a real home-office emergency habit?","o":["Phone at 2% across the room","Smoke alarm tested, exit clear, first-aid kit findable","Candles near the paper shredder","Locking the office window shut permanently"],"c":1,"why":"Alarm, exit, kit, charged phone. Small checks, real safety."},{"t":"Do the work: emergency ready","type":"work","note":null,"tasks":["Smoke alarm tested","Exit path cleared (window included if upstairs)","First-aid kit placed somewhere nameable","Phone charging spot moved within reach"]},{"t":"Graduation + certificate","type":"cert"}]}];
+/* flatten */
+const FLAT=[];COURSE.forEach((m,mi)=>m.items.forEach((it,ii)=>FLAT.push({...it,mi,ii})));
+const S=JSON.parse(localStorage.getItem('mchome')||'{}');
+function save(){localStorage.setItem('mchome',JSON.stringify(S))}
+function key(f){return 'i'+f.mi+'_'+f.ii}
+function isDone(idx){
+  const f=FLAT[idx];
+  if(f.type==='lesson')return !!S['L'+key(f)];
+  if(f.type==='quiz')return !!S['Q'+key(f)];
+  if(f.type==='cert')return !!S['C'+key(f)];
+  if(f.scorecard)return !!S['sc_done'];
+  if(f.pricing)return !!S['pr_done'];
+  return f.tasks.every((_,j)=>S['t'+key(f)+'_'+j]);
+}
+function firstIncomplete(){for(let i=0;i<FLAT.length;i++){if(!isDone(i))return i}return FLAT.length-1}
+let cur = Math.min(S.cur??0, FLAT.length-1);
+if(cur>firstIncomplete())cur=firstIncomplete();
+
+function pct(){let d=0;FLAT.forEach((_,i)=>{if(isDone(i))d++});return Math.round(100*d/FLAT.length)}
+
+function renderSide(){
+  const fi=firstIncomplete();
+  let h=`<div class="brand"><small>Millennials Creatives presents</small>Home Office Safety<br>& Ergonomics</div>
+  <div class="sprog"><div class="plabel"><span>Course progress</span><span>${pct()}%</span></div><div class="bar"><div style="width:${pct()}%"></div></div></div>`;
+  COURSE.forEach((m,mi)=>{
+    h+=`<div class="mod"><div class="modt"><span class="mn">${String(mi).padStart(2,'0')}</span> ${m.m}</div>`;
+    m.items.forEach((it,ii)=>{
+      const idx=FLAT.findIndex(f=>f.mi===mi&&f.ii===ii);
+      const done=isDone(idx),locked=idx>fi,curc=idx===cur;
+      h+=`<div class="item ${done?'done':''} ${locked?'locked':''} ${curc?'current':''}" onclick="go(${idx},${locked})">
+        <div class="mark">${done?'✓':''}</div><span>${it.t}</span>
+        <span class="itype">${{lesson:'Lesson',quiz:'Check',work:'Assignment',cert:'Finale'}[it.type]}</span></div>`;
+    });
+    h+=`</div>`;
+  });
+  h+=`<button class="btn ghost" style="margin-top:.5rem;font-size:.72rem" onclick="if(confirm('Reset all course progress?')){localStorage.removeItem('mchome');location.reload()}">Reset progress</button>`;
+  document.getElementById('side').innerHTML=h;
+}
+function go(idx,locked){if(locked)return;cur=idx;S.cur=idx;save();renderAll();window.scrollTo(0,0);document.querySelector('.side').classList.remove('open')}
+
+function contBtn(idx,enabled,label){
+  const last=idx===FLAT.length-1;
+  return `<div class="footerbar">
+    <button class="btn ghost" ${idx===0?'disabled':''} onclick="go(${idx-1},false)">Back</button>
+    ${last?'':`<button class="btn y" ${enabled?'':'disabled'} onclick="completeAndGo(${idx})">${label||'Complete & Continue'}</button>`}
+  </div>`;
+}
+function completeAndGo(idx){
+  const f=FLAT[idx];
+  if(f.type==='lesson')S['L'+key(f)]=true;
+  save();
+  const next=Math.min(idx+1,FLAT.length-1);
+  go(next,false);
+}
+
+function renderMain(){
+  const f=FLAT[cur],m=COURSE[f.mi];
+  let h=`<div class="crumb">Module ${String(f.mi).padStart(2,'0')} · ${m.m} · ${{lesson:'Lesson',quiz:'Knowledge check',work:'Assignment',cert:'Graduation'}[f.type]}</div><h1>${f.t}</h1>`;
+  if(f.type==='lesson'){
+    h+=`<div class="lesson-card">${f.body.join('')}</div>`+contBtn(cur,true);
+  }
+  if(f.type==='quiz'){
+    const passed=isDone(cur);
+    h+=`<div class="lesson-card"><p><b>${f.q}</b></p></div>
+    <div id="qa">${f.o.map((o,j)=>`<button class="qopt" id="q_${j}" onclick="answer(${cur},${j})">${o}</button>`).join('')}</div>
+    <div class="qwhy ${passed?'show good':''}" id="qw">${passed?'Correct. '+f.why:''}</div>`+contBtn(cur,passed);
+  }
+  if(f.type==='work'){
+    h+=f.note?`<div class="note">${f.note}</div>`:'';
+    if(f.tasks)h+=f.tasks.map((t,j)=>`<div class="task"><input type="checkbox" id="c_${j}" ${S['t'+key(f)+'_'+j]?'checked':''} onchange="tick(${cur},${j},this.checked)"><label for="c_${j}">${t}</label></div>`).join('');
+    if(f.fields)h+=`<div class="grid2">`+f.fields.map(fl=>`<div class="field"><label>${fl[0]}</label><input value="${(S['f_'+fl[1]]||'').replace(/"/g,'&quot;')}" onchange="fld('${fl[1]}',this.value)"></div>`).join('')+`</div>`;
+    if(f.scorecard)h+=scorecardHTML();
+    if(f.pricing)h+=pricingHTML();
+    h+=contBtn(cur,isDone(cur),'Assignment complete, continue');
+  }
+  if(f.type==='cert'){
+    const nm=S['f_name']||'';
+    h+=`<div class="note">You finished every lesson, passed every check, and did the real work. Type your name, claim your certificate, and print it if you want it on the wall.</div>
+    <div class="field"><label>Your name, as it should appear</label><input value="${nm.replace(/"/g,'&quot;')}" onchange="fld('name',this.value);S['C'+key(FLAT[cur])]=!!this.value;save();renderAll()"></div>
+    <div class="cert">
+      <div class="cy">Certificate of Completion</div>
+      <h2>Home Office Safety & Ergonomics</h2><p>The 10-Minute Workspace Upgrade</p>
+      <div class="nm">${nm||'&nbsp;'}</div>
+      <p>has completed all modules: chair, screen, and eye setup, cords, outlets, and heat safety, and home emergency basics.</p>
+      <p style="margin-top:.6rem">${new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'})}</p>
+      <div class="sig"><div>Millennials Creatives LLC</div><div>Certified WOSB · Active Federal &amp; State Bidder</div></div>
+    </div>
+    <div class="footerbar">
+      <button class="btn ghost" onclick="go(${cur-1},false)">Back</button>
+      <button class="btn" onclick="window.print()">Print certificate</button>
+      <a class="btn y" href="mailto:contact@millennialscreatives.com?subject=I finished Home Office Safety & Ergonomics&body=My first bid is in. Here is what I submitted:">Tell us about your first bid</a>
+    </div>
+    <p class="hint" style="margin-top:1rem">Want it done WITH you? Proposal support and full bid services at <a href="https://millennialscreatives.com">millennialscreatives.com</a>. This certificate recognizes course completion; it is not a government credential.</p>`;
+  }
+  document.getElementById('main').innerHTML=h;
+  if(f.scorecard)scCalc();if(f.pricing)prCalc();
+}
+function renderAll(){renderSide();renderMain()}
+function tick(idx,j,v){S['t'+key(FLAT[idx])+'_'+j]=v;save();renderAll()}
+function fld(k,v){S['f_'+k]=v;save()}
+function answer(idx,j){
+  const f=FLAT[idx],w=document.getElementById('qw');
+  document.querySelectorAll('#qa .qopt').forEach(b=>b.classList.remove('right','wrong'));
+  if(j===f.c){document.getElementById('q_'+j).classList.add('right');w.className='qwhy show good';w.textContent='Correct. '+f.why;S['Q'+key(f)]=true;save();renderAll();
+    document.getElementById('q_'+j).classList.add('right');}
+  else{document.getElementById('q_'+j).classList.add('wrong');w.className='qwhy show bad';w.textContent='Not quite. Think back to the lessons and try again.';}
+}
+const SCQ=[["Can we actually deliver this scope, on time, at quality?",["0 · No","1 · With a partner","2 · Yes"]],
+ ["Can we price it profitably after ALL costs?",["0 · No","1 · Barely","2 · Yes"]],
+ ["Can we PROVE capability with past work?",["0 · No","1 · Adjacent work","2 · Directly"]],
+ ["Do we meet EVERY hard requirement?",["0 · Missing one or more","2 · All met"]],
+ ["Is the competitive field survivable?",["0 · Sole-source names another firm","1 · Crowded open field","2 · Open small biz set-aside"]]];
+function scorecardHTML(){
+  let h='<div class="grid2">';
+  SCQ.forEach((q,j)=>{h+=`<div class="field"><label>${q[0]}</label><select onchange="sc(${j},this.value)">`+
+   `<option value="">choose...</option>`+q[1].map(o=>`<option value="${o[0]}" ${S['sc_'+j]===o[0]?'selected':''}>${o}</option>`).join('')+`</select></div>`});
+  h+='</div><div class="calc-out"><div class="hint">Total score</div><div class="big" id="scout">--</div><div id="scv" class="hint"></div></div>';
+  h+=`<div class="task" style="margin-top:.6rem"><input type="checkbox" id="scd" ${S['sc_done']?'checked':''} onchange="S['sc_done']=this.checked;save();renderAll()"><label for="scd">I scored a REAL live opportunity with this card and made the call</label></div>`;
+  return h;
+}
+function sc(j,v){S['sc_'+j]=v;save();scCalc()}
+function scCalc(){
+  const out=document.getElementById('scout'),vd=document.getElementById('scv');if(!out)return;
+  let total=0,all=true;
+  SCQ.forEach((q,j)=>{const v=S['sc_'+j];if(v===''||v===undefined)all=false;else total+=parseInt(v)});
+  if(!all){out.textContent='--';vd.textContent='Answer all five to get the verdict';return}
+  out.textContent=total+' / 10';
+  if(total>=8){out.className='big verdict-bid';vd.textContent='VERDICT: BID. Go win it.'}
+  else if(total>=5){out.className='big verdict-maybe';vd.textContent='VERDICT: Only with spare capacity.'}
+  else{out.className='big verdict-no';vd.textContent='VERDICT: NO-BID. One line why, move on. Discipline, not defeat.'}
+}
+const PRL=[["Direct labor (loaded rates)","labor"],["Materials / product","mat"],["Delivery, freight, travel","freight"],["Compliance (insurance, bonds)","comp"],["Subcontractors","subs"],["Overhead share","oh"]];
+function pricingHTML(){
+  let h='<div class="grid2">';
+  PRL.forEach(f=>{h+=`<div class="field"><label>${f[0]} ($)</label><input type="number" min="0" value="${S['pr_'+f[1]]||''}" onchange="pr('${f[1]}',this.value)"></div>`});
+  h+=`<div class="field"><label>Margin %</label><input type="number" min="0" max="60" value="${S['pr_margin']||15}" onchange="pr('margin',this.value)"></div></div>`;
+  h+='<div class="calc-out"><div class="hint">True cost → your bid price</div><div class="big" id="prout">$0</div><div id="prw" class="hint"></div></div>';
+  h+=`<div class="task" style="margin-top:.6rem"><input type="checkbox" id="prd" ${S['pr_done']?'checked':''} onchange="S['pr_done']=this.checked;save();renderAll()"><label for="prd">I priced a REAL opportunity, every line filled, freight included</label></div>`;
+  return h;
+}
+function pr(k,v){S['pr_'+k]=v;save();prCalc()}
+function prCalc(){
+  const out=document.getElementById('prout'),w=document.getElementById('prw');if(!out)return;
+  let cost=0;PRL.forEach(f=>cost+=parseFloat(S['pr_'+f[1]]||0));
+  const m=parseFloat(S['pr_margin']||15),bid=cost*(1+m/100);
+  out.textContent='$'+bid.toLocaleString(undefined,{maximumFractionDigits:0})+'  (cost $'+cost.toLocaleString(undefined,{maximumFractionDigits:0})+')';
+  w.textContent=m<10?'Margin under 10 percent: revisit the no-bid option before you win a loss.':'Sanity check: if a competitor likely beats this by 30 percent, know why yours is worth it, or walk.';
+  w.style.color=m<10?'var(--pink)':'var(--muted)';
+}
+renderAll();
+</script>
+</body>
+</html>
