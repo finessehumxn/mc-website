@@ -1,0 +1,24 @@
+ACADEMY KIT MODEL: STRIPE SETUP (one sitting, ~20 minutes)
+
+Create ten Payment Links in Stripe (Payment Links -> Create), names and prices below.
+Then open checkout.html and replace each PASTE_STRIPE_LINK_ sentinel with the copied URL.
+
+1. Workplace Safety Essentials: The Course Kit ... $97  -> PASTE_STRIPE_LINK_MCSAFE
+2. Grant Readiness: The Course Kit .............. $97  -> PASTE_STRIPE_LINK_MCGRANT
+3. Bid-in-a-Box: The Complete System ............ $147 -> PASTE_STRIPE_LINK_BIDBOX
+4. AI Tools for Business: The Course Kit ........ $67  -> PASTE_STRIPE_LINK_MCAI
+5. Web Accessibility: The Course Kit ............ $97  -> PASTE_STRIPE_LINK_MCA11Y
+6. Healthcare Documentation: The Course Kit ..... $97  -> PASTE_STRIPE_LINK_MCHCD
+7. Medical Paperwork Mastery: The Course Kit .... $67  -> PASTE_STRIPE_LINK_MCMEDPAPER
+8. The Paper Trail (Business Records): Kit ...... $67  -> PASTE_STRIPE_LINK_MCPAPER
+9. Email Like a Business: The Course Kit ........ $47  -> PASTE_STRIPE_LINK_MCEMAIL
+10. Home Office Pro: The Course Kit ............. $47  -> PASTE_STRIPE_LINK_MCHOME
+
+After creating each link: Payment Link -> After payment -> redirect to
+https://millennialscreatives.com/thankyou.html?p=<kit-code>
+so buyers land on the download page for their kit.
+
+KITS READY TODAY: workplace-safety-kit.zip + grant-readiness-kit.zip (upload to repo root
+beside bid-in-a-box.zip). The remaining 7 kits get built next sessions, priority order:
+AI Tools, Web Accessibility, Healthcare Docs, Paper Trail, Medical Paperwork, Email, Home Office.
+Until a kit's zip exists, keep its checkout button pointing at the email fallback.
