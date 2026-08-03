@@ -1,44 +1,29 @@
-# Millennials Creatives LLC — Website
+# Welcome to your Lovable project
 
-**Official marketing site for Millennials Creatives LLC** — the parent company behind a portfolio of AI and creative-technology products.
+This project was built with [Lovable](https://lovable.dev).
 
-[![Type](https://img.shields.io/badge/Type-Company%20Site-orange?style=flat)]()
-[![Stack](https://img.shields.io/badge/Stack-HTML%20%7C%20CSS%20%7C%20JavaScript-blue?style=flat)]()
-[![Status](https://img.shields.io/badge/Status-Live-brightgreen?style=flat)]()
+## Build with Lovable
 
----
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
 
-## About Millennials Creatives LLC
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
 
-Millennials Creatives LLC is a registered parent company building and operating AI-driven products and creative services. The portfolio spans healthcare AI, marketplace technology, and brand/web work for clients.
+## Development
 
-**Products & work built under Millennials Creatives:**
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-- **MedCompanion AI** — safety-first patient health-briefing assistant (LangGraph + Claude + FastAPI). [Repo](https://github.com/finessehumxn/medcompanion-ai)
-- **BarterThat** — AI-matched barter marketplace, launched to web and mobile app stores. [barterthat.app](https://barterthat.app)
-- **AI safety & evaluation research** — structured analysis of LLM failure modes in safety-critical, human-centered domains.
-- **Client brand & web delivery** — full-scope identity and front-end engagements for small businesses.
-
----
-
-## This repository
-
-A single-page marketing site (vanilla HTML/CSS/JS), self-contained in `index.html`.
-
-```
-mc-website/
-├── index.html     ← the full marketing site
-└── README.md
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
 
-### Run locally
+## Built with
 
-```bash
-# any static server works, e.g.
-python -m http.server 8000
-# then open http://localhost:8000
-```
-
----
-
-> A site refresh is planned to support enterprise, government, and high-value client engagements.
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS
