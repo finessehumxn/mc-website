@@ -1,291 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Millennials Creatives, Branding, Video, Web & Government Contracting</title>
-<meta name="description" content="We turn boring into iconic. A creative studio and government contractor delivering branding, video, web, apps, and digital products for businesses and business owners.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Millennials Creatives | Brand, Film & AI Software Studio</title>
+<meta name="description" content="Certified woman-owned creative studio and software house. Branding, cinematic video, high-converting websites, AI products, and government contracting.">
+<link rel="icon" href="assets/mc-logo.png">
 <style>
-:root{--bg:#080810;--panel:#12101F;--purple:#1A0F40;--purple2:#2D1B69;--yellow:#FFD84D;--pink:#FF2D78;--cyan:#00D4FF;--text:#FDFDFD;--muted:#B8B8C8;--line:#26233C}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Helvetica,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-.eyebrow{color:var(--yellow);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;margin-bottom:16px}
-h2{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15;max-width:820px}
-.sec{padding:104px 0;position:relative}
-.sec+.sec{border-top:1px solid var(--line)}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-/* NAV */
-header{position:sticky;top:0;z-index:50;background:rgba(8,8,16,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-.nav .logo img{height:44px}
-.nav nav{display:flex;gap:26px;align-items:center;font-size:.94rem;color:var(--muted)}
-.nav nav a:hover{color:var(--text)}
-.btn{display:inline-block;background:var(--yellow);color:#080810;font-weight:700;padding:13px 28px;border-radius:8px;transition:transform .18s ease,box-shadow .18s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,216,77,.25)}
-.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
-.btn.ghost:hover{border-color:var(--yellow);box-shadow:none}
-/* HERO */
-.hero{padding:110px 0 70px;position:relative}
-.hero .kick{display:flex;gap:14px;align-items:center;color:var(--muted);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase}
-.hero .kick span.dot{width:8px;height:8px;border-radius:50%;background:var(--pink)}
-.hero h1{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1.04;margin:26px 0 8px;letter-spacing:-.01em}
-.hero h1 .boring{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--pink);text-decoration-thickness:6px}
-.hero h1 .iconic{position:relative;display:inline-block;color:var(--yellow)}
-.hero h1 .iconic svg{position:absolute;left:-2%;bottom:-14px;width:104%;height:22px;overflow:visible}
-.hero h1 .iconic path{stroke:var(--pink);stroke-width:7;fill:none;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1s .7s ease forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.hero p.lede{color:var(--muted);max-width:640px;font-size:1.14rem;margin:26px 0 36px}
-.hero .cta{display:flex;gap:16px;flex-wrap:wrap}
-.hero .art{position:absolute;right:-40px;top:80px;width:min(430px,34vw);opacity:.92;transform:rotate(4deg);filter:drop-shadow(0 30px 60px rgba(255,45,120,.18))}
-@media(max-width:960px){.hero .art{display:none}}
-/* MARQUEE */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--panel)}
-.marquee .track{display:flex;gap:44px;white-space:nowrap;animation:scroll 34s linear infinite;font-family:'Unbounded',sans-serif;font-weight:500;font-size:.95rem;color:var(--muted)}
-.marquee .track span b{color:var(--yellow);font-weight:500}
-@keyframes scroll{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.marquee .track{animation:none}}
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:64px}
-.stat{background:var(--bg);padding:38px 30px}
-.stat .num{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.4rem,4.4vw,3.6rem);color:var(--text);line-height:1}
-.stat .num .accent{color:var(--yellow)}
-.stat .lbl{color:var(--muted);margin-top:10px;font-size:.95rem}
-.stat:nth-child(2) .num .accent{color:var(--pink)}
-.stat:nth-child(3) .num .accent{color:var(--cyan)}
-/* SERVICES */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;margin-top:52px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:32px 28px;transition:transform .2s ease,border-color .2s ease}
-.card:hover{transform:translateY(-6px);border-color:var(--yellow)}
-.card .tag{color:var(--yellow);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
-.card h3{font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.02rem;margin:14px 0 10px}
-.card p{color:var(--muted);font-size:.95rem}
-/* CANS */
-.cans{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:26px;margin-top:52px}
-.can{text-align:center;transition:transform .25s ease}
-.can:hover{transform:translateY(-10px) rotate(-2deg)}
-.can img{margin:0 auto 16px;max-height:220px;object-fit:contain}
-.can b{font-family:'Permanent Marker',cursive;font-size:1.25rem;color:var(--yellow)}
-.can span{display:block;color:var(--muted);font-size:.85rem;margin-top:4px}
-/* WORK */
-.workrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:52px}
-.work{background:linear-gradient(160deg,var(--purple) 0%,var(--panel) 70%);border:1px solid var(--line);border-radius:12px;padding:34px 30px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s ease,border-color .2s ease}
-.work:hover{transform:translateY(-6px);border-color:var(--pink)}
-.work h3{font-family:'Unbounded',sans-serif;font-size:1.05rem;font-weight:700}
-.work p{color:var(--muted);font-size:.9rem;margin-top:8px}
-/* PRODUCTS */
-.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:52px}
-.app{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:30px;transition:transform .2s ease,border-color .2s ease}
-.app:hover{transform:translateY(-6px);border-color:var(--cyan)}
-.app img{width:64px;height:64px;border-radius:14px;margin-bottom:18px}
-.app h3{font-family:'Unbounded',sans-serif;font-size:1rem;font-weight:700;margin-bottom:8px}
-.app p{color:var(--muted);font-size:.92rem;margin-bottom:16px}
-.app .links span{color:var(--cyan);font-size:.88rem;font-weight:600}
-.app .links span{color:var(--cyan);font-size:.88rem;font-weight:600}
-.app .links span{color:var(--cyan);font-size:.88rem;font-weight:600}
-.app .links span{color:var(--cyan);font-size:.88rem;font-weight:600}
-.app .links a{color:var(--cyan);font-size:.88rem;font-weight:600;margin-right:16px}
-.app .links a:hover{color:var(--yellow)}
-/* SHOP */
-.shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:52px}
-.prod{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column;transition:border-color .2s ease}
-.prod:hover{border-color:var(--yellow)}
-.prod h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
-.prod p{color:var(--muted);font-size:.9rem;flex:1}
-.prod .price{font-family:'Unbounded',sans-serif;font-size:1.5rem;color:var(--yellow);margin:16px 0}
-/* TIERS */
-.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:52px}
-.tier{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:32px 28px}
-.tier.hot{border-color:var(--pink);background:linear-gradient(170deg,var(--purple) 0%,var(--panel) 60%)}
-.tier .t{color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
-.tier .p{font-family:'Unbounded',sans-serif;font-size:1.7rem;font-weight:700;color:var(--yellow);margin:10px 0 18px}
-.tier ul{list-style:none;color:var(--muted);font-size:.93rem}
-.tier li{padding:6px 0;border-top:1px solid var(--line)}
-/* GOV BAND */
-.govband{background:linear-gradient(120deg,var(--purple) 0%,var(--purple2) 100%);border-radius:16px;padding:56px 48px;display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:space-between;margin-top:24px}
-.govband h2{max-width:560px}
-.govband p{color:var(--muted);max-width:560px;margin-top:12px}
-/* TEAM */
-.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:52px}
-.member{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:30px;text-align:center}
-.member .av{width:70px;height:70px;border-radius:50%;background:var(--purple2);color:var(--yellow);font-family:'Unbounded',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1rem}
-.member h3{font-size:.98rem;font-weight:700}
-.member p{color:var(--muted);font-size:.88rem;margin-top:6px}
-/* CONTACT */
-.contact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:56px 48px;text-align:center}
-.contact p{color:var(--muted);max-width:560px;margin:16px auto 30px}
-footer{padding:48px 0;color:var(--muted);font-size:.9rem}
-footer .cols{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
-footer a{margin-right:18px}
-footer a:hover{color:var(--text)}
-@media(max-width:820px){.nav nav{display:none}.sec{padding:72px 0}}
-</style></head>
-<body id="top">
-<header><div class="wrap nav">
-<a class="logo" href="#top"><img src="assets/mc-logo.png" alt="Millennials Creatives logo"></a>
-<nav>
-<a href="/services">Services</a><a href="/work">Work</a><a href="/shop">Shop</a><a href="/government">Government</a><a href="/team">Team</a><a href="/blog">Blog</a>
-<a class="btn" href="/contact">Book a Call</a>
-</nav>
-</div></header>
+  :root{
+    --bg:oklch(0.115 0.03 286); --surface:oklch(0.165 0.033 286); --panel:oklch(0.215 0.037 287); --panel2:oklch(0.255 0.04 287);
+    --yellow:oklch(0.885 0.158 91); --pink:oklch(0.63 0.229 5); --cyan:oklch(0.79 0.128 219);
+    --text:oklch(0.97 0.005 280); --muted:oklch(0.72 0.017 285);
+    --line:oklch(1 0 0 / 10%);
+    --ff-head:'Poppins',ui-sans-serif,system-ui,-apple-system,Helvetica,Arial,sans-serif;
+    --ff-body:'Poppins',ui-sans-serif,system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--ff-body);line-height:1.55;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  .skip-link{position:absolute;left:-9999px;top:0;background:var(--yellow);color:var(--panel);padding:12px 20px;z-index:9999;font-weight:700;border-radius:0 0 8px 0}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
 
-<section class="hero"><div class="wrap">
-<div class="kick"><span class="dot"></span>Creative Studio · Software House · Government Contractor</div>
-<h1>We turn <span class="boring">boring</span><br>into <span class="iconic">iconic<svg viewBox="0 0 300 22" aria-hidden="true"><path d="M4 16 C 60 4, 150 22, 296 8"/></svg></span>.</h1>
-<p class="lede">Bold brands. Cinematic video. High-converting sites. AI-powered software. Built for businesses and business owners, by a certified woman owned studio that does the work itself.</p>
-<div class="cta"><a class="btn" href="/contact">Book a Discovery Call</a><a class="btn ghost" href="/work">See the Work</a></div>
-<img class="art" src="assets/cans-hero.png" alt="Millennials Creatives limited edition spray can design line">
+  /* NAV */
+  header{position:sticky;top:0;z-index:100;background:rgba(8,8,16,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand img{height:46px;display:block}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{font-size:.9rem;color:var(--muted);transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  .navcta{background:var(--yellow);color:oklch(0.12 0.03 286);padding:10px 20px;border-radius:30px;font-weight:700;font-size:.85rem}
+  .navcta:hover{transform:translateY(-1px)}
+  @media(max-width:820px){.navlinks a:not(.navcta){display:none}}
 
-<div class="stats">
-<div class="stat"><div class="num"><span class="count" data-target="50">0</span><span class="accent">+</span></div><div class="lbl">Brands launched since 2020</div></div>
-<div class="stat"><div class="num"><span class="count" data-target="7">0</span><span class="accent">&nbsp;live</span></div><div class="lbl">Software products shipped, in stores and on this site</div></div>
-<div class="stat"><div class="num"><span class="count" data-target="10">0</span><span class="accent">&nbsp;courses</span></div><div class="lbl">Published in the MC Course Academy</div></div>
-<div class="stat"><div class="num"><span class="count" data-target="4">0</span><span class="accent">&nbsp;founders</span></div><div class="lbl">AI, business, healthcare, and safety, in-house</div></div>
+  /* HERO */
+  .hero{padding:90px 0 70px;position:relative}
+  .eyebrow{font-family:var(--ff-body);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--yellow);margin-bottom:22px}
+  .hero h1{font-family:var(--ff-head);font-weight:800;font-size:clamp(2.9rem,7vw,5.4rem);line-height:.95;letter-spacing:-.03em;max-width:14ch}
+  .hero h1 .strike{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--pink);text-decoration-thickness:6px}
+  .hero h1 .iconic{color:var(--yellow)}
+  .hero .lede{margin-top:26px;font-size:1.15rem;color:var(--muted);max-width:48ch}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{padding:14px 28px;border-radius:32px;font-weight:700;font-size:.95rem;transition:transform .2s}
+  .btn-y{background:var(--yellow);color:oklch(0.12 0.03 286);box-shadow:0 18px 60px -18px color-mix(in oklab, var(--yellow) 55%, transparent)}
+  .btn-o{border:1px solid var(--line);color:var(--text)}
+  .btn:hover{transform:translateY(-2px)}
+  .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero-media{display:grid;grid-template-columns:1fr;gap:16px}
+  .hero-media video{width:100%;border-radius:20px;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(0,0,0,.7);display:block;background:var(--surface);aspect-ratio:16/9;object-fit:cover}
+  .hero-media .hero-media-2{width:70%;margin-left:auto;margin-top:-40px;position:relative;z-index:2;box-shadow:0 24px 60px -24px color-mix(in oklab, var(--pink) 50%, transparent)}
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:32px}.hero-media .hero-media-2{width:60%}}
+  .hero-anim h1 span{display:inline-block;opacity:0;transform:translateY(30px);filter:blur(8px);animation:wordIn .8s cubic-bezier(.16,1,.3,1) forwards}
+  .hero-anim h1 span:nth-child(1){animation-delay:.1s}
+  .hero-anim h1 span:nth-child(2){animation-delay:.19s}
+  .hero-anim h1 span:nth-child(3){animation-delay:.28s}
+  .hero-anim h1 span:nth-child(4){animation-delay:.37s}
+  @keyframes wordIn{to{opacity:1;transform:translateY(0);filter:blur(0)}}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;padding-top:44px;border-top:1px solid var(--line)}
+  .stat .num{font-family:var(--ff-head);font-weight:800;font-size:clamp(2rem,4vw,2.8rem);color:var(--text)}
+  .stat .lbl{font-size:.82rem;color:var(--muted);margin-top:6px}
+  @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr);gap:20px}}
+
+  /* MARQUEE */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-top:70px;overflow:hidden;white-space:nowrap}
+  .marquee-inner{display:inline-block;animation:scroll 26s linear infinite}
+  .marquee span{font-family:var(--ff-head);font-weight:700;font-size:1.05rem;color:var(--muted);margin:0 26px}
+  .marquee span b{color:var(--yellow)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* SECTIONS */
+  section{padding:80px 0}
+  .label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px}
+  h2{font-family:var(--ff-head);font-weight:800;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.03;letter-spacing:-.025em;max-width:20ch}
+  .sub{color:var(--muted);margin-top:16px;max-width:52ch;font-size:1.05rem}
+
+  /* SERVICES */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:44px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .svc{background:var(--bg);padding:30px;transition:background .4s}
+  .svc:hover{background:var(--surface)}
+  .svc h3{font-family:var(--ff-head);font-size:1.15rem;margin-bottom:10px}
+  .svc p{color:var(--muted);font-size:.92rem}
+  @media(max-width:820px){.svc-grid{grid-template-columns:1fr}}
+
+  /* APPS */
+  .apps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:44px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .app{background:var(--bg);padding:26px;display:flex;flex-direction:column;transition:background .4s}
+  .app:hover{background:var(--surface)}
+  .app img{width:52px;height:52px;border-radius:14px;object-fit:cover;margin-bottom:16px}
+  .app h3{font-family:var(--ff-head);font-size:1.05rem;margin-bottom:8px}
+  .app.y h3{color:var(--yellow)} .app.c h3{color:var(--cyan)} .app.p h3{color:var(--pink)}
+  .app p{color:var(--muted);font-size:.85rem;flex:1}
+  .app .meta{margin-top:16px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .app:hover .meta{color:var(--text)}
+  @media(max-width:980px){.apps-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.apps-grid{grid-template-columns:1fr}}
+
+  /* WORK */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .work-tile{border-radius:18px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid var(--line)}
+  .work-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .work-tile:hover img{transform:scale(1.05)}
+  .work-meta{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(transparent,rgba(8,8,16,.92))}
+  .work-meta h4{font-family:var(--ff-head);font-size:1.05rem}
+  .work-meta p{font-size:.78rem;color:var(--muted);margin-top:3px}
+  @media(max-width:820px){.work-grid{grid-template-columns:1fr}}
+
+  /* ETHOS CANS */
+  .cans{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:44px;align-items:end}
+  .can{text-align:center}
+  .can img{width:100%;max-height:210px;object-fit:contain;filter:drop-shadow(0 18px 34px rgba(0,0,0,.4))}
+  .can .w{font-family:var(--ff-head);font-weight:800;font-size:1.05rem;margin-top:12px}
+  .can .s{font-size:.75rem;color:var(--muted);margin-top:2px}
+  @media(max-width:820px){.cans{grid-template-columns:repeat(2,1fr);gap:14px}}
+
+  /* GOVERNMENT */
+  .gov{background:var(--panel);border-radius:26px;padding:52px;margin-top:20px}
+  .gov h2{max-width:24ch}
+  .gov .badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .gov .badge{border:1px solid var(--line);border-radius:30px;padding:9px 18px;font-size:.8rem;color:var(--text)}
+  .gov .badge b{color:var(--yellow)}
+
+  /* CONTACT */
+  .contact{text-align:center;padding:100px 0}
+  .contact h2{margin:0 auto;font-size:clamp(2.4rem,6vw,4.2rem)}
+  .contact .sub{margin:20px auto 0}
+  .contact .btn{margin-top:34px;display:inline-block}
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer a{color:var(--muted)}footer a:hover{color:var(--text)}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <nav class="wrap" aria-label="Main navigation">
+    <a href="#top" class="brand"><img src="assets/mc-logo.png" alt="Millennials Creatives"></a>
+    <div class="navlinks">
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="#products">Products</a>
+      <a href="government.html">Government</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html" class="navcta">Book a Call</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+   <div class="hero-copy hero-anim">
+    <div class="eyebrow">Creative Studio · Government Contractor</div>
+    <h1><span>We turn</span> <span class="strike">boring</span> <span>into</span> <span class="iconic">iconic.</span></h1>
+    <p class="lede">Bold brands. Cinematic video. High-converting sites. AI-powered software. And a SAM-registered team ready for federal, state, and local contracts. Built for businesses and business owners, by a certified woman-owned studio that does the work itself.</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-y">Book a Discovery Call</a>
+      <a href="work.html" class="btn btn-o">See the Work</a>
+    </div>
+   </div>
+   <div class="hero-media">
+     <video autoplay muted loop playsinline preload="metadata" poster="assets/cans-hero.png" aria-label="Millennials Creatives motion graphics showreel, no audio">
+       <source src="media/video/mograph-finesse.mp4" type="video/mp4">
+     </video>
+     <video class="hero-media-2" autoplay muted loop playsinline preload="metadata" aria-label="Millennials Creatives motion graphics reel, no audio">
+       <source src="media/video/mograph-love.mp4" type="video/mp4">
+     </video>
+   </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num" data-count="50" data-suffix="+">0</div><div class="lbl">Brands launched since 2020</div></div>
+      <div class="stat"><div class="num" data-count="7">0</div><div class="lbl">Live software products</div></div>
+      <div class="stat"><div class="num" data-count="10">0</div><div class="lbl">Courses in the Academy</div></div>
+      <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">Founders, one team</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>Branding</span><span>·</span><span>Websites</span><span>·</span><span>Video &amp; Motion</span><span>·</span><span><b>AI Software</b></span><span>·</span><span>Government Contracting</span><span>·</span><span>Accessibility</span><span>·</span>
+    <span>Branding</span><span>·</span><span>Websites</span><span>·</span><span>Video &amp; Motion</span><span>·</span><span><b>AI Software</b></span><span>·</span><span>Government Contracting</span><span>·</span><span>Accessibility</span><span>·</span>
+  </div>
 </div>
-</div></section>
 
-<div class="marquee"><div class="track">
-<span>Branding <b>✦</b> Video Production <b>✦</b> Web Design <b>✦</b> Motion + 3D <b>✦</b> Photography <b>✦</b> App Development <b>✦</b> Government Contracting <b>✦</b> AI Tools <b>✦</b> Packaging <b>✦</b> E-commerce <b>✦</b>&nbsp;</span>
-<span>Branding <b>✦</b> Video Production <b>✦</b> Web Design <b>✦</b> Motion + 3D <b>✦</b> Photography <b>✦</b> App Development <b>✦</b> Government Contracting <b>✦</b> AI Tools <b>✦</b> Packaging <b>✦</b> E-commerce <b>✦</b>&nbsp;</span>
-</div></div>
+<!-- SERVICES -->
+<section class="wrap reveal">
+  <div class="label">What we do</div>
+  <h2>Most studios pick a lane. We refused to.</h2>
+  <p class="sub">Your logo, your site, your product, and your proposal all have to feel like the same company. When one team owns the whole thing, they finally do.</p>
+  <div class="svc-grid">
+    <div class="svc"><h3>Branding &amp; Identity</h3><p>Logos, rebrands, packaging, and the brand systems that carry them, strategy included, not just marks.</p></div>
+    <div class="svc"><h3>Websites &amp; Platforms</h3><p>High-converting sites and full platforms, accessible by default, built and shipped live.</p></div>
+    <div class="svc"><h3>Video &amp; Motion</h3><p>Cinematic brand films, product films, and motion graphics produced in house.</p></div>
+    <div class="svc"><h3>AI &amp; Software</h3><p>Production AI systems and custom software, from prototype to the app stores.</p></div>
+    <div class="svc"><h3>Government Contracting</h3><p>SAM-registered and certified WOSB, MBE, DBE, ready for federal, state, and local work.</p></div>
+    <div class="svc"><h3>Digital Accessibility</h3><p>Section 508 and WCAG 2.1 AA practice, on our own properties and yours.</p></div>
+  </div>
+</section>
 
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">What We Do</div>
-<h2>Full-stack creative for brands that refuse to blend in.</h2>
-<div class="grid">
-<div class="card"><div class="tag">Identity</div><h3>Branding & Identity</h3><p>Logos, brand systems, packaging, guidelines, and visual identity that stops the scroll.</p></div>
-<div class="card"><div class="tag">Film</div><h3>Video Production</h3><p>Commercials, documentaries, event coverage, brand films, and raw footage delivery.</p></div>
-<div class="card"><div class="tag">Stills</div><h3>Photography</h3><p>Product, lifestyle, editorial, and event photography for brands and organizations.</p></div>
-<div class="card"><div class="tag">Post</div><h3>Editing & Motion</h3><p>Color, sound, motion graphics, 3D renders, and finishing on any footage you bring us.</p></div>
-<div class="card"><div class="tag">Web</div><h3>Web Design & Development</h3><p>Marketing sites, e-commerce, landing pages, and custom builds engineered to convert.</p></div>
-<div class="card"><div class="tag">Software</div><h3>Apps & AI Systems</h3><p>Custom SaaS, AI tools, and full-stack platforms, from prototype to production.</p></div>
-<div class="card"><div class="tag">Public Sector</div><h3>Government Contracting</h3><p>SAM.gov registered vendor for federal, state, local, and tribal creative and tech services.</p></div>
-<div class="card"><div class="tag">Education</div><h3>Courses & Training</h3><p>The MC Course Academy plus live corporate training, taught by the founding team.</p></div>
-</div>
-</div></section>
+<!-- APPS -->
+<section class="wrap reveal" id="products">
+  <div class="label">Apps &amp; Software</div>
+  <h2>Products we ship. Not promises, downloads.</h2>
+  <p class="sub">Four consumer apps live on the App Store and Google Play, plus the software platforms we built and operate ourselves.</p>
+  <div class="apps-grid">
+    <a class="app y" href="https://apps.apple.com/app/id6784909030" target="_blank" rel="noopener"><img src="media/apps/barterthat.png" alt="BarterThat logo"><h3>BarterThat</h3><p>Swap skills, build community. 1000+ services, zero cash.</p><div class="meta">App Store · Google Play →</div></a>
+    <a class="app c" href="https://apps.apple.com/app/id6785335934" target="_blank" rel="noopener"><img src="media/apps/medcompanion.png" alt="MedCompanion AI logo"><h3>MedCompanion AI</h3><p>Your health, finally explained. Plain language, every language.</p><div class="meta">App Store · Google Play →</div></a>
+    <a class="app p" href="https://apps.apple.com/app/id6786938952" target="_blank" rel="noopener"><img src="media/apps/finessekey.png" alt="FinesseKey logo"><h3>FinesseKey</h3><p>Credit and debt comeback, legitimate consumer-law moves only.</p><div class="meta">App Store · Google Play →</div></a>
+    <a class="app y" href="https://apps.apple.com/app/id6790193060" target="_blank" rel="noopener"><img src="media/apps/finesseedge.png" alt="FinesseEdge logo"><h3>FinesseEdge</h3><p>Know your edge. Documented stats and an Edge Score, not a sportsbook.</p><div class="meta">App Store · Google Play →</div></a>
+    <a class="app c" href="government.html"><img src="media/apps/finessewins.svg" alt="FinesseWins logo"><h3>FinesseWins</h3><p>Government contracting for first-timers, discovery to award.</p><div class="meta">Live platform →</div></a>
+    <a class="app p" href="contact.html"><img src="media/apps/mcgrants.png" alt="MCGrantz logo"><h3>MCGrantz</h3><p>The Winnability Engine. See which grants you can actually win.</p><div class="meta">Live product →</div></a>
+    <a class="app y" href="contact.html"><img src="media/apps/mcproof.png" alt="MCProof logo"><h3>MCProof</h3><p>Compliance that survives a lawsuit. 508, security, and VPAT from one scan.</p><div class="meta">Live product →</div></a>
+    <a class="app c" href="contact.html"><img src="media/apps/custombuilds.png" alt="Custom Builds"><h3>Custom Builds</h3><p>SaaS, AI, and internal tools for clients, prototype to production.</p><div class="meta">Start a build →</div></a>
+  </div>
+</section>
 
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">The Impossible · Limited Edition</div>
-<h2>Our craft, bottled.</h2>
-<div class="cans">
-<div class="can"><img src="assets/can-design.png" alt="Design spray can"><b>Design</b><span>Brand & Visual</span></div>
-<div class="can"><img src="assets/can-create.png" alt="Create spray can"><b>Create</b><span>Content & Motion</span></div>
-<div class="can"><img src="assets/can-connect.png" alt="Connect spray can"><b>Connect</b><span>Network & Advisory</span></div>
-<div class="can"><img src="assets/can-believe.png" alt="Believe spray can"><b>Believe</b><span>Strategy & Coaching</span></div>
-<div class="can"><img src="assets/can-love.png" alt="Love spray can"><b>Love</b><span>In Every Project</span></div>
-</div>
-</div></section>
+<!-- WORK -->
+<section class="wrap reveal">
+  <div class="label">Selected work</div>
+  <h2>Real clients. Live in the world.</h2>
+  <div class="work-grid">
+    <a class="work-tile" href="work.html#products"><img src="assets/work-bella-v2.jpg" alt="Bella High Royal Highness palette"><div class="work-meta"><h4>Bella High, Royal Highness</h4><p>Beauty · 3D · Packaging</p></div></a>
+    <a class="work-tile" href="work.html#websites"><img src="site-kandees.jpg" alt="KanDees Kreations website"><div class="work-meta"><h4>KanDees Kreations</h4><p>Web · Brand · E-commerce</p></div></a>
+    <a class="work-tile" href="work.html#branding"><img src="assets/art-queen-blue.jpg" alt="Royal Blue illustration"><div class="work-meta"><h4>Royal Blue Series</h4><p>Illustration · Editorial</p></div></a>
+  </div>
+</section>
 
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">Selected Work</div>
-<h2>Brands, campaigns & platforms we have built.</h2>
-<div class="workrow">
-<a class="work" href="/work#branding"><h3>Branding & Design</h3><p>Bella High · The Wendy S Collection · Royal Blue illustration series · Identity, packaging, illustration</p></a>
-<a class="work" href="/work#websites"><h3>Websites & Platforms</h3><p>Legal Nurse Jeanie · Three Wishes Bakery · The Upside Down · Web, e-commerce, apps</p></a>
-<a class="work" href="/work#media"><h3>Video, Print & Media</h3><p>MC studio identity · Bloom series · Fruitful Remedies · Motion, photography, print</p></a>
-</div>
-</div></section>
+<!-- ETHOS CANS -->
+<section class="wrap reveal">
+  <div class="label">The Impossible · Limited Edition</div>
+  <h2>Our craft, bottled.</h2>
+  <p class="sub">Every design is created by hand, with extensive detail, by one of our visual artists. This is who we are.</p>
+  <div class="cans">
+    <div class="can"><img src="media/brand/can-design.png" alt="Design"><div class="w">Design</div><div class="s">Brand &amp; Visual</div></div>
+    <div class="can"><img src="media/brand/can-create.png" alt="Create"><div class="w">Create</div><div class="s">Content &amp; Motion</div></div>
+    <div class="can"><img src="media/brand/can-connect.png" alt="Connect"><div class="w">Connect</div><div class="s">Network &amp; Advisory</div></div>
+    <div class="can"><img src="media/brand/can-believe.png" alt="Believe"><div class="w">Believe</div><div class="s">Strategy &amp; Coaching</div></div>
+    <div class="can"><img src="media/brand/can-love.png" alt="Love"><div class="w">Love</div><div class="s">In Every Project</div></div>
+  </div>
+</section>
 
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">Apps & Software</div>
-<h2>Products we ship. Not promises, downloads.</h2>
-<div class="apps">
-<a class="app" href="/barterthat"><img src="media/apps/barterthat.png" alt="BarterThat icon"><h3>BarterThat</h3><p>Swap skills, build community: 1000+ services, zero cash.</p><div class="links"><span>App Store · Google Play · full page →</span></div></a>
-<a class="app" href="/medcompanion"><img src="media/apps/medcompanion.png" alt="MedCompanion AI icon"><h3>MedCompanion AI</h3><p>Your health, finally explained. Plain language, every language, free.</p><div class="links"><span>App Store · Google Play · full page →</span></div></a>
-<a class="app" href="/finessekey"><img src="media/apps/finessekey.png" alt="Finesse Key icon"><h3>FinesseKey</h3><p>Credit and debt comeback, legitimate consumer-law moves only.</p><div class="links"><span>App Store · Google Play · full page →</span></div></a>
-<a class="app" href="/finesseedge"><img src="media/apps/finesseedge.png" alt="FinesseEdge icon"><h3>FinesseEdge</h3><p>Know your edge: documented stats and an Edge Score, not a sportsbook.</p><div class="links"><span>App Store · Google Play · full page →</span></div></a>
-<a class="app" href="/finessewins"><img src="media/apps/finessewins.svg" alt="FinesseWins logo"><h3>FinesseWins</h3><p>Government contracting for first-timers, opportunity discovery to award.</p><div class="links"><span>Live platform · full page →</span></div></a>
-<a class="app" href="/mcgrants"><img src="media/apps/mcgrants.png" alt="MCGrants icon"><h3>MCGrants</h3><p>The Winnability Engine: see which grants you can actually win, receipts shown.</p><div class="links"><span>Live on this site · full page →</span></div></a>
-<a class="app" href="/mcproof"><img src="media/apps/mcproof.png" alt="MCProof icon"><h3>MCProof</h3><p>Compliance that survives a lawsuit: 508 + security + VPAT from one scan.</p><div class="links"><span>Live on this site · full page →</span></div></a>
-<a class="app" href="/contact"><img src="media/apps/custombuilds.png" alt="Custom builds"><h3>Custom Builds</h3><p>SaaS, AI, and internal tools for clients, prototype to production.</p><div class="links"><span>Start a build →</span></div></a>
-</div>
-</div></section>
+<!-- GOVERNMENT -->
+<section class="wrap reveal">
+  <div class="gov">
+    <div class="label">Public Sector</div>
+    <h2>A certified small business, ready to deliver.</h2>
+    <p class="sub">SAM-registered and actively bidding federal, state, tribal, and municipal work, with accessibility built into everything we ship.</p>
+    <div class="badges">
+      <div class="badge"><b>WOSB</b> Woman-Owned</div>
+      <div class="badge"><b>MBE</b> Minority-Owned</div>
+      <div class="badge"><b>DBE</b> Disadvantaged</div>
+      <div class="badge"><b>CAGE</b> 18ZQ0</div>
+      <div class="badge"><b>UEI</b> WBGAAWMD3YE5</div>
+      <div class="badge"><b>508</b> WCAG 2.1 AA</div>
+    </div>
+    <div style="margin-top:28px"><a href="government.html" class="btn btn-y">View Capabilities</a></div>
+  </div>
+</section>
 
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">Digital Products</div>
-<h2>Buy something. Right now. No call needed.</h2>
-<div class="shop">
-<div class="prod"><h3>Small Business Starter Bundle</h3><p>Everything below plus bonus templates, checklists, and swipe files.</p><div class="price">$197</div><a class="btn" href="/checkout?p=bundle">Buy Now</a></div>
-<div class="prod"><h3>LLC Legal Document Kit</h3><p>Operating agreements, contracts, NDAs, and compliance templates.</p><div class="price">$127</div><a class="btn" href="/checkout?p=llckit">Buy Now</a></div>
-<div class="prod"><h3>Win Your First Gov Contract</h3><p>Step-by-step playbook for entering federal, state, and local markets.</p><div class="price">$97</div><a class="btn" href="/checkout?p=govcontract">Buy Now</a></div>
-<div class="prod"><h3>AI Tools for Small Business</h3><p>Curated stack plus ready-to-use prompts to run leaner and faster.</p><div class="price">$47</div><a class="btn" href="/checkout?p=aiwebinar">Buy Now</a></div>
-</div>
-</div></section>
+<!-- CONTACT -->
+<section class="contact reveal">
+  <div class="wrap">
+    <div class="label" style="text-align:center">Let's build</div>
+    <h2>Tired of being handed off after you sign?</h2>
+    <p class="sub">The people who design your brand are the same people who write the code and ship the product. One team, start to finish. Arizona and remote worldwide.</p>
+    <a href="contact.html" class="btn btn-y">Start a Conversation</a>
+  </div>
+</section>
 
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">Packages</div>
-<h2>Transparent pricing. Real scope.</h2>
-<div class="tiers">
-<div class="tier"><div class="t">Tier 01 · Spark</div><div class="p">$5K+</div><ul><li>Logo + brand kit</li><li>1-page website</li><li>2-week sprint</li><li>Basic launch assets</li></ul></div>
-<div class="tier"><div class="t">Tier 02 · Surge</div><div class="p">$15K-$25K</div><ul><li>Full brand system</li><li>Multi-page website</li><li>Launch campaign</li><li>Photo or video shoot</li></ul></div>
-<div class="tier hot"><div class="t">Tier 03 · Scale</div><div class="p">$50K+</div><ul><li>Retainer creative team</li><li>Video + web + ads</li><li>Ongoing production</li><li>Monthly reporting</li></ul></div>
-<div class="tier"><div class="t">Tier 04 · Gov / Enterprise</div><div class="p">$100K+</div><ul><li>NAICS-aligned scope</li><li>Past performance ready</li><li>SAM.gov registered</li><li>Custom SOW & pricing</li></ul></div>
-</div>
-</div></section>
+</main>
 
-<section class="sec"><div class="wrap reveal">
-<div class="govband">
-<div><div class="eyebrow">Government Contracting</div><h2>Registered, ready, and delivering.</h2><p>Federal, state, local, and tribal agencies: accessible digital work from a certified WOSB, MBE, DBE small business. Capability statement, past performance, and company data on the government page.</p></div>
-<a class="btn" href="/government">Government Capabilities</a>
-</div>
-</div></section>
-
-<section class="sec"><div class="wrap reveal">
-<div class="eyebrow">The Team</div>
-<h2>Four co-founders. One studio. The work is the face.</h2>
-<div class="team">
-<div class="member"><div class="av">AI</div><h3>AI / Engineering Lead</h3><p>Product, software, and AI systems.</p></div>
-<div class="member"><div class="av">MBA</div><h3>Business & Ops</h3><p>Strategy, contracts, and growth.</p></div>
-<div class="member"><div class="av">RN</div><h3>BSN / RN</h3><p>Healthcare vertical and MedCompanion AI lead.</p></div>
-<div class="member"><div class="av">MS</div><h3>MS Public Health & Safety</h3><p>Government and public sector delivery.</p></div>
-</div>
-</div></section>
-
-<section class="sec"><div class="wrap reveal">
-<div class="contact">
-<div class="eyebrow">Let's Build</div>
-<h2 style="margin:0 auto">Tell us what you need. We respond in 24 hours.</h2>
-<p>Book a discovery call or send a project brief, and we route it to the right founder. Same-day replies before 3 PM Arizona time.</p>
-<a class="btn" href="/contact">Send Inquiry</a>
-<p style="margin-top:22px">Or email directly: <a style="color:var(--cyan)" href="mailto:contact@millennialscreatives.com">contact@millennialscreatives.com</a></p>
-</div>
-</div></section>
-
-<footer><div class="wrap cols">
-<div><img src="assets/mc-logo.png" alt="Millennials Creatives" style="height:40px;margin-bottom:10px">
-<div>Branding · Video · Web · Apps · Government Contracting</div></div>
-<div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/accessibility">Accessibility</a><a href="#top">Back to top</a>
-<div style="margin-top:10px">© 2020-2026 Millennials Creatives LLC. All rights reserved.</div></div>
-</div></footer>
+<footer class="wrap">
+  <div>© 2020–2026 Millennials Creatives LLC · Phoenix, AZ · Remote worldwide</div>
+  <div>
+    <a href="privacy.html">Privacy</a> ·
+    <a href="terms.html">Terms</a> ·
+    <a href="accessibility.html">Accessibility</a> ·
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
 
 <script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // scroll reveals
-  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-  // counting numbers
-  function count(el){
-    var target = parseInt(el.dataset.target,10);
-    if(reduce){el.textContent=target;return;}
-    var dur = 1400, start = null;
-    function step(ts){
-      if(!start) start = ts;
-      var p = Math.min((ts-start)/dur,1);
-      var eased = 1-Math.pow(1-p,3);
-      el.textContent = Math.round(eased*target);
-      if(p<1) requestAnimationFrame(step);
-    }
+  // count-up stats
+  function runCount(el){
+    var target=+el.dataset.count, suf=el.dataset.suffix||'', t0=null, dur=1400;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e)+suf; if(p<1)requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }
-  var cio = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);cio.unobserve(e.target);}})},{threshold:.6});
-  document.querySelectorAll('.count').forEach(function(el){cio.observe(el)});
-})();
+  // reveal on scroll + trigger counts
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('in');
+      e.target.querySelectorAll&&e.target.querySelectorAll('[data-count]').forEach(runCount);
+      io.unobserve(e.target); }
+  })},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(x){io.observe(x)});
+  document.querySelectorAll('.stats').forEach(function(x){io.observe(x)});
 </script>
-</body></html>
+</body>
+</html>
