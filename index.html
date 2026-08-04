@@ -49,7 +49,7 @@
   .btn-o{border:1px solid var(--line);color:var(--text)}
   .btn:hover{transform:translateY(-2px)}
   .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  .hero-media{display:grid;grid-template-columns:1fr;gap:16px}
+  .hero-media{display:block}
   .hero-media video{width:100%;border-radius:20px;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(0,0,0,.7);display:block;background:var(--surface);aspect-ratio:16/9;object-fit:cover}
   .hero-media .hero-media-2{width:70%;margin-left:auto;margin-top:-40px;position:relative;z-index:2;box-shadow:0 24px 60px -24px color-mix(in oklab, var(--pink) 50%, transparent)}
   @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:32px}.hero-media .hero-media-2{width:60%}}
@@ -78,6 +78,51 @@
   .label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px}
   h2{font-family:var(--ff-head);font-weight:800;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.03;letter-spacing:-.025em;max-width:20ch}
   .sub{color:var(--muted);margin-top:16px;max-width:52ch;font-size:1.05rem}
+
+  /* INDUSTRIES */
+  .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:44px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .ind{background:var(--bg);padding:28px;transition:background .4s}
+  .ind:hover{background:var(--surface)}
+  .ind h3{font-family:var(--ff-head);font-size:1.08rem;margin-bottom:10px;color:var(--yellow)}
+  .ind p{color:var(--muted);font-size:.9rem;line-height:1.5}
+  .ind-note{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 26px;font-size:.95rem;color:var(--muted)}
+  .ind-note b{color:var(--text)}
+  .ind-note a{color:var(--cyan);font-weight:600;white-space:nowrap}
+  @media(max-width:820px){.ind-grid{grid-template-columns:1fr}.ind-note a{white-space:normal}}
+
+  /* SCOPER */
+  .scoper{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;margin-top:44px}
+  .scoper-controls{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px}
+  .sc-step{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
+  .modlist,.pacelist{display:flex;flex-direction:column;gap:8px}
+  .mod,.pace{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;cursor:pointer;transition:border-color .2s,background .2s}
+  .mod:hover,.pace:hover{border-color:var(--yellow)}
+  .mod input,.pace input{width:18px;height:18px;accent-color:var(--yellow);flex-shrink:0}
+  .mod span,.pace span{display:flex;flex-direction:column}
+  .mod b,.pace b{font-size:.92rem} .mod em,.pace em{font-style:normal;font-size:.76rem;color:var(--muted)}
+  .scoper-out{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px;height:fit-content;position:sticky;top:90px}
+  .so-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .so-range{font-family:var(--ff-head);font-weight:800;font-size:clamp(2rem,4vw,2.8rem);color:var(--yellow);margin-top:8px}
+  .so-meta{color:var(--muted);font-size:.85rem;margin-top:4px}
+  .so-divider{height:1px;background:var(--line);margin:20px 0}
+  .so-row{display:flex;justify-content:space-between;padding:8px 0;font-size:.88rem}
+  .so-row span{color:var(--muted)} .so-row b{color:var(--text)}
+  .so-fine{font-size:.72rem;color:var(--muted);margin-top:14px;text-align:center}
+  @media(max-width:820px){.scoper{grid-template-columns:1fr}.scoper-out{position:static}}
+
+  /* TIERS */
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .tier{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;position:relative}
+  .tier.featured{border-color:var(--yellow);box-shadow:0 20px 60px -30px color-mix(in oklab,var(--yellow) 50%,transparent)}
+  .tier-flag{position:absolute;top:-11px;left:26px;background:var(--yellow);color:oklch(0.12 0.03 286);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:20px}
+  .tier-name{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .tier-price{font-family:var(--ff-head);font-weight:800;font-size:1.9rem;margin:8px 0 18px}
+  .tier ul{list-style:none;flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+  .tier li{font-size:.88rem;color:var(--muted);padding-left:20px;position:relative}
+  .tier li::before{content:"✦";position:absolute;left:0;color:var(--yellow)}
+  .tier .btn{text-align:center;font-size:.85rem;padding:11px}
+  @media(max-width:980px){.tiers{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.tiers{grid-template-columns:1fr}}
 
   /* SERVICES */
   .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:44px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
@@ -125,6 +170,31 @@
   .gov .badge{border:1px solid var(--line);border-radius:30px;padding:9px 18px;font-size:.8rem;color:var(--text)}
   .gov .badge b{color:var(--yellow)}
 
+  .gov .badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .gov .badge{border:1px solid var(--line);border-radius:30px;padding:9px 18px;font-size:.8rem;color:var(--text)}
+  .gov .badge b{color:var(--yellow)}
+  .gov-data{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .gov-cell{background:oklch(1 0 0 / 4%);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .gov-cell span{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .gov-cell b{font-size:.95rem;color:var(--text)}
+  .gov-naics{margin-top:24px}
+  .naics-chips{display:flex;gap:10px;flex-wrap:wrap}
+  .naics-chips span{background:oklch(1 0 0 / 5%);border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:.78rem;color:var(--muted)}
+  .gov-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .gov-note{font-size:.8rem;color:var(--muted);margin-top:16px}
+  @media(max-width:820px){.gov{padding:32px 22px}.gov-data{grid-template-columns:1fr}.gov-cta{flex-direction:column}.gov-cta .btn{text-align:center}}
+
+  /* FOUNDER QUOTES */
+  #fuel{text-align:center}
+  #fuel .sub{margin-left:auto;margin-right:auto}
+  .quote-stage{max-width:820px;margin:44px auto 0;min-height:170px;display:flex;flex-direction:column;justify-content:center;background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:44px 40px}
+  .quote-stage blockquote{font-family:var(--ff-head);font-weight:700;font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.25;color:var(--text);transition:opacity .5s}
+  .quote-stage cite{display:block;margin-top:20px;font-style:normal;font-size:.9rem;letter-spacing:.05em;color:var(--yellow);transition:opacity .5s}
+  .quote-dots{display:flex;gap:8px;justify-content:center;margin-top:24px}
+  .quote-dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);cursor:pointer;padding:0;transition:background .3s,transform .3s}
+  .quote-dots button.on{background:var(--yellow);transform:scale(1.25)}
+  @media(max-width:820px){.quote-stage{padding:32px 24px}}
+
   /* CONTACT */
   .contact{text-align:center;padding:100px 0}
   .contact h2{margin:0 auto;font-size:clamp(2.4rem,6vw,4.2rem)}
@@ -147,10 +217,13 @@
     <a href="#top" class="brand"><img src="assets/mc-logo.png" alt="Millennials Creatives"></a>
     <div class="navlinks">
       <a href="services.html">Services</a>
+      <a href="#industries">Industries</a>
       <a href="work.html">Work</a>
+      <a href="#pricing">Pricing</a>
       <a href="#products">Products</a>
       <a href="government.html">Government</a>
       <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
       <a href="contact.html" class="navcta">Book a Call</a>
     </div>
   </nav>
@@ -162,28 +235,25 @@
 <section class="hero" id="top">
   <div class="wrap hero-inner">
    <div class="hero-copy hero-anim">
-    <div class="eyebrow">Creative Studio · Government Contractor</div>
+    <div class="eyebrow">Creative Studio · Software House · Government Contractor</div>
     <h1><span>We turn</span> <span class="strike">boring</span> <span>into</span> <span class="iconic">iconic.</span></h1>
-    <p class="lede">Bold brands. Cinematic video. High-converting sites. AI-powered software. And a SAM-registered team ready for federal, state, and local contracts. Built for businesses and business owners, by a certified woman-owned studio that does the work itself.</p>
+    <p class="lede">Bold brands. Cinematic video. High-converting sites. AI-powered software. Built for businesses and business owners, by a certified woman-owned studio that does the work itself.</p>
     <div class="hero-cta">
-      <a href="contact.html" class="btn btn-y">Book a Discovery Call</a>
-      <a href="work.html" class="btn btn-o">See the Work</a>
+      <a href="contact.html" class="btn btn-y">Book a Discovery Call →</a>
+      <a href="#scoper" class="btn btn-o">Build your scope in 60s</a>
     </div>
    </div>
    <div class="hero-media">
-     <video autoplay muted loop playsinline preload="metadata" poster="assets/cans-hero.png" aria-label="Millennials Creatives motion graphics showreel, no audio">
-       <source src="media/video/mograph-finesse.mp4" type="video/mp4">
-     </video>
-     <video class="hero-media-2" autoplay muted loop playsinline preload="metadata" aria-label="Millennials Creatives motion graphics reel, no audio">
-       <source src="media/video/mograph-love.mp4" type="video/mp4">
+     <video autoplay muted loop playsinline preload="metadata" poster="assets/cans-hero.png" aria-label="Bella High Royal Highness 3D product film, no audio">
+       <source src="media/video/bella-seesh-slay.mp4" type="video/mp4">
      </video>
    </div>
 
     <div class="stats">
       <div class="stat"><div class="num" data-count="50" data-suffix="+">0</div><div class="lbl">Brands launched since 2020</div></div>
-      <div class="stat"><div class="num" data-count="7">0</div><div class="lbl">Live software products</div></div>
-      <div class="stat"><div class="num" data-count="10">0</div><div class="lbl">Courses in the Academy</div></div>
-      <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">Founders, one team</div></div>
+      <div class="stat"><div class="num">7 live</div><div class="lbl">Software products shipped</div></div>
+      <div class="stat"><div class="num" data-count="10">0</div><div class="lbl">Courses in the MC Academy</div></div>
+      <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">Founders. AI, business, health, safety</div></div>
     </div>
   </div>
 </section>
@@ -211,6 +281,73 @@
   </div>
 </section>
 
+<!-- INDUSTRIES -->
+<section class="wrap reveal" id="industries">
+  <div class="label">Industries We Serve</div>
+  <h2>The sectors we know, and deliver for.</h2>
+  <p class="sub">We bid, build, and partner across the industries where our certifications and capabilities matter most. Prime contractors: this is where we plug into your team as a certified WOSB, MBE, and DBE subcontractor.</p>
+  <div class="ind-grid">
+    <div class="ind"><h3>Government &amp; Public Sector</h3><p>Federal, state, local, and tribal agencies. SAM-registered, actively bidding, accessibility built in.</p></div>
+    <div class="ind"><h3>Healthcare</h3><p>Patient-facing tools, health communications, and documentation, led by a registered nurse on our founding team.</p></div>
+    <div class="ind"><h3>Public Safety &amp; Emergency Management</h3><p>Training, standards and policy modernization, and safety programs, with public-health and safety expertise in house.</p></div>
+    <div class="ind"><h3>Education &amp; Training</h3><p>Course development, learning platforms, assessment support, and training facilitation.</p></div>
+    <div class="ind"><h3>Nonprofit &amp; Social Services</h3><p>Grant readiness, program communications, and accessible digital platforms for mission-driven organizations.</p></div>
+    <div class="ind"><h3>Creative, Media &amp; Technology</h3><p>Branding, film, web, and AI software for businesses and the agencies that serve them.</p></div>
+    <div class="ind"><h3>Supply &amp; Subcontractor Coordination</h3><p>A customer-service background built for logistics: we source and vet suppliers, connect and manage subcontractors, and deliver materials and facility services on time. Rock salt, gravel, hardware, cleaning, and trades, coordinated by a certified small business that keeps every party accountable.</p></div>
+  </div>
+  <div class="ind-note">
+    <b>Prime contractors and partners:</b> we bring WOSB, MBE, and DBE certification toward your small-business participation goals, plus real capability in accessibility (508/VPAT), reporting, communications, and admin support. <a href="contact.html">Start a teaming conversation →</a>
+  </div>
+</section>
+<section class="wrap reveal" id="scoper">
+  <div class="label">Project Scoper</div>
+  <h2>Price your build before the call.</h2>
+  <p class="sub">Pick your modules and pace. You get a real range, a timeline, and the tier your scope lands in. No discovery-call theater.</p>
+  <div class="scoper">
+    <div class="scoper-controls">
+      <div class="sc-step">01 · Scope</div>
+      <div class="modlist">
+        <label class="mod"><input type="checkbox" data-min="4000" data-max="9000" checked> <span><b>Brand system</b><em>Identity, guidelines, packaging</em></span></label>
+        <label class="mod"><input type="checkbox" data-min="9000" data-max="30000" checked> <span><b>Website / e-commerce</b><em>Design + build, conversion-led</em></span></label>
+        <label class="mod"><input type="checkbox" data-min="6000" data-max="20000"> <span><b>Video &amp; photography</b><em>Brand film, product, editorial</em></span></label>
+        <label class="mod"><input type="checkbox" data-min="7000" data-max="22000"> <span><b>Motion + 3D</b><em>Renders, animation, finishing</em></span></label>
+        <label class="mod"><input type="checkbox" data-min="20000" data-max="80000"> <span><b>App / AI platform</b><em>SaaS, AI tooling, integrations</em></span></label>
+        <label class="mod"><input type="checkbox" data-min="12000" data-max="45000"> <span><b>Gov / compliance</b><em>508, VPAT, SOW-ready delivery</em></span></label>
+        <label class="mod"><input type="checkbox" data-min="9000" data-max="30000"> <span><b>Ongoing retainer</b><em>Embedded creative team</em></span></label>
+      </div>
+      <div class="sc-step" style="margin-top:24px">02 · Pace</div>
+      <div class="pacelist">
+        <label class="pace"><input type="radio" name="pace" data-mult="1" checked> <span><b>Standard</b><em>Normal production calendar</em></span></label>
+        <label class="pace"><input type="radio" name="pace" data-mult="1.25"> <span><b>Priority</b><em>Dedicated pod, tighter cycles</em></span></label>
+        <label class="pace"><input type="radio" name="pace" data-mult="1.5"> <span><b>Blitz</b><em>All hands, compressed timeline</em></span></label>
+      </div>
+    </div>
+    <div class="scoper-out">
+      <div class="so-label">Your estimate</div>
+      <div class="so-range" id="so-range">$13K–$39K</div>
+      <div class="so-meta" id="so-meta">2 modules · 8 week timeline</div>
+      <div class="so-divider"></div>
+      <div class="so-row"><span>Engagement tier</span><b id="so-tier">Tier 02 · Surge</b></div>
+      <div class="so-row"><span>Response time</span><b>Under 24 hours</b></div>
+      <div class="so-row"><span>Team</span><b>In-house, 4 founders</b></div>
+      <a href="contact.html" class="btn btn-y" style="margin-top:22px;display:block;text-align:center">Send this scope →</a>
+      <p class="so-fine">Estimates are directional. Final pricing follows a scoped SOW.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="wrap reveal" id="pricing">
+  <div class="label">Packages</div>
+  <h2>Transparent pricing. Real scope.</h2>
+  <div class="tiers">
+    <div class="tier"><div class="tier-name">Tier 01 · Spark</div><div class="tier-price">$5K+</div><ul><li>Logo + brand kit</li><li>1-page website</li><li>2-week sprint</li><li>Basic launch assets</li></ul><a href="contact.html" class="btn btn-o">Start here</a></div>
+    <div class="tier"><div class="tier-name">Tier 02 · Surge</div><div class="tier-price">$15K–$25K</div><ul><li>Full brand system</li><li>Multi-page website</li><li>Launch campaign</li><li>Photo or video shoot</li></ul><a href="contact.html" class="btn btn-o">Start here</a></div>
+    <div class="tier featured"><div class="tier-flag">Most requested</div><div class="tier-name">Tier 03 · Scale</div><div class="tier-price">$50K+</div><ul><li>Retainer creative team</li><li>Video + web + ads</li><li>Ongoing production</li><li>Monthly reporting</li></ul><a href="contact.html" class="btn btn-y">Start here</a></div>
+    <div class="tier"><div class="tier-name">Tier 04 · Gov / Enterprise</div><div class="tier-price">$100K+</div><ul><li>NAICS-aligned scope</li><li>Past performance ready</li><li>SAM.gov registered</li><li>Custom SOW &amp; pricing</li></ul><a href="government.html" class="btn btn-o">Start here</a></div>
+  </div>
+</section>
+
 <!-- APPS -->
 <section class="wrap reveal" id="products">
   <div class="label">Apps &amp; Software</div>
@@ -234,7 +371,7 @@
   <h2>Real clients. Live in the world.</h2>
   <div class="work-grid">
     <a class="work-tile" href="work.html#products"><img src="assets/work-bella-v2.jpg" alt="Bella High Royal Highness palette"><div class="work-meta"><h4>Bella High, Royal Highness</h4><p>Beauty · 3D · Packaging</p></div></a>
-    <a class="work-tile" href="work.html#websites"><img src="site-kandees.jpg" alt="KanDees Kreations website"><div class="work-meta"><h4>KanDees Kreations</h4><p>Web · Brand · E-commerce</p></div></a>
+    <a class="work-tile" href="work.html#websites"><img src="site-fom.jpg" alt="Finesse Our Minds nonprofit mental health platform"><div class="work-meta"><h4>Finesse Our Minds</h4><p>Nonprofit · Mental Health · Platform</p></div></a>
     <a class="work-tile" href="work.html#branding"><img src="assets/art-queen-blue.jpg" alt="Royal Blue illustration"><div class="work-meta"><h4>Royal Blue Series</h4><p>Illustration · Editorial</p></div></a>
   </div>
 </section>
@@ -254,24 +391,53 @@
 </section>
 
 <!-- GOVERNMENT -->
-<section class="wrap reveal">
+<section class="wrap reveal" id="government">
   <div class="gov">
-    <div class="label">Public Sector</div>
-    <h2>A certified small business, ready to deliver.</h2>
-    <p class="sub">SAM-registered and actively bidding federal, state, tribal, and municipal work, with accessibility built into everything we ship.</p>
-    <div class="badges">
-      <div class="badge"><b>WOSB</b> Woman-Owned</div>
-      <div class="badge"><b>MBE</b> Minority-Owned</div>
-      <div class="badge"><b>DBE</b> Disadvantaged</div>
-      <div class="badge"><b>CAGE</b> 18ZQ0</div>
-      <div class="badge"><b>UEI</b> WBGAAWMD3YE5</div>
-      <div class="badge"><b>508</b> WCAG 2.1 AA</div>
+    <div class="label">Government Contracting</div>
+    <h2>Registered, ready, and delivering.</h2>
+    <p class="sub">Federal, state, local, and tribal agencies: accessible digital work from a certified WOSB, MBE, and DBE small business. Everything you need to evaluate us is below, and our full capability statement is one click away.</p>
+
+    <div class="gov-data">
+      <div class="gov-cell"><span>UEI</span><b>WBGAAWMD3YE5</b></div>
+      <div class="gov-cell"><span>CAGE</span><b>18ZQ0</b></div>
+      <div class="gov-cell"><span>Business type</span><b>Woman-Owned Small Business</b></div>
+      <div class="gov-cell"><span>Certifications</span><b>WOSB · MBE · DBE</b></div>
+      <div class="gov-cell"><span>SAM.gov</span><b>Active registration</b></div>
+      <div class="gov-cell"><span>Accessibility</span><b>Section 508 · WCAG 2.1 AA</b></div>
     </div>
-    <div style="margin-top:28px"><a href="government.html" class="btn btn-y">View Capabilities</a></div>
+
+    <div class="gov-naics">
+      <div class="label" style="margin-bottom:10px">Primary NAICS</div>
+      <div class="naics-chips">
+        <span>541511 Custom Programming</span>
+        <span>541512 Systems Design</span>
+        <span>541519 Other IT Services</span>
+        <span>541430 Graphic Design</span>
+        <span>541611 Admin/Management Consulting</span>
+        <span>541613 Marketing Consulting</span>
+        <span>611430 Training</span>
+      </div>
+    </div>
+
+    <div class="gov-cta">
+      <a href="capability-statement.pdf" class="btn btn-y">Download Capability Statement</a>
+      <a href="government.html" class="btn btn-o">Full Government Capabilities →</a>
+    </div>
+    <p class="gov-note">Past performance and references available on request. Same-day response before 3 PM Arizona time.</p>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- FOUNDER QUOTES -->
+<section class="wrap reveal" id="fuel">
+  <div class="label">For the founders in the arena</div>
+  <h2>Built by founders, for founders.</h2>
+  <p class="sub">We know the weight of building something from nothing, because we carry it too. A little fuel for the ones still in the fight.</p>
+  <div class="quote-stage">
+    <blockquote id="q-text">The way to get started is to quit talking and begin doing.</blockquote>
+    <cite id="q-cite">Walt Disney</cite>
+  </div>
+  <div class="quote-dots" id="q-dots"></div>
+</section>
 <section class="contact reveal">
   <div class="wrap">
     <div class="label" style="text-align:center">Let's build</div>
@@ -288,6 +454,7 @@
   <div>
     <a href="privacy.html">Privacy</a> ·
     <a href="terms.html">Terms</a> ·
+    <a href="blog.html">Blog</a> ·
     <a href="accessibility.html">Accessibility</a> ·
     <a href="contact.html">Contact</a>
   </div>
@@ -301,7 +468,65 @@
       el.textContent=Math.round(target*e)+suf; if(p<1)requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }
-  // reveal on scroll + trigger counts
+  // founder fuel: rotating encouraging quotes (real, attributed, each under 15 words)
+  (function(){
+    var quotes=[
+      ["The way to get started is to quit talking and begin doing.","Walt Disney"],
+      ["Your work is going to fill a large part of your life.","Steve Jobs"],
+      ["The biggest risk is not taking any risk.","Mark Zuckerberg"],
+      ["I have not failed. I have found ten thousand ways that will not work.","Thomas Edison"],
+      ["Success is not final, failure is not fatal: it is the courage to continue that counts.","Winston Churchill"],
+      ["Whether you think you can or you can't, you're right.","Henry Ford"],
+      ["Done is better than perfect.","Sheryl Sandberg"],
+      ["If you really want to do something, you'll find a way.","Jim Rohn"],
+      ["Chase the vision, not the money.","Tony Hsieh"],
+      ["The secret of getting ahead is getting started.","Mark Twain"],
+      ["Ideas are easy. Implementation is hard.","Guy Kawasaki"],
+      ["You miss one hundred percent of the shots you don't take.","Wayne Gretzky"],
+      ["It always seems impossible until it's done.","Nelson Mandela"],
+      ["Believe you can and you're halfway there.","Theodore Roosevelt"],
+      ["Fall seven times, stand up eight.","Japanese proverb"]
+    ];
+    var t=document.getElementById('q-text'), c=document.getElementById('q-cite'), d=document.getElementById('q-dots');
+    if(t){
+      var i=Math.floor(Math.random()*quotes.length), timer;
+      quotes.forEach(function(_,n){ var b=document.createElement('button'); b.setAttribute('aria-label','Quote '+(n+1)); b.addEventListener('click',function(){show(n);reset();}); d.appendChild(b); });
+      var dots=d.querySelectorAll('button');
+      function show(n){ i=n; t.style.opacity=0; c.style.opacity=0;
+        setTimeout(function(){ t.textContent=quotes[n][0]; c.textContent=quotes[n][1]; t.style.opacity=1; c.style.opacity=1; },250);
+        dots.forEach(function(x,k){ x.classList.toggle('on',k===n); });
+      }
+      function next(){ show((i+1)%quotes.length); }
+      function reset(){ clearInterval(timer); timer=setInterval(next,6000); }
+      show(i); reset();
+    }
+  })();
+
+  // project scoper live estimate
+  (function(){
+    var mods=document.querySelectorAll('.mod input'), paces=document.querySelectorAll('.pace input');
+    var rangeEl=document.getElementById('so-range'), metaEl=document.getElementById('so-meta'), tierEl=document.getElementById('so-tier');
+    if(!rangeEl) return;
+    function k(n){return '$'+Math.round(n/1000)+'K';}
+    function calc(){
+      var lo=0,hi=0,count=0,mult=1;
+      mods.forEach(function(m){ if(m.checked){lo+=+m.dataset.min;hi+=+m.dataset.max;count++;} });
+      paces.forEach(function(p){ if(p.checked) mult=+p.dataset.mult; });
+      lo=Math.round(lo*mult); hi=Math.round(hi*mult);
+      var weeks=Math.max(2,count*4);
+      var tier='Tier 01 · Spark';
+      if(hi>=100000) tier='Tier 04 · Gov / Enterprise';
+      else if(hi>=50000) tier='Tier 03 · Scale';
+      else if(hi>=15000) tier='Tier 02 · Surge';
+      if(count===0){ rangeEl.textContent='Pick a module'; metaEl.textContent='Select at least one scope'; tierEl.textContent='—'; return; }
+      rangeEl.textContent=k(lo)+'–'+k(hi);
+      metaEl.textContent=count+(count===1?' module · ':' modules · ')+weeks+' week timeline';
+      tierEl.textContent=tier;
+    }
+    mods.forEach(function(m){m.addEventListener('change',calc)});
+    paces.forEach(function(p){p.addEventListener('change',calc)});
+    calc();
+  })();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(e.isIntersecting){ e.target.classList.add('in');
       e.target.querySelectorAll&&e.target.querySelectorAll('[data-count]').forEach(runCount);
