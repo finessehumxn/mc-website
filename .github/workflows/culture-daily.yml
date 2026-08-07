@@ -27,8 +27,8 @@ jobs:
         run: |
           git config user.name  "MC News Bot"
           git config user.email "actions@users.noreply.github.com"
-          if [ -n "$(git status --porcelain index.html culture.html)" ]; then
-            git add index.html culture.html
+          if [ -n "$(git status --porcelain culture.html)" ]; then
+            git add culture.html
             git commit -m "Daily culture news refresh [skip ci]"
             git push
             echo "Pushed refreshed news."
